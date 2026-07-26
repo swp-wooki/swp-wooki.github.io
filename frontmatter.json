@@ -1,33 +1,25 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-
   "frontMatter.framework.id": "jekyll",
   "frontMatter.site.baseURL": "https://swp-wooki.github.io",
-
   "frontMatter.content.pageFolders": [
     {
       "title": "Drafts",
       "path": "[[workspace]]/_drafts",
-      "contentTypes": ["default"]
+      "contentTypes": [
+        "default"
+      ]
     },
     {
       "title": "Published Posts",
       "path": "[[workspace]]/_posts",
-      "contentTypes": ["default"],
+      "contentTypes": [
+        "default"
+      ],
       "disableCreation": true
     }
   ],
-
   "frontMatter.content.publicFolder": "assets/img/blog",
-
-  "frontMatter.taxonomy.categories": [
-    "mathematics",
-    "statistics",
-    "computer-science",
-    "machine-learning",
-    "physics"
-  ],
-
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "default",
