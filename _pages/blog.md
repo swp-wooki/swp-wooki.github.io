@@ -7,6 +7,7 @@ nav_order: 1
 ---
 
 {% assign groups = site.data.blog_categories %}
+
 <div class="blog-home">
   <header class="blog-hero">
     <div>
@@ -86,5 +87,6 @@ nav_order: 1
         </nav>
       </div>
     </aside>
+
   </div>
 </div>

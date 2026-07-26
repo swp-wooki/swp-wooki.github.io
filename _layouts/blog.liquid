@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="{{ site.lang }}">
-  <head>{% include head.liquid %}</head>
+  <head>
+    {% include head.liquid %}
+  </head>
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} blog-layout">
     {% include header.liquid %}
     <main class="blog-page-shell" role="main">{{ content }}</main>
