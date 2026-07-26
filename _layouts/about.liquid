@@ -15,7 +15,17 @@ layout: default
   </header>
 
   <article>
-    {% if page.profile %}
+    {% assign profile_image_exists = false %}
+    {% if page.profile and page.profile.image %}
+      {% assign expected_profile_path = page.profile.image | prepend: '/assets/img/' %}
+      {% for static_file in site.static_files %}
+        {% if static_file.path == expected_profile_path %}
+          {% assign profile_image_exists = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if page.profile and profile_image_exists %}
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}

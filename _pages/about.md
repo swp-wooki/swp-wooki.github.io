@@ -6,7 +6,7 @@ subtitle: BS-MS Integrated Student at FINX Lab, Hanyang University
 
 profile:
   align: right
-  image:
+  image: seongwook.jpg
   image_circular: false
   more_info: >
     <p><strong>FINX Lab</strong></p>
