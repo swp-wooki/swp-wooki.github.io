@@ -18,7 +18,7 @@ function determineGiscusTheme() {
 
   let giscusAttributes = {
     src: "https://giscus.app/client.js",
-    "data-repo": "swp-wooki/swp-wooki",
+    "data-repo": "swp-wooki/swp-wooki.github.io",
     "data-repo-id": "",
     "data-category": "Comments",
     "data-category-id": "",
