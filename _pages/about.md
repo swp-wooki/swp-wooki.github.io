@@ -4,7 +4,15 @@ title: About
 permalink: /
 subtitle: BS-MS Integrated Student at FINX Lab, Hanyang University
 
-profile: false
+profile:
+  align: right
+  image:
+  image_circular: false
+  more_info: >
+    <p><strong>FINX Lab</strong></p>
+    <p>Hanyang University</p>
+    <p>Seoul, Republic of Korea</p>
+    <p><a href="mailto:pswook@hanyang.ac.kr">pswook@hanyang.ac.kr</a></p>
 
 selected_papers: false # selected publications section disabled
 social: false # social/link buttons disabled
