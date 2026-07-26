@@ -1,0 +1,39 @@
+- title: 수학
+  slug: mathematics
+  description: 정의와 정리부터 문제 풀이까지, 수학을 이해한 방식대로 기록합니다.
+  children:
+    - { title: 선형대수학, slug: linear-algebra }
+    - { title: 해석학, slug: analysis }
+    - { title: 확률과 통계, slug: statistics }
+    - { title: 기하학, slug: geometry }
+
+- title: 인공지능
+  slug: artificial-intelligence
+  description: 모델의 원리, 논문, 구현 과정에서 배운 내용을 정리합니다.
+  children:
+    - { title: 기계학습, slug: machine-learning }
+    - { title: Computer Vision, slug: computer-vision }
+    - { title: 자연어처리, slug: natural-language-processing }
+
+- title: 컴퓨터과학
+  slug: computer-science
+  description: 알고리즘과 프로그래밍, 시스템에 관한 공부 기록입니다.
+  children:
+    - { title: 알고리즘, slug: algorithms }
+    - { title: 프로그래밍, slug: programming }
+    - { title: 시스템, slug: systems }
+
+- title: 물리학
+  slug: physics
+  description: 물리 현상을 수식과 직관으로 이해하며 남기는 노트입니다.
+  children:
+    - { title: 역학, slug: mechanics }
+    - { title: 전자기학, slug: electromagnetism }
+    - { title: 양자역학, slug: quantum-mechanics }
+
+- title: 리뷰
+  slug: review
+  description: 책과 시험, 자격증을 공부하며 얻은 경험을 정리합니다.
+  children:
+    - { title: 도서, slug: books }
+    - { title: 시험·자격증, slug: certification }
