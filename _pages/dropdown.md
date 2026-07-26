@@ -1,10 +1,8 @@
 ---
 layout: page
 title: Miscellaneous
-nav: true
+nav: false
 nav_order: 8
 dropdown: true
-children:
-  - title: Books
-    permalink: /books/
+children: []
 ---
