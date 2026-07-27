@@ -18,7 +18,7 @@
     - title: BS-MS Integrated Program
       institution: Hanyang University, Seoul
       department: FINX Lab
-      year: Present
+      year: 2026 - Present
     - title: Double Major in Industrial Engineering and Mathematics
       institution: Hanyang University, Seoul
       year: 2020 - Present
@@ -61,6 +61,7 @@
       description:
         - Modeled the spread of computer malware using nonlinear ODE epidemic models such as SEIR.
         - Designed a C and SQL experiment to collect and compare simulated and observed infection data.
+        - Received KRW 3,000,000 in research funding.
 
 - title: Certifications
   type: time_table
@@ -77,6 +78,37 @@
     - title: SQL Developer
       institution: Korea Data Agency
       year: 2023
+    - title: Open Water Diver
+      institution: PADI
+      year: 2021
+
+- title: Leadership and Activities
+  type: time_table
+  contents:
+    - title: Junior Member
+      institution: NAEK Young Engineers Honor Society (YEHS)
+      year: 2025 - Present
+      description:
+        - Selected as one of Hanyang University's undergraduate representatives by the College of Engineering.
+    - title: Vice President and Director of Academics
+      institution: ACCEL
+      year: 2020 - 2022
+      description:
+        - Organized seminars and academic networking programs in data science and computer science.
+    - title: Data Science Study Group Mentor
+      institution: FORIF, Hanyang University
+      year: 2022
+      description:
+        - Taught mathematical and computational statistics using League of Legends game data.
+    - title: Data Science Fellowship Builder
+      institution: Pseudo Lab
+      year: 2021 - 2022
+      description:
+        - Led an online study group covering applied statistics, linear algebra, and statistical learning.
+        - Prepared R practice sessions and connected statistical theory with deep-learning applications.
+    - title: Member
+      institution: Sungsan Club, Hanyang University
+      year: 2020 - Present
 
 - title: Skills
   type: map
@@ -84,7 +116,7 @@
     - name: Programming
       value: C/C++, Python, C#, Java, MATLAB, R
     - name: Tools
-      value: Git, Visual Studio, JetBrains IDEs, RStudio, LaTeX
+      value: Git, Visual Studio, JetBrains IDEs, RStudio, LaTeX, Adobe XD, Adobe Illustrator, 123D Design
     - name: Areas
       value: Optimization, applied mathematics, numerical methods, data science, machine learning, computer graphics
 
@@ -98,6 +130,9 @@
         - Placed 12th out of 343 teams.
     - title: Second Prize, Korea Youth Startup Competition
       institution: Korea Entrepreneurship Foundation
+      year: 2019
+    - title: 300 Promising Students' Startup Competition
+      institution: Ministry of Education
       year: 2019
     - title: Gold Award, World Invention Creativity Olympic
       institution: KUIA and WICO

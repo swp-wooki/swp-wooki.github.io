@@ -4,7 +4,7 @@ permalink: /cv/
 title: CV
 nav: true
 nav_order: 5
-description: Education, experience, projects, skills, certifications, and awards.
+description: Academic background, professional experience, projects, certifications, activities, skills, and awards.
 toc:
   sidebar: left
 ---
