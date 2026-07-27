@@ -12,7 +12,7 @@ nav_order: 1
   <header class="blog-hero">
     <div>
       <p class="blog-kicker">LEARNING ARCHIVE</p>
-      <h2 id="latest-title">Notes on Operations Research, Mathematics, and AI/ML</h2>
+      <h2 id="blog-title">Notes on Operations Research, Mathematics, and AI/ML</h2>
       <p class="blog-intro">수학과 컴퓨터과학을 공부하며 이해한 내용을 수식, 코드, 직관으로 정리합니다.</p>
     </div>
     <button class="blog-search-button" type="button" onclick="openSearchModal()" aria-label="블로그 검색 열기">
