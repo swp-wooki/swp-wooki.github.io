@@ -12,7 +12,7 @@ nav_order: 1
   <header class="blog-hero">
     <div>
       <p class="blog-kicker">LEARNING ARCHIVE</p>
-      <h2>Notes</h2>
+      <h2 id="latest-title">Notes on Operations Research, Mathematics, and AI/ML</h2>
       <p class="blog-intro">수학과 컴퓨터과학을 공부하며 이해한 내용을 수식, 코드, 직관으로 정리합니다.</p>
     </div>
     <button class="blog-search-button" type="button" onclick="openSearchModal()" aria-label="블로그 검색 열기">
@@ -21,7 +21,7 @@ nav_order: 1
   </header>
 
   <section class="blog-latest" aria-labelledby="latest-title">
-    <div class="blog-section-heading"><p class="blog-section-label">NEW NOTES</p><h2 id="latest-title">최근 공부한 내용</h2></div>
+    <div class="blog-section-heading"><p class="blog-section-label">NEW NOTES</p><h2 id="latest-title">Recent Posts</h2></div>
     <div class="blog-latest-grid">
       {% assign latest_count = 0 %}
       {% for post in site.posts %}
@@ -46,7 +46,7 @@ nav_order: 1
 
   <div class="blog-content-grid">
     <div class="blog-topic-list">
-      <div class="blog-section-heading"><p class="blog-section-label">TOPICS</p><h2>분야별 노트</h2></div>
+      <div class="blog-section-heading"><p class="blog-section-label">TOPICS</p><h2>Topics</h2></div>
       {% for group in groups %}
         {% assign shown = 0 %}
         <section class="blog-topic-section" id="topic-{{ group.slug }}">
