@@ -26,6 +26,14 @@
   }
 }
 
+#blog-title {
+  margin: 0.25rem 0 0.75rem;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
 .blog-kicker,
 .blog-section-label {
   margin: 0;

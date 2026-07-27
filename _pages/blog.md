@@ -11,17 +11,17 @@ nav_order: 1
 <div class="blog-home">
   <header class="blog-hero">
     <div>
-      <p class="blog-kicker">LEARNING ARCHIVE</p>
-      <h2 id="blog-title">Notes on Operations Research, Mathematics, and AI/ML</h2>
+      <p class="blog-kicker">ACADEMIC NOTES</p>
+      <h2 id="blog-title">Research Notes on Operations Research, Mathematics, and Artificial Intelligence</h2>
       <p class="blog-intro">수학과 컴퓨터과학을 공부하며 이해한 내용을 수식, 코드, 직관으로 정리합니다.</p>
     </div>
     <button class="blog-search-button" type="button" onclick="openSearchModal()" aria-label="블로그 검색 열기">
-      <i class="ti ti-search" aria-hidden="true"></i><span>글 검색</span>
+      <i class="ti ti-search" aria-hidden="true"></i><span>Search Articles</span>
     </button>
   </header>
 
   <section class="blog-latest" aria-labelledby="latest-title">
-    <div class="blog-section-heading"><p class="blog-section-label">NEW NOTES</p><h2 id="latest-title">Recent Posts</h2></div>
+    <div class="blog-section-heading"><p class="blog-section-label">RESEARCH UPDATES</p><h2 id="latest-title">Recent Articles</h2></div>
     <div class="blog-latest-grid">
       {% assign latest_count = 0 %}
       {% for post in site.posts %}
@@ -35,24 +35,24 @@ nav_order: 1
             <div class="blog-card-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>{% if post.categories.first %}<span>{{ post.categories.first }}</span>{% endif %}</div>
             <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
             {% if post.description %}<p>{{ post.description | strip_html | truncate: 100 }}</p>{% elsif post.excerpt %}<p>{{ post.excerpt | strip_html | truncate: 100 }}</p>{% endif %}
-            <a class="blog-card-link" href="{{ post.url | relative_url }}">읽기 <span aria-hidden="true">→</span></a>
+            <a class="blog-card-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
           </article>
           {% assign latest_count = latest_count | plus: 1 %}
         {% endif %}
       {% endfor %}
-      {% if latest_count == 0 %}<div class="blog-empty-state"><strong>첫 번째 공부 기록을 기다리고 있어요.</strong><p>글을 발행하면 최근 글이 이곳에 자동으로 표시됩니다.</p></div>{% endif %}
+      {% if latest_count == 0 %}<div class="blog-empty-state"><strong>No articles have been published yet.</strong><p>New research notes will appear here automatically.</p></div>{% endif %}
     </div>
   </section>
 
   <div class="blog-content-grid">
     <div class="blog-topic-list">
-      <div class="blog-section-heading"><p class="blog-section-label">TOPICS</p><h2>Topics</h2></div>
+      <div class="blog-section-heading"><p class="blog-section-label">RESEARCH AREAS</p><h2>Browse by Research Area</h2></div>
       {% for group in groups %}
         {% assign shown = 0 %}
         <section class="blog-topic-section" id="topic-{{ group.slug }}">
           <div class="blog-topic-header">
             <div><h3>{{ group.title }}</h3><p>{{ group.description }}</p></div>
-            <div class="blog-topic-chips" aria-label="{{ group.title }} 세부 카테고리">
+            <div class="blog-topic-chips" aria-label="Subfields in {{ group.title }}">
               {% for child in group.children %}<a href="{{ '/blog/category/' | append: child.slug | append: '/' | relative_url }}">{{ child.title }}</a>{% endfor %}
             </div>
           </div>
@@ -66,15 +66,15 @@ nav_order: 1
                 {% assign shown = shown | plus: 1 %}
               {% endif %}
             {% endfor %}
-            {% if shown == 0 %}<p class="blog-topic-empty">아직 공개된 글이 없습니다.</p>{% endif %}
+            {% if shown == 0 %}<p class="blog-topic-empty">No articles are available in this research area yet.</p>{% endif %}
           </div>
         </section>
       {% endfor %}
     </div>
 
-    <aside class="blog-category-sidebar" aria-label="블로그 카테고리">
+    <aside class="blog-category-sidebar" aria-label="Research areas">
       <div class="blog-category-panel">
-        <div class="blog-category-title"><span>분류 전체보기</span><a href="{{ '/blog/' | relative_url }}">전체</a></div>
+        <div class="blog-category-title"><span>Research Areas</span><a href="{{ '/blog/' | relative_url }}">All</a></div>
         <nav class="blog-category-tree">
           {% for group in groups %}
             {% assign direct_posts = site.categories[group.slug] %}{% assign total = direct_posts | size %}
