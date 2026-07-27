@@ -6,16 +6,12 @@
     {
       "title": "Drafts",
       "path": "[[workspace]]/_drafts",
-      "contentTypes": [
-        "default"
-      ]
+      "contentTypes": ["default"]
     },
     {
       "title": "Published Posts",
       "path": "[[workspace]]/_posts",
-      "contentTypes": [
-        "default"
-      ],
+      "contentTypes": ["default"],
       "disableCreation": true
     }
   ],
