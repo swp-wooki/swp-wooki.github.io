@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 All functions are assuemd to be measurable from now on.
@@ -793,3 +795,5 @@ f is integrable $\iff$ $u$ and $v$ are integrable.
 since $|u|, |v| \le |f|$ and $|f| \le |u| + |v|$.
 
 </div>
+
+<!-- prettier-ignore-end -->

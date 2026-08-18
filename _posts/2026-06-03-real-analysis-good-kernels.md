@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 <div class="real-analysis-statement" markdown="1">
@@ -145,3 +147,5 @@ Homework.
 </div>
 
 Exercise for this section: Exercise 1
+
+<!-- prettier-ignore-end -->

@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 Now as a first step toward the Lebesgue measure, we will first define the **exterior measure**. Instead of defining a measure of an open set, we will define the exterior measure denoted by $m_*$, and is a function defined on the power set of $\mathbb{R}^d$ with value is an extended real number $\overline{\mathbb{R}}$.
@@ -471,3 +473,5 @@ This is one of the fundamental questions in this course. So in this question we 
 </div>
 
 Any questions so far? You can ask question in Korean. Okay, then let me briefly explain the goal of the next section where we will define measurable sets and the Lebesgue measure.
+
+<!-- prettier-ignore-end -->

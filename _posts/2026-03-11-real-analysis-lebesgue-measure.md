@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 Uh as I said maybe last week, uh the exterior measure is not the one uh uh we want to have. But instead we will need uh a new measure which is called the Lebesgue measure. Originally introduced by Lebesgue the French mathematician and uh this measure will be defined on some subclass of the power set. I mean the exterior measure was defined for arbitrary subsets of the Euclidean space. Right? But as this example you know suggests not all subsets of $\mathbb{R}^d$ are good. Some sets behave badly. So we will exclude these sets from the domain of the measure and we will uh we will collect like good sets in some sets for the domain of the Lebesgue measure. So I think we have enough time to introduce the definition of the Lebesgue measure. 
@@ -728,3 +730,5 @@ Now, assume $N \in \mathcal{M}$. Then $N_k \in \mathcal{M}$ and $m(N_k) = m(N)$.
 which is a contradiction.
 
 </div>
+
+<!-- prettier-ignore-end -->

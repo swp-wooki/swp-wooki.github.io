@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 During the Advanced Calculus course, we have studied Fourier series of the form as following definition.
@@ -93,3 +95,5 @@ Let $f \in \mathcal{R}[-\pi, \pi]$. The **Fourier coefficients** of $f$ with res
 ### Holomorphic Functions
 
 In the context of *Complex Analysis*, we are interested in functions of complex variable, which have much stronger properties than functions of a real variable. In particular, a function that is differentiable in the complex sense is infinitely differentiable and admits a power series expansion around every point in its domain. Such results have no direct analogue in real analysis, where many counterexamples arise.
+
+<!-- prettier-ignore-end -->

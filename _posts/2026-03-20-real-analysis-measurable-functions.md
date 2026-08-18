@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 ### Definition and basic properties
@@ -542,3 +544,5 @@ m(\bigcup_{n \ge N} E_n) \le \sum_{n \ge N} m(E_n) < \sum_{n \ge N} 2^{-n} < \fr
 \]
 
 </div>
+
+<!-- prettier-ignore-end -->

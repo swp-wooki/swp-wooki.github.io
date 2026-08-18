@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 <div class="real-analysis-statement" markdown="1">
@@ -224,3 +226,5 @@ $$||T|| = \sup \{|(Tf, f)| : ||f|| = 1\}.$$
 Indeed, by Lemma 5.1, $||T|| = \sup \{|(Tf, g)| : ||f||, ||g|| \le 1\}$. Thus, ($\ge$) is clear.
 
 </div>
+
+<!-- prettier-ignore-end -->

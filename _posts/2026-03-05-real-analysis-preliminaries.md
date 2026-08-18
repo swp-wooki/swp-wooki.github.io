@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 Let me first start with previewing this. There is several preliminary stuff in the beginning of this section but I hope you read everything by yourself because they are all basics from advanced calculus. For instance, you will see some notions in set theory. Union, intersection, and so on. Furthermore, basic topology like open, closed or compact sets that you already know I guess. And there are several important examples in this section like the Cantor set. Actually, the Cantor set will play a fundamental role in this lecture because it will provide a bunch of counterexamples of several concepts. Thus that will be important. We will get back to this topic later.
@@ -259,3 +261,5 @@ And now we can define the measure of an arbitrary open set in higher-dimensional
 So the measure of $\mathcal{O}$, which is represented as a countable union of almost disjoint closed cubes... let me write it like this $\mathcal{O} = \bigcup_{j=1}^\infty Q_j$ ... this can be defined by the summation of all volumes of the closed cubes. But we have to be careful here because in the higher-dimensional case... I mean this statement is true even for the one-dimensional space, but in that case we have a stronger statement, right? If $d$ is bigger than one, like higher-dimensional cases, then this decomposition, I mean this representation, is not unique. So there can be two different ways to fill in the open set with almost disjoint cubes. For instance, I mean we started with the lattice like this, but we may start with larger cubes or translated cubes or something. 
 
 So there are many, actually infinitely many ways to represent the open set with almost disjoint closed cubes, and in that case, we will have different definitions of the measure of an open set by using different representations. So you will get two different quantities and they might be different and we don't know *a priori* that they are equal or not. But in the end, we will figure out that they are actually equal. So that the measure of the open set is independent of the representation. But at this point we don't know whether this quantity is uniquely determinable or not. Okay, we have a serious problem in higher dimensions. So this is our discussion in section 1.1 and Exercise 12 is the homework in this section and we will proceed to the next section.
+
+<!-- prettier-ignore-end -->

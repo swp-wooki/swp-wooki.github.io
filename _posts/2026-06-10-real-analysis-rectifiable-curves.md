@@ -11,6 +11,8 @@ toc:
   sidebar: left
 ---
 
+<!-- prettier-ignore-start -->
+
 > 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
 
 Recall that a parametrized curve 
@@ -125,3 +127,5 @@ Thus, $\tilde{z}$ is absolutely continuous and $|\tilde{z}'| \le 1$ almost every
 Moreover, by Theorem 4.2, $L = \int_0^L |\tilde{z}'(s)| ds$. This completes the proof.
 
 </div>
+
+<!-- prettier-ignore-end -->
