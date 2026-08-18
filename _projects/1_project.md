@@ -19,9 +19,9 @@ A RoRo vessel carries vehicles through a sequence of ports. Its deck is modeled 
 
 The difficulty is that a locally convenient placement can create an expensive obstruction later. If a vehicle blocks the path of another vehicle that must leave earlier, it has to be temporarily unloaded and loaded again. Each movement incurs a fixed handling cost plus a distance-dependent cost. The objective is therefore to minimize
 
-\[
+$$
 \text{total cost} = \sum_{r \in \mathcal{R}} \left(F + |r| - 1\right),
-\]
+$$
 
 while satisfying every demand and preserving path feasibility throughout the entire port sequence.
 
