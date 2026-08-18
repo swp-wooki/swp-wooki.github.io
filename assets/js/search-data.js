@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "Projects",
-          description: "A growing collection of your cool projects.",
+          description: "Selected projects in optimization, applied mathematics, and software engineering.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -413,11 +413,11 @@ ninja.data = [{
             },},{id: "news-entered-into-bs-ms-program-for-department-of-industrial-engineering-hanyang-university",
           title: 'Entered into BS-MS program for Department of Industrial Engineering, Hanyang University.',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-optimization-grand-challenge-2025",
+          title: 'Optimization Grand Challenge 2025',
+          description: "Graph-theoretic ALNS for RoRo ship stowage and vehicle rehandling",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
+              window.location.href = "/projects/optimization-grand-challenge-2025/";
             },},{id: "projects-project-2",
           title: 'project 2',
           description: "a project with a background image and giscus comments",
