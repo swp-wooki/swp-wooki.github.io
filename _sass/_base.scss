@@ -135,6 +135,26 @@ blockquote {
   }
 }
 
+.post .real-analysis-statement,
+.post .real-analysis-proof {
+  border-left: 4px solid var(--global-theme-color);
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.1rem;
+  background: var(--global-code-bg-color);
+}
+
+.post .real-analysis-proof {
+  border-left-color: var(--global-divider-color);
+  background: transparent;
+}
+
+.post .real-analysis-footnote {
+  display: block;
+  margin: 0.75rem 0;
+  color: var(--global-text-color-light);
+  font-size: 0.9em;
+}
+
 // Checklist
 
 ul.task-list {
