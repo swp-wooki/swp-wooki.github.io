@@ -100,7 +100,7 @@ A linear operator $$T : H_1 \to H_2$$ is bounded if and only if it is continuous
 there exists $$f_n \neq 0$$ such that $$\vert \vert Tf_n\vert \vert \ge n \vert \vert f_n\vert \vert $$.
 Let
 $$g_n = \frac{f_n}{n \vert \vert f_n\vert \vert }, \text{ then } \vert \vert g_n\vert \vert  = \frac{1}{n} \to 0 \text{ as } n \to \infty.$$
-Since $$T$$ is continuous, $$T(g_n) \to 0$$ which contradicts $$\vert \vert Tg_n\vert \vert \ge 1$$.<div class="real-analysis-footnote" markdown="1">Note: Since $$Tg_n = \frac{Tf_n}{n\vert \vert f_n\vert \vert } \implies \vert \vert Tg_n\vert \vert = \frac{\vert \vert Tf_n\vert \vert }{n\vert \vert f_n\vert \vert } \ge 1$$</div>
+Since $$T$$ is continuous, $$T(g_n) \to 0$$ which contradicts $$\vert \vert Tg_n\vert \vert \ge 1$$.<span class="real-analysis-footnote" markdown="span">Note: Since $$Tg_n = \frac{Tf_n}{n\vert \vert f_n\vert \vert } \implies \vert \vert Tg_n\vert \vert = \frac{\vert \vert Tf_n\vert \vert }{n\vert \vert f_n\vert \vert } \ge 1$$</span>
 </div>
 
 <div class="real-analysis-statement" markdown="1">
@@ -140,10 +140,16 @@ of $$l$$ is a closed subspace of $$H$$, since $$l$$ is continuous.
 
 <li markdown="1">If $$S = H$$, then $$l = 0$$ and we take $$g = 0$$.
 </li>
-<li markdown="1">Suppose $$S \neq H$$. <div class="real-analysis-footnote" markdown="1">Note: Idea of the proof: If $$f = f_1 + f_2 \in S \oplus S^\perp$$, then
+<li markdown="1">Suppose $$S \neq H$$.
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Idea of the proof: If $$f = f_1 + f_2 \in S \oplus S^\perp$$, then
 $$l(f) = (f, g) \iff l(f_1) + l(f_2) = (f_1, g) + (f_2, g).$$
 Note that $$l(f_1) = 0$$. Since $$l(f_1) + l(f_2)$$ is independent of $$f_1$$, we must have $$(f_1, g) = 0.$$
-That is, we must look for $$g$$ in $$S^\perp$$.</div> We take $$0 \neq h \in S^\perp$$. Since
+That is, we must look for $$g$$ in $$S^\perp$$.
+
+</div>
+ We take $$0 \neq h \in S^\perp$$. Since
 $$u \coloneq l(f)h - l(h)f \in S = \ker l$$
 we have
 $$0 = (u, h) = l(f)(h, h) - l(h)(f, h).$$
@@ -153,7 +159,10 @@ $$
 g \coloneq \frac{\overline{l(h)}}{\vert \vert h\vert \vert ^2} h \quad \text{ gives } \quad l(f) = (f, g).
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: $$l(f)h - l(h)f \in S = \ker l$$ since
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: $$l(f)h - l(h)f \in S = \ker l$$ since
 $$l(l(f)h - l(h)f) = l(f)l(h) - l(h)l(f) = 0.$$
 Last equality comes from
 
@@ -166,6 +175,7 @@ l(f)(h,h) - l(h)(f,h) = 0
 $$
 
 </div>
+
 
 </li>
 </ol>

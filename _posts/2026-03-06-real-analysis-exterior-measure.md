@@ -192,7 +192,7 @@ $$
 $$
 
 On the other hand, if you sum up the volumes of the cubes in $$\mathcal{Q}'$$, one can approximate its summation in terms of the size of the lattice $$k$$. If you compute the sum of the volume of $$Q$$ from $$\mathcal{Q}'$$, you will get $$\mathcal{O}\left(\frac{1}{k}\right)$$
-<div class="real-analysis-footnote" markdown="1">Note: At this moment, $$\mathcal{O}(\cdot)$$ denotes the big-O notation</div>.
+<span class="real-analysis-footnote" markdown="span">Note: At this moment, $$\mathcal{O}(\cdot)$$ denotes the big-O notation</span>.
 This means that $$\sum_{Q \in \mathcal{Q}'} \vert Q\vert $$ is less than or equal to some constant times $$1/k$$. This is true because the number of cubes in $$\mathcal{Q}'$$ is $$\mathcal{O}(k^{d-1})$$ where $$d$$ is the dimension of the space. Also, the volume of $$Q \in \mathcal{Q}'$$ is $$\mathcal{O}(k^{-d})$$, because of the side of each lattice is $$1/k$$. Hereby the volume of each cube is $$k^{-d}$$. To summerize,
 
 $$

@@ -275,7 +275,7 @@ Let $$T$$ be a compact symmetric operator on $$H$$.
 <li markdown="1">If $$\lambda \neq 0$$, the dimension of the null space of $$T - \lambda I$$ is finite.
 </li>
 <li markdown="1">There exists at most countable eigenvalues
-$$\{\lambda_k\}$$ such that $$\lambda_k \to 0$$ as $$k \to \infty$$. <div class="real-analysis-footnote" markdown="1">Note: Equivalently, for all $$\mu > 0$$, there exists $$N$$ such that $$\vert \lambda_k\vert < \mu$$ for all $$k \ge N$$</div>
+$$\{\lambda_k\}$$ such that $$\lambda_k \to 0$$ as $$k \to \infty$$. <span class="real-analysis-footnote" markdown="span">Note: Equivalently, for all $$\mu > 0$$, there exists $$N$$ such that $$\vert \lambda_k\vert < \mu$$ for all $$k \ge N$$</span>
 
 </li>
 </ol>

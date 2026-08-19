@@ -333,7 +333,10 @@ $$
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-ETS : $$m(E_\alpha) = 0$$ for all $$\alpha > 0$$<div class="real-analysis-footnote" markdown="1">Note: Since if $$m(E_\alpha) = 0 \; \forall \alpha > 0 \implies m(E) = 0$$ where $$E = \bigcup_{n=1}^\infty E_{\frac{1}{n}}$$. Then,
+ETS : $$m(E_\alpha) = 0$$ for all $$\alpha > 0$$
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Since if $$m(E_\alpha) = 0 \; \forall \alpha > 0 \implies m(E) = 0$$ where $$E = \bigcup_{n=1}^\infty E_{\frac{1}{n}}$$. Then,
 
 $$
 x \notin E \iff x \in E^c = \left(\bigcup_{n=1}^\infty E_{\frac{1}{n}}\right)^c = \bigcap_{n=1}^\infty E_{\frac{1}{n}}^c
@@ -345,7 +348,10 @@ $$
 E_{\frac{1}{n}}^c = \left\{x : \limsup_{\overset{m(B) \to 0}{x \in B}} \left\vert  \mathop{\rlap{-}\int}_B f(y) dy - f(x) \right\vert  \le \frac{2}{n} \right\}
 $$
 
-therefore, if $$x \notin E$$, then desired limit holds. Since $$m(E) = 0$$, we conclude that the limit holds for a.e. $$x$$.</div>, where
+therefore, if $$x \notin E$$, then desired limit holds. Since $$m(E) = 0$$, we conclude that the limit holds for a.e. $$x$$.
+
+</div>
+, where
 
 $$
 E_\alpha := \left\{x : \underbrace{\limsup_{\overset{m(B) \to 0}{x \in B}} \left\vert  \mathop{\rlap{-}\int}_B f(y) dy - f(x) \right\vert }_{(\ast)} > 2\alpha \right\}
@@ -357,8 +363,14 @@ $$
 \exists \; g \in C_c^0(\mathbb{R}^d) \text{ such that } \vert \vert f - g\vert \vert _{L^1} < \epsilon  \qquad (\ast)
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: Theorem 2.4 in chapter 2 states that $$C_c^0(\mathbb{R}^d)$$ is dense in $$L^1(\mathbb{R}^d)$$. Recall that the definition of density on $$L^1$$ space is as follows:
-$$\mathcal{F}$$ is dense in $$L^1$$ if for all $$f \in L^1$$ and $$\epsilon > 0$$, there exists $$g \in \mathcal{F}$$ such that $$\vert \vert f - g\vert \vert _{L^1} < \epsilon$$.</div>
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Theorem 2.4 in chapter 2 states that $$C_c^0(\mathbb{R}^d)$$ is dense in $$L^1(\mathbb{R}^d)$$. Recall that the definition of density on $$L^1$$ space is as follows:
+$$\mathcal{F}$$ is dense in $$L^1$$ if for all $$f \in L^1$$ and $$\epsilon > 0$$, there exists $$g \in \mathcal{F}$$ such that $$\vert \vert f - g\vert \vert _{L^1} < \epsilon$$.
+
+</div>
+
 In previous remark, we know that for such continuous function $$g$$, the following holds:
 
 $$
@@ -387,7 +399,7 @@ $$
 2\alpha < (\ast) \le (f - g)^*(x) + \vert f(x) - g(x)\vert  \implies 2\alpha < (f - g)^*(x) + \vert f(x) - g(x)\vert
 $$
 
-since both are positive, at least one of them is greater than $$\alpha$$. <div class="real-analysis-footnote" markdown="1">Note: If $$a, b > 0$$ and $$a + b > 2\alpha$$, then either $$a > \alpha$$ or $$b > \alpha$$. If not, then $$a \le \alpha$$ and $$b \le \alpha$$, thus $$a + b \le 2\alpha$$, which is a contradiction.</div>
+since both are positive, at least one of them is greater than $$\alpha$$. <span class="real-analysis-footnote" markdown="span">Note: If $$a, b > 0$$ and $$a + b > 2\alpha$$, then either $$a > \alpha$$ or $$b > \alpha$$. If not, then $$a \le \alpha$$ and $$b \le \alpha$$, thus $$a + b \le 2\alpha$$, which is a contradiction.</span>
 
 Let
 
@@ -607,7 +619,7 @@ $$
 \text{WTS : If } x \notin E, \text{ then } x \text{ is a Lebesgue point. \textit{i.e. }} \lim_{\overset{m(B) \to 0}{x \in B}} \mathop{\rlap{-}\int}_B \vert f(y) - f(x)\vert  dy = 0.
 $$
 
-Suppose that $$\overline{x} \notin E$$ and $$f(\overline{x})$$ is finite.<div class="real-analysis-footnote" markdown="1">Note: This additional assumption can be justified that if $$f$$ is locally integrable, then $$f$$ is finite a.e., which have proved in Proposition 1.6 in Chapter 2.</div> Given $$\epsilon > 0$$, since $$\mathbb{Q}$$ is dense in $$\mathbb{R}$$,
+Suppose that $$\overline{x} \notin E$$ and $$f(\overline{x})$$ is finite.<span class="real-analysis-footnote" markdown="span">Note: This additional assumption can be justified that if $$f$$ is locally integrable, then $$f$$ is finite a.e., which have proved in Proposition 1.6 in Chapter 2.</span> Given $$\epsilon > 0$$, since $$\mathbb{Q}$$ is dense in $$\mathbb{R}$$,
 
 $$
 \exists \; r \in \mathbb{Q} \; \; \text{ such that } \; \vert f(\overline{x}) - r\vert  < \epsilon

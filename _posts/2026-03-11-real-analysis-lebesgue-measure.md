@@ -242,7 +242,7 @@ $$
 $$
 
 for some $$j \in \{1, \dots, N\}$$.
-<div class="real-analysis-footnote" markdown="1">Note: If $$x \in K$$, then $$x \in B_{2\delta_{x_j}}$$ for some $$j$$, since $$\bigcup_{j=1}^{N} B_{2\delta_{x_j}}(x_j)$$ covers $$K$$. Since $$x \in B_{2\delta_{x_j}}$$, $$\vert x_j - x\vert < 2\delta_{x_j}$$ holds.</div>
+<span class="real-analysis-footnote" markdown="span">Note: If $$x \in K$$, then $$x \in B_{2\delta_{x_j}}$$ for some $$j$$, since $$\bigcup_{j=1}^{N} B_{2\delta_{x_j}}(x_j)$$ covers $$K$$. Since $$x \in B_{2\delta_{x_j}}$$, $$\vert x_j - x\vert < 2\delta_{x_j}$$ holds.</span>
 Thus, simple triangle inequality yields
 
 $$
@@ -260,7 +260,7 @@ Now we use the result `lem:3.1` to prove the result `prop:4`.
 *proof (the result `prop:4`).*
 
 Suppose that $$F \subset \mathbb{R}^d$$ is compact.
-<div class="real-analysis-footnote" markdown="1">Note: Once we prove that compact set is measurable, then its countable union is also measurable. Note that in previous page, we have shown that every closed set can be represented by countable union of compact set. Thus, for here, it is enough to show that compact set is measurable. This is why we assume $$F$$ be compact, not closed.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Once we prove that compact set is measurable, then its countable union is also measurable. Note that in previous page, we have shown that every closed set can be represented by countable union of compact set. Thus, for here, it is enough to show that compact set is measurable. This is why we assume $$F$$ be compact, not closed.</span>
 Let $$\epsilon > 0$$. By the result `obs:3`, there exists an open set $$O \supset F$$ such that $$m_*(O) \leq m_*(F) + \epsilon$$.
 
 $$
@@ -268,7 +268,10 @@ $$
 $$
 
 Note that we cannot get above inequality from $$m_*(O) \leq m_*(F) + \epsilon$$ immediately. Since $$F$$ is closed, basic topology gives us that $$O \setminus F$$ is open. Then, we can cover $$O \setminus F$$ by countably many almost disjoint cubes $$\{Q_j\}_{j=1}^{\infty}$$ by Theorem 1.4.
-<div class="real-analysis-footnote" markdown="1">Note: In last week, we studied Theorem 1.4 and how to compute the measure of open set. Note the followings:
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: In last week, we studied Theorem 1.4 and how to compute the measure of open set. Note the followings:
 
 >
 \centering
@@ -278,8 +281,9 @@ $$
 $$
 
 </div>
+
 Hence we have $$O \setminus F = \bigcup_{j=1}^{\infty} Q_j$$. Now fix $$N \in \mathbb{N}$$ and consider a compact set $$K = \bigcup_{j=1}^N Q_j$$.  Then by the result `lem:3.1`
-<div class="real-analysis-footnote" markdown="1">Note: Obviously, $$F \cap K = \emptyset$$, since for each $$Q_j \subset O \setminus F \Rightarrow Q_j \cap F = \emptyset$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Obviously, $$F \cap K = \emptyset$$, since for each $$Q_j \subset O \setminus F \Rightarrow Q_j \cap F = \emptyset$$.</span>
 , we have $$d(K, F) > 0$$. Since $$F \cup K \subset O$$, we have
 
 $$
@@ -290,13 +294,17 @@ m_*{(O)} &\geq m_*(F \cup K) \\
 \end{aligned}
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: This equality comes from the observation 4, which we have proved in last lecture. The statement of the observation 4 was as follows: If $$E = E_1 \cup E_2$$ and $$dist(E_1, E_2) > 0$$, then
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: This equality comes from the observation 4, which we have proved in last lecture. The statement of the observation 4 was as follows: If $$E = E_1 \cup E_2$$ and $$dist(E_1, E_2) > 0$$, then
 
 $$
 m_{*}(E) = m_{*}(E_1) + m_{*}(E_2)
 $$
 
 </div>
+
 and from last estimate, we get
 
 $$
@@ -311,7 +319,7 @@ $$
 
 </div>
 
-<div class="real-analysis-footnote" markdown="1">Note: Since $$O \setminus F = \bigcup_{j=1}^{\infty} Q_j$$, subadditivity of the exterior measure (Observation 2 in last lecture) yields $$m_*(O \setminus F) = m_*{\left( \bigcup_{j=1}^{\infty} Q_j \right) } \leq \sum_{j=1}^\infty m_*(Q_j)$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Since $$O \setminus F = \bigcup_{j=1}^{\infty} Q_j$$, subadditivity of the exterior measure (Observation 2 in last lecture) yields $$m_*(O \setminus F) = m_*{\left( \bigcup_{j=1}^{\infty} Q_j \right) } \leq \sum_{j=1}^\infty m_*(Q_j)$$.</span>
 
 Now we can prove that if $$E \in \mathcal{M}$$, then $$E^c \in \mathcal{M}$$. The idea of proof is simple. We use the complement of the approximation of $$E$$. Instead of playing with $$\epsilon$$, we will use a sequence of approximations and the result `prop:2`. For each $$n \in \mathbb{N}$$, we construct $$O_n$$ which is an approximation of E. This can be done from the definition of measurability. We always approximate $$E$$ by open sets from outside. But if you take the complement, the complement of $$E$$ is approximated by closed sets from inside. So the complement of $$O_n$$ is closed. That is why we need the result `prop:4`.
 
@@ -339,13 +347,17 @@ E^c \setminus S \subset O_n \setminus E
 $$
 
 
-<div class="real-analysis-footnote" markdown="1">Note: Note that $$E^c \setminus S = E^c \cap S^c = E^c \cap \left(\bigcup_{k=1}^{\infty} O_{k}^{c}\right)^{c} = \bigcap_{k=1}^{\infty} (O_{k}^{c})^{c} = \bigcap_{k=1}^{\infty} O_{k}$$ and $$\bigcap_{k=1}^{\infty} O_{k} \subset O_n$$ for all $$n \in \mathbb{N}$$. Thus, we have
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Note that $$E^c \setminus S = E^c \cap S^c = E^c \cap \left(\bigcup_{k=1}^{\infty} O_{k}^{c}\right)^{c} = \bigcap_{k=1}^{\infty} (O_{k}^{c})^{c} = \bigcap_{k=1}^{\infty} O_{k}$$ and $$\bigcap_{k=1}^{\infty} O_{k} \subset O_n$$ for all $$n \in \mathbb{N}$$. Thus, we have
 
 $$
 E^{c} \setminus S = E^{c} \cap \left(\bigcap_{k=1}^{\infty} O_{k}\right) \subset O_n \cap E^c = O_n \setminus E
 $$
 
 </div>
+
 hence monotonicity of the exterior measure yields
 
 $$
@@ -376,7 +388,7 @@ If $$E_j \in \mathcal{M}$$ for $$j \in \mathbb{N}$$, then $$\bigcap_{j=1}^{\inft
 
 *Proof.*
 $$\bigcap_{j=1}^{\infty} E_j = \left(\bigcup_{j=1}^{\infty} E_j^c\right)^c \in \mathcal{M}$$.
-<div class="real-analysis-footnote" markdown="1">Note: Since $$E_j \in \mathcal{M}$$, we have $$E_j^c \in \mathcal{M}$$ by the result `prop:5`. By the result `prop:3`, we have $$\bigcup_{j=1}^{\infty} E_j^c \in \mathcal{M}$$. Finally, by the result `prop:5` again, we have $$\left(\bigcup_{j=1}^{\infty} E_j^c\right)^c \in \mathcal{M}$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Since $$E_j \in \mathcal{M}$$, we have $$E_j^c \in \mathcal{M}$$ by the result `prop:5`. By the result `prop:3`, we have $$\bigcup_{j=1}^{\infty} E_j^c \in \mathcal{M}$$. Finally, by the result `prop:5` again, we have $$\left(\bigcup_{j=1}^{\infty} E_j^c\right)^c \in \mathcal{M}$$.</span>
 
 </div>
 
@@ -432,11 +444,11 @@ $$
 $$
 
 Then $$F_j \coloneq O_j^c \subset E_j$$ is a closed set since $$O_j$$ is open. Since $$E_j$$ is bounded by assumption, so is $$F_j$$. Thus, $$F_j$$ is bounded and closed, so it is compact. Moreover, $$F_j$$ is disjoint with each other.
-<div class="real-analysis-footnote" markdown="1">Note: Since $$E_j$$ are disjoint, we have $$E_j^c \supset E_k$$ for all $$k \neq j$$. Since $$O_j \supset E_j^c$$, we have $$O_j \supset E_k$$ for all $$k \neq j$$. Thus, we have $$F_j = O_j^c \subset E_k^c$$ for all $$k \neq j$$, which implies that $$F_j \cap F_k = \emptyset$$ for all $$j \neq k$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Since $$E_j$$ are disjoint, we have $$E_j^c \supset E_k$$ for all $$k \neq j$$. Since $$O_j \supset E_j^c$$, we have $$O_j \supset E_k$$ for all $$k \neq j$$. Thus, we have $$F_j = O_j^c \subset E_k^c$$ for all $$k \neq j$$, which implies that $$F_j \cap F_k = \emptyset$$ for all $$j \neq k$$.</span>
 This is the reason why try to approximate $$E_j$$ from inside.
 
 Now, for each fixed $$N \in \mathbb{N}$$, consider $$F_1, \dots, F_N$$ which are compact and disjoint. Thus, we have
-<div class="real-analysis-footnote" markdown="1">Note: For each $$F_j$$ and $$F_k$$ with $$j \neq k$$, we have $$d(F_j, F_k) > 0$$ by the result `lem:3.1`. Thus, we can apply the result `obs:4` to get $$m\left(\bigcup_{j=1}^N F_j\right) = \sum_{j=1}^N m(F_j)$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: For each $$F_j$$ and $$F_k$$ with $$j \neq k$$, we have $$d(F_j, F_k) > 0$$ by the result `lem:3.1`. Thus, we can apply the result `obs:4` to get $$m\left(\bigcup_{j=1}^N F_j\right) = \sum_{j=1}^N m(F_j)$$.</span>
 
 $$
 m\left(\bigcup_{j=1}^N F_j\right) = \sum_{j=1}^N m(F_j).
@@ -485,7 +497,10 @@ If $$E_j \in \mathcal{M}$$ for $$j \in \mathbb{N}$$ are disjoint and $$E = \bigc
 </div>
 
 This theorem states that if we have *countably many* measurable sets, and they are *disjoint*, then the measure of the union of these sets is the same as the sum of the each measurable sets. This is called the *countable additivity* of the measurable sets, which distinguishes the measurable sets from arbitrary sets in $$\mathbb{R}^d$$. For the exterior measure, we cannot apply countable additivity, beacuse disjointness is not enough to guarantee the equality for the exterior measure. To get equality, we needed an additional assumption that the distance between pairs of two sets must be positive. Even though, we have only **finite** additivity for the exterior measure, but for measurable sets, we have the **countable** additivity.
-<div class="real-analysis-footnote" markdown="1">Note: For your information, please compare following statement with the result `thm:3.2`.
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: For your information, please compare following statement with the result `thm:3.2`.
 <div class="real-analysis-statement" markdown="1">
 
 **Observation 2 (Countable Subadditivity).**
@@ -493,6 +508,7 @@ This theorem states that if we have *countably many* measurable sets, and they a
 If $$E = \bigcup_{j=1}^{\infty} E_j$$, then $$m_{*}(E) \le \sum_{j=1}^{\infty} m_{*}(E_j)$$.
 
 </div>
+
 
 <div class="real-analysis-statement" markdown="1">
 
@@ -554,15 +570,19 @@ Thus we have $$m(E) \leq \lim_{j\to\infty} m(E_j)$$. Now prove the corollary.
 <ol>
 
 <li markdown="1">Let $$G_1 = E_1$$ and $$G_j = E_j \setminus E_{j-1} (= E_j \cap E_{j-1}^c)$$
-<div class="real-analysis-footnote" markdown="1">Note: Note that $$G_j, E_j, E_j^c \in \mathcal{M}$$ for each $$j$$. Indeed, $$E_j \in \mathcal{M}$$ by assumption, and since $$\mathcal{M}$$ is closed under intersection and complment, one can deduce that
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Note that $$G_j, E_j, E_j^c \in \mathcal{M}$$ for each $$j$$. Indeed, $$E_j \in \mathcal{M}$$ by assumption, and since $$\mathcal{M}$$ is closed under intersection and complment, one can deduce that
 
 $$
 E_j \in \mathcal{M} \implies E_j^c \in \mathcal{M} \implies E_j \cap E_{j-1}^c (=E_j \setminus E_{j-1}=G_j) \in \mathcal{M}
 $$
 
 </div>
+
 for $$j \ge 2$$.
-<div class="real-analysis-footnote" markdown="1">Note: Since the result `thm:3.2` requires disjointness, we construct disjoint sets.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Since the result `thm:3.2` requires disjointness, we construct disjoint sets.</span>
 Then the $$G_j \in \mathcal{M}$$ are disjoint and $$E = \bigcup_{j=1}^{\infty} G_j$$.
 Thus by countable additivity, we get
 
@@ -610,7 +630,7 @@ Let $$E \in \mathcal{M}$$. Then $$\forall \epsilon > 0$$,
 </li>
 <li markdown="1">If $$m(E) < \infty$$, $$\exists$$ compact $$K \subset E$$ s.t. $$m(E \setminus K) \le \epsilon$$
 </li>
-<li markdown="1">If $$m(E) < \infty$$, then $$\exists$$ a finite union $$F = \bigcup_{j=1}^N Q_j$$ of cubes s.t. $$m(E \Delta F) \le \epsilon$$ <div class="real-analysis-footnote" markdown="1">Note: $$E \Delta F = (E \setminus F) \cup (F \setminus E)$$</div>.
+<li markdown="1">If $$m(E) < \infty$$, then $$\exists$$ a finite union $$F = \bigcup_{j=1}^N Q_j$$ of cubes s.t. $$m(E \Delta F) \le \epsilon$$ <span class="real-analysis-footnote" markdown="span">Note: $$E \Delta F = (E \setminus F) \cup (F \setminus E)$$</span>.
 
 </li>
 </ol>
@@ -671,7 +691,7 @@ $$
 If $$E \in \mathcal{M}$$, $$h \in \mathbb{R}^d$$ and $$\delta > 0$$, then
 <li markdown="1">$$E + h = \{x+h : x \in E\} \in \mathcal{M}$$ and $$m(E+h) = m(E)$$
 </li>
-<li markdown="1">$$\delta E = \{\delta x : x \in E\} \in \mathcal{M}$$ and $$m(\delta E) = \delta^d m(E)$$ <div class="real-analysis-footnote" markdown="1">Note: (See exercises 7 \& 8)</div>
+<li markdown="1">$$\delta E = \{\delta x : x \in E\} \in \mathcal{M}$$ and $$m(\delta E) = \delta^d m(E)$$ <span class="real-analysis-footnote" markdown="span">Note: (See exercises 7 \& 8)</span>
 
 </li>
 </ol>
@@ -692,8 +712,14 @@ A $$\sigma$$-algebra is a collection $$\Sigma \subset \mathcal{P}(\mathbb{R}^d)$
 **Borel $$\sigma$$-algebra $$\mathcal{B}_{\mathbb{R}^d}$$.**
 
 The Borel $$\sigma$$-algebra $$\mathcal{B}_{\mathbb{R}^d}$$ is the smallest
-<div class="real-analysis-footnote" markdown="1">Note: If $$\mathcal{S}$$ is another $$\sigma$$-algebra containing all open sets, then $$\mathcal{B}_{\mathbb{R}^d} \subset \mathcal{S}$$.
-$$\mathcal{B}_{\mathbb{R}^d}$$ is the intersection of all $$\sigma$$-algebras containing all open sets.</div> $$\sigma$$-algebra that contains all open sets. Elements in $$\mathcal{B}_{\mathbb{R}^d}$$ are called Borel sets.
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: If $$\mathcal{S}$$ is another $$\sigma$$-algebra containing all open sets, then $$\mathcal{B}_{\mathbb{R}^d} \subset \mathcal{S}$$.
+$$\mathcal{B}_{\mathbb{R}^d}$$ is the intersection of all $$\sigma$$-algebras containing all open sets.
+
+</div>
+ $$\sigma$$-algebra that contains all open sets. Elements in $$\mathcal{B}_{\mathbb{R}^d}$$ are called Borel sets.
 
 </div>
 
@@ -706,8 +732,8 @@ $$\mathcal{B}_{\mathbb{R}^d}$$ is the intersection of all $$\sigma$$-algebras co
 <li markdown="1">$$\mathcal{B}_{\mathbb{R}^d}$$ is the intersection of all $$\sigma$$-algebras containing all open sets.
 </li>
 <li markdown="1">$$\mathcal{B}_{\mathbb{R}^d} \subsetneq  \mathcal{M} \subsetneq  \mathcal{P}(\mathbb{R}^d)$$
-<div class="real-analysis-footnote" markdown="1">Note: See Exercise 35, not a homework.</div>
-<div class="real-analysis-footnote" markdown="1">Note: This is the counterexample for non-measurable set, which we will construct in the next section.</div>
+<span class="real-analysis-footnote" markdown="span">Note: See Exercise 35, not a homework.</span>
+<span class="real-analysis-footnote" markdown="span">Note: This is the counterexample for non-measurable set, which we will construct in the next section.</span>
 
 </li>
 </ol>
@@ -742,7 +768,7 @@ The following are equivalent:
 <li markdown="1">$$E$$ differs from a $$G_\delta$$ set by a set of measure $$0$$.
 </li>
 <li markdown="1">$$E$$ differs from a $$F_\sigma$$ set by a set of measure $$0$$.
-<div class="real-analysis-footnote" markdown="1">Note: $$E$$ differs from a set $$A$$ by a set of measure $$0$$ means that $$m(E \setminus A) = 0$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: $$E$$ differs from a set $$A$$ by a set of measure $$0$$ means that $$m(E \setminus A) = 0$$.</span>
 
 </li>
 </ol>

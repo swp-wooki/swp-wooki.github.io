@@ -38,7 +38,7 @@ $$
 \int_{\mathbb{R}^d} \varphi(x) dx = \sum_{k=1}^{N} a_k m(E_k)
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: If $$d=1$$, $$\int_{\mathbb{R}} := \int_{-\infty}^{\infty}$$</div>
+<span class="real-analysis-footnote" markdown="span">Note: If $$d=1$$, $$\int_{\mathbb{R}} := \int_{-\infty}^{\infty}$$</span>
 Equivalently, we write $$\int f dm$$, $$\int_{\mathbb{R}^d} f dm$$, $$\int_{\mathbb{R}^d} f dx$$, $$\int_E f$$ to denote the Lebesgue integral of $$f$$.
 
 If $$E \in \mathcal{M}$$ with $$m(E) < \infty$$, then
@@ -56,7 +56,7 @@ $$
 <ol>
 
 <li markdown="1">$$\int \varphi$$ is independent of the representation of $$\varphi$$;
-<div class="real-analysis-footnote" markdown="1">Note: Thus, the choice of simple functions does not change the Lebesgue integral.</div> i.e. if $$\varphi = \sum_{k=1}^{N} a_k \chi_{E_k}$$, then
+<span class="real-analysis-footnote" markdown="span">Note: Thus, the choice of simple functions does not change the Lebesgue integral.</span> i.e. if $$\varphi = \sum_{k=1}^{N} a_k \chi_{E_k}$$, then
 
 $$
 \int \varphi = \sum_{k=1}^{N} a_k m(E_k).
@@ -98,7 +98,7 @@ $$
 
 <li markdown="1">Let $$\varphi = \sum_{k=1}^{N} a_k \chi_{E_k}$$ be any representation of $$\varphi$$.
 
-We may assume that $$E_k$$ are disjoint. <div class="real-analysis-footnote" markdown="1">Note: See Exercise 1 of Chapter 2.</div>
+We may assume that $$E_k$$ are disjoint. <span class="real-analysis-footnote" markdown="span">Note: See Exercise 1 of Chapter 2.</span>
 For each $$a \in \{a_k\}$$, we define
 
 $$
@@ -192,7 +192,7 @@ $$
 \end{aligned}
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: Since $$\varphi_n$$ is bounded by $$M$$, we have $$\vert \varphi_n - \varphi_m\vert \le \vert \varphi_n\vert + \vert \varphi_m\vert \le 2M$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Since $$\varphi_n$$ is bounded by $$M$$, we have $$\vert \varphi_n - \varphi_m\vert \le \vert \varphi_n\vert + \vert \varphi_m\vert \le 2M$$.</span>
 holds for all $$n, m \ge n_0$$. Thus, $$\left\{\int \varphi_n\right\}$$ is Cauchy in $$\mathbb{R}$$.
 </li>
 <li markdown="1">Similarly,
@@ -370,7 +370,7 @@ E_k = \{x : f(x) \ge 1/k\}
 $$
 
 which is the sequence of sets of points where $$f$$ is positive. It then follows from
-<div class="real-analysis-footnote" markdown="1">Note: If $$x \in E_k$$, then $$f(x) \ge \frac{1}{k} = \frac{1}{k}\chi_{E_k}(x)$$. If $$x \notin E_k$$, then $$f(x) \ge 0 = \frac{1}{k}\chi_{E_k}(x)$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: If $$x \in E_k$$, then $$f(x) \ge \frac{1}{k} = \frac{1}{k}\chi_{E_k}(x)$$. If $$x \notin E_k$$, then $$f(x) \ge 0 = \frac{1}{k}\chi_{E_k}(x)$$.</span>
 
 $$
 \frac{1}{k}\chi_{E_k}(x) \le f(x) \quad \text{ for all } x \in E \text{ and for all } k \ge 1
@@ -425,7 +425,7 @@ $$
 
 *Proof.*
 Since $$f \in R[a,b]$$, $$\exists$$ sequences of step functions $$\{\varphi_k\}$$ and $$\{\psi_k\}$$
-<div class="real-analysis-footnote" markdown="1">Note: $$\{\varphi_k\}$$ and $$\{\psi_k\}$$ represents the lower and upper sum, respectively in the sence of step functions.</div> such that
+<span class="real-analysis-footnote" markdown="span">Note: $$\{\varphi_k\}$$ and $$\{\psi_k\}$$ represents the lower and upper sum, respectively in the sence of step functions.</span> such that
 
 $$
 \varphi_1 \le \varphi_2 \le \dots \le f \le \dots \le \psi_2 \le \psi_1 \quad \text{,} \quad \vert \varphi_k\vert , \vert \psi_k\vert  \le M \quad \forall \: k \ge 1 \quad \text{ and }
@@ -443,7 +443,7 @@ $$
 $$
 
 Then, $$\tilde{\varphi}$$ and $$\tilde{\psi}$$ are measurable
-<div class="real-analysis-footnote" markdown="1">Note: In property 4 of measurable function, it says that if $$\{f_n\}$$ is a sequence of measurable functions and $$f_n \to f$$ a.e., then $$f$$ is also measurable. Since each step functions are measurable, $$\tilde{\varphi}$$ and $$\tilde{\psi}$$ are also measurable from the fact that $$\varphi_k \to \tilde{\varphi}$$ and $$\psi_k \to \tilde{\psi}$$ a.e. as $$k \to \infty$$.</div> and $$\tilde{\varphi} \le f \le \tilde{\psi}$$.
+<span class="real-analysis-footnote" markdown="span">Note: In property 4 of measurable function, it says that if $$\{f_n\}$$ is a sequence of measurable functions and $$f_n \to f$$ a.e., then $$f$$ is also measurable. Since each step functions are measurable, $$\tilde{\varphi}$$ and $$\tilde{\psi}$$ are also measurable from the fact that $$\varphi_k \to \tilde{\varphi}$$ and $$\psi_k \to \tilde{\psi}$$ a.e. as $$k \to \infty$$.</span> and $$\tilde{\varphi} \le f \le \tilde{\psi}$$.
 
 Now the Bounded Convergence Theorem shows that
 
@@ -463,7 +463,7 @@ $$
 
 Thus, $$\tilde{\varphi} = \tilde{\psi}$$ a.e. by Corollary of BCT.
 Since $$f = \tilde{\varphi} = \tilde{\psi}$$ a.e. , $$f$$ is measurable.
-<div class="real-analysis-footnote" markdown="1">Note: Property 6 of measurable function says that if $$f$$ is measurable and $$f = g$$ a.e., then $$g$$ is also measurable.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Property 6 of measurable function says that if $$f$$ is measurable and $$f = g$$ a.e., then $$g$$ is also measurable.</span>
 
 Finally, since $$\varphi_k \to f$$ a.e. we have by definition
 
@@ -487,13 +487,17 @@ $$
 \int_{\mathbb{R}^d} f = \sup_g \int_{\mathbb{R}^d} g
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: Let $$G = \{ g : g \text{ is measurable, } 0 \le g \le f, \text{ and } m(\supp g) < \infty \}$$. Then,
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Let $$G = \{ g : g \text{ is measurable, } 0 \le g \le f, \text{ and } m(\supp g) < \infty \}$$. Then,
 
 $$
 \int_{\mathbb{R}^d} f = \sup \left\{\int_{\mathbb{R}^d} g : g \in G \right\}
 $$
 
 </div>
+
 where the supremum is taken over all bounded functions $$g$$ supported on a set of finite measure,
 
 $$
@@ -817,7 +821,10 @@ f_N := f \chi_{E_N} \nearrow f
 $$
 
 By the MCT
-<div class="real-analysis-footnote" markdown="1">Note: Since $$f$$ is integrable, $$\int f < \infty$$. MCT shows that $$\int f_N \to \int f$$ as $$N \to \infty$$. Thus,
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Since $$f$$ is integrable, $$\int f < \infty$$. MCT shows that $$\int f_N \to \int f$$ as $$N \to \infty$$. Thus,
 
 $$
 \begin{aligned}
@@ -828,7 +835,8 @@ $$
 \end{aligned}
 $$
 
-</div>, $$\exists \: N_0 \in \mathbb{N}$$ such that
+</div>
+, $$\exists \: N_0 \in \mathbb{N}$$ such that
 
 $$
 \int(f - f_{N_0}) < \epsilon/2

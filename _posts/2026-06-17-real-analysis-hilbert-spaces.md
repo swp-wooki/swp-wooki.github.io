@@ -20,7 +20,14 @@ toc:
 **Hilbert space.**
 
 An inner product space is called a **Hilbert space** if it is complete and separable.
-<div class="real-analysis-footnote" markdown="1">Note: Some textbook defines a Hilbert space *without* the separability condition. Indeed, for advanced and modern mathemathics, this is more usual but quiet difficult to prove its properties. In this course, we will add the separability condition. See the Problem 2 for a non-separable example.</div>
+
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Some textbook defines a Hilbert space *without* the separability condition. Indeed, for advanced and modern mathemathics, this is more usual but quiet difficult to prove its properties. In this course, we will add the separability condition. See the Problem 2 for a non-separable example.
+
+</div>
+
 
 </div>
 
@@ -487,7 +494,15 @@ $$
 (f, g) = \lim_{n \to \infty} (f_n, g_n)_0
 $$
 
-where $$\{f_n\}$$ and $$\{g_n\}$$ are Cauchy sequence representing $$f, g \in H$$, respectively.<div class="real-analysis-footnote" markdown="1">Note: Please try to check well-definedness of the inner product!</div>
+where $$\{f_n\}$$ and $$\{g_n\}$$ are Cauchy sequence representing $$f, g \in H$$, respectively.
+
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Please try to check well-definedness of the inner product!
+
+</div>
+
 
 <ol>
 
@@ -501,7 +516,15 @@ If $$f \in H_0$$, the constant sequence $$\{f\}$$ is the corresponding element i
 </li>
 </ol>
 
-To prove $$H$$ is complete<div class="real-analysis-footnote" markdown="1">Note: Separability of $$H$$ is left as an exercise!</div>, let
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Separability of $$H$$ is left as an exercise!
+
+</div>
+
+
+To prove $$H$$ is complete, let
 $$\{F^k\}$$ be Cauchy in $$H$$.
 Each $$F^k$$ is represented by a Cauchy sequence
 

@@ -68,7 +68,7 @@ $$
 (f * K_\delta)(x) \to f(x) \quad \text{as } \delta \to 0
 $$
 
-for every Lebesgue point $$x$$. In particular, the limit holds a.e. <div class="real-analysis-footnote" markdown="1">Note: Note that $$\int_{\mathbb{R}^d} f(x-y)K_\delta(y)dy - \int_{\mathbb{R}^d} f(x)K_\delta(y)dy = (f * K_\delta)(x) - f(x)$$</div>
+for every Lebesgue point $$x$$. In particular, the limit holds a.e. <span class="real-analysis-footnote" markdown="span">Note: Note that $$\int_{\mathbb{R}^d} f(x-y)K_\delta(y)dy - \int_{\mathbb{R}^d} f(x)K_\delta(y)dy = (f * K_\delta)(x) - f(x)$$</span>
 
 </div>
 
@@ -106,8 +106,14 @@ A(r) &\le \frac{1}{r^d} \int_{\vert y\vert  \le r} \vert f(x-y)\vert  dy + \vert
 \end{aligned}
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: Calculation of $$\frac{1}{r^d} \int_{\vert y\vert \le r} \vert f(x)\vert dy$$ is given by
-$$\frac{1}{r^d} \int_{\vert y\vert  \le r} \vert f(x)\vert  dy = \frac{1}{r^d} \vert B_r\vert  \vert f(x)\vert  = \vert B_1\vert  \vert f(x)\vert $$</div>
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Calculation of $$\frac{1}{r^d} \int_{\vert y\vert \le r} \vert f(x)\vert dy$$ is given by
+$$\frac{1}{r^d} \int_{\vert y\vert  \le r} \vert f(x)\vert  dy = \frac{1}{r^d} \vert B_r\vert  \vert f(x)\vert  = \vert B_1\vert  \vert f(x)\vert $$
+
+</div>
+
 
 </div>
 
@@ -126,8 +132,14 @@ $$
 \end{aligned}
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: If
-$$k=0 : \delta < \vert y\vert \le 2\delta, \quad k=1 : 2\delta < \vert y\vert \le 4\delta $$</div>
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: If
+$$k=0 : \delta < \vert y\vert \le 2\delta, \quad k=1 : 2\delta < \vert y\vert \le 4\delta $$
+
+</div>
+
 
 Let $$\epsilon > 0$$. Then there exists $$N \in \mathbb{N}$$ such that
 

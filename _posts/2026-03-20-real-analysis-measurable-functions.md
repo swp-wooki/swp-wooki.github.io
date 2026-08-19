@@ -36,7 +36,7 @@ One can define measurability of $$f$$ in various ways.
 <ol>
 
 <li markdown="1">$$f$$ is measurable $$\iff \{f \le a\} \in \mathcal{M} \: \: \forall \: a \in \mathbb{R}$$.
-<div class="real-analysis-footnote" markdown="1">Note: Since $$(\Rightarrow)$$ $$\{f \le a\} = \bigcap_k \{f < a + \frac{1}{k}\}$$ and $$(\Leftarrow)$$ $$\{f < a\} = \bigcup_k \{f \le a - \frac{1}{k}\}$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Since $$(\Rightarrow)$$ $$\{f \le a\} = \bigcap_k \{f < a + \frac{1}{k}\}$$ and $$(\Leftarrow)$$ $$\{f < a\} = \bigcup_k \{f \le a - \frac{1}{k}\}$$.</span>
 
 </li>
 <li markdown="1">$$f$$ is measurable $$\iff \{f \ge a\} \in \mathcal{M} \: \: \forall \: a \in \mathbb{R}$$.
@@ -47,7 +47,7 @@ One can define measurability of $$f$$ in various ways.
 f \text{ is measurable} &\iff \{a < f < b\} \in \mathcal{M} \: \: \forall \: a, b \in \mathbb{R} \\
 &\iff f^{-1}(I) \in \mathcal{M} \quad \forall \: I \subset \mathbb{R} \text{ where } I =(a, b) \text{ is open interval}.
 \end{aligned}$$
-<div class="real-analysis-footnote" markdown="1">Note: Note that $$\{a < f < b\} = \{x \in E : a < f(x) < b\} = f^{-1}((a, b))$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Note that $$\{a < f < b\} = \{x \in E : a < f(x) < b\} = f^{-1}((a, b))$$.</span>
 
 </li>
 </ol>
@@ -63,7 +63,7 @@ f: E \rightarrow \mathbb{R} \text{ is measurable}
 &\iff f^{-1}(O) \in \mathcal{M} \quad \forall \: \text{open } O \\
 &\iff f^{-1}(F) \in \mathcal{M} \quad \forall \: \text{closed } F
 \end{aligned}$$
-<div class="real-analysis-footnote" markdown="1">Note: for $$f: E \rightarrow \overline{\mathbb{R}}$$, $$f^{-1}(\pm\infty) \in \mathcal{M}$$ is needed</div>
+<span class="real-analysis-footnote" markdown="span">Note: for $$f: E \rightarrow \overline{\mathbb{R}}$$, $$f^{-1}(\pm\infty) \in \mathcal{M}$$ is needed</span>
 
 </div>
 
@@ -136,7 +136,7 @@ $$
 \sup_n f_n, \quad \inf_n f_n, \quad \limsup_n f_n \quad \text{and} \quad \liminf_n f_n
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: Note that $$\sup_n f_n(x)$$ is defined by for each fixed $$x \in E$$, $$\sup_n f_n(x) = \sup\{f_n(x) : n \in \mathbb{N}\}$$,</div>
+<span class="real-analysis-footnote" markdown="span">Note: Note that $$\sup_n f_n(x)$$ is defined by for each fixed $$x \in E$$, $$\sup_n f_n(x) = \sup\{f_n(x) : n \in \mathbb{N}\}$$,</span>
 are measurable.
 
 </div>
@@ -148,7 +148,7 @@ are measurable.
 <ol>
 
 <li markdown="1">Note that $$\{\sup_n f_n > a\} = \bigcup_{n=1}^{\infty} \{f_n > a\}$$
-<div class="real-analysis-footnote" markdown="1">Note: $$\bigcup_{n=1}^{\infty} \{f_n > a\} = \bigcup_{n=1}^{\infty} \{x \in E : f_n(x) > a\}$$)</div>, and we know that each $$f_n$$  is measurable,
+<span class="real-analysis-footnote" markdown="span">Note: $$\bigcup_{n=1}^{\infty} \{f_n > a\} = \bigcup_{n=1}^{\infty} \{x \in E : f_n(x) > a\}$$)</span>, and we know that each $$f_n$$  is measurable,
 
 $$
 \{f_n > a\} \in \mathcal{M} \quad \text{for each } n \in \mathbb{N} \implies \bigcup_{n=1}^{\infty} \{f_n > a\} = \{\sup_n f_n > a\} \in \mathcal{M}
@@ -318,7 +318,7 @@ E_k &= \{x \in Q_k : f(x) \ge k\}
 \end{aligned}
 $$
 
- <div class="real-analysis-footnote" markdown="1">Note: Note that $$E_{j,k} \text{ and } E_k \in \mathcal{M}$$</div>
+ <span class="real-analysis-footnote" markdown="span">Note: Note that $$E_{j,k} \text{ and } E_k \in \mathcal{M}$$</span>
 Then
 
 $$
@@ -384,7 +384,7 @@ If $$f$$ is measurable, then there exists a sequence of step functions $$\{\psi_
 
 *Proof.*
 By the result `thm:4.2`, we may assume that $$f = \chi_E$$ for some $$E \in \mathcal{M}$$ with $$m(E) < \infty$$.
-<div class="real-analysis-footnote" markdown="1">Note: Note that the result `thm:4.2` says that we can approximate measurable function $$f$$ by sequence of simple functions. Since simple function is a finite linear combination of characteristic functions, we may approximate characteristic function $$\chi_E$$ by step functions. Therefore to show every measurable function can be approximated by step functions, it suffices to approximate characteristic function $$\chi_E$$ by step functions.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Note that the result `thm:4.2` says that we can approximate measurable function $$f$$ by sequence of simple functions. Since simple function is a finite linear combination of characteristic functions, we may approximate characteristic function $$\chi_E$$ by step functions. Therefore to show every measurable function can be approximated by step functions, it suffices to approximate characteristic function $$\chi_E$$ by step functions.</span>
 Then the result `thm:3.4` (iv) shows that $$\forall \: \epsilon > 0,$$ there exists cubes $$Q_1, \dots, Q_N$$ s.t.
 
 $$
@@ -394,7 +394,7 @@ $$
 Note that there exists almost disjoint rectangles $$\tilde{R}_1, \dots, \tilde{R}_M$$ such that
 $$\bigcup_{j=1}^N Q_j = \bigcup_{j=1}^M \tilde{R}_j$$
 Also, we can find disjoint rectangles $$R_1, \dots, R_M$$
-<div class="real-analysis-footnote" markdown="1">Note: We make $$R_j$$ be smaller then $$\tilde{R}_j$$ to avoid the possible overlaps in $$\bigcup_{j=1}^M R_j$$.</div> such that
+<span class="real-analysis-footnote" markdown="span">Note: We make $$R_j$$ be smaller then $$\tilde{R}_j$$ to avoid the possible overlaps in $$\bigcup_{j=1}^M R_j$$.</span> such that
 $$m(E \Delta \bigcup_{j=1}^M R_j) \le 2\epsilon$$
 Therefore,
 
@@ -403,14 +403,14 @@ f(x) = \sum_{j=1}^M \chi_{R_j}(x)
 $$
 
 except possibly a set of measure $$\le 2\epsilon$$.
-<div class="real-analysis-footnote" markdown="1">Note: Since $$\chi_{R_j}(x)$$ is defined on $$R_j$$, which is differ by a set of measure $$\le 2\epsilon$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Since $$\chi_{R_j}(x)$$ is defined on $$R_j$$, which is differ by a set of measure $$\le 2\epsilon$$.</span>
 Indeed, above equality may be written as
 
 $$
 f(x) = \psi(x) = \sum_{j=1}^M \chi_{R_j}(x) \quad \text{ for all } x \in \left(E \Delta \bigcup_{j=1}^M R_j\right)^c
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: That is, $$f(x) = \psi(x)$$ for all $$x$$ at the outside of $$E \Delta \bigcup_{j=1}^M R_j$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: That is, $$f(x) = \psi(x)$$ for all $$x$$ at the outside of $$E \Delta \bigcup_{j=1}^M R_j$$.</span>
 thus we can conclude that
 
 $$
@@ -489,7 +489,10 @@ $$
 E_k^n = \left\{ x \in E : \vert f_j(x) - f(x)\vert  < \frac{1}{n} \quad \forall j > k \right\}.
 $$
 
-<div class="real-analysis-footnote" markdown="1">Note: *i.e.* the set $$E_k^n$$ is set of all $$x \in E$$ such that every $$f_j$$ with $$j \ge k$$ satisfies $$\vert f_j(x) - f(x)\vert < \frac{1}{n}$$. Hence,
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: *i.e.* the set $$E_k^n$$ is set of all $$x \in E$$ such that every $$f_j$$ with $$j \ge k$$ satisfies $$\vert f_j(x) - f(x)\vert < \frac{1}{n}$$. Hence,
 
 <ol>
 
@@ -500,9 +503,12 @@ $$
 </li>
 </ol>
 
-Therefore, as $$k$$ increases, the condition for $$x$$ to be in $$E_k^n$$ becomes weaker, and hence $$E_k^n$$ becomes larger. Thereby, for fixed $$n$$, the set $$E_k^n$$ is monotone increasing with respect to $$k$$.</div>
+Therefore, as $$k$$ increases, the condition for $$x$$ to be in $$E_k^n$$ becomes weaker, and hence $$E_k^n$$ becomes larger. Thereby, for fixed $$n$$, the set $$E_k^n$$ is monotone increasing with respect to $$k$$.
+
+</div>
+
 Note that for fixed $$n$$, $$E_k^n \subset E_{k+1}^n \nearrow E$$ as $$k \to \infty$$.
-Thus, by the result `cor:3.3`<div class="real-analysis-footnote" markdown="1">Note: Note that Corollary 3.3 says that if $$E_{k+1}^n \nearrow E$$, then $$m(E) = \lim_{k \to \infty} m(E_k^n)$$.</div>,
+Thus, by the result `cor:3.3`<span class="real-analysis-footnote" markdown="span">Note: Note that Corollary 3.3 says that if $$E_{k+1}^n \nearrow E$$, then $$m(E) = \lim_{k \to \infty} m(E_k^n)$$.</span>,
 
 $$
 \exists \: k_n \text{ such that } m(E \setminus E_{k_n}^n) < 2^{-n}.
@@ -570,7 +576,7 @@ $$
 
 *Proof.*
 Let $$f_n$$ be a sequence of step functions s.t. $$f_n \to f$$ a.e.. Then there exists sets $$E_n$$
-<div class="real-analysis-footnote" markdown="1">Note: Therefore, $$E_n$$ contains discontinuity points of $$f_n$$.</div> with
+<span class="real-analysis-footnote" markdown="span">Note: Therefore, $$E_n$$ contains discontinuity points of $$f_n$$.</span> with
 
 $$
 m(E_n) < 2^{-n} \quad \text{such that f_n is continuous outside E_n}.

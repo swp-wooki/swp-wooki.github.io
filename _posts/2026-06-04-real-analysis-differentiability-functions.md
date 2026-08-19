@@ -71,7 +71,7 @@ What conditions on $$x, y$$ guarantee rectifiability of $$\gamma$$?
 
 **Definition.**
 A function $$F : [a,b] \to \mathbb{C}$$
-<div class="real-analysis-footnote" markdown="1">Note: $$F$$ is not necessarily continuous.</div>is of **bounded variation** if there exists $$M < \infty$$ such that for all partition of $$[a,b]$$,
+<span class="real-analysis-footnote" markdown="span">Note: $$F$$ is not necessarily continuous.</span>is of **bounded variation** if there exists $$M < \infty$$ such that for all partition of $$[a,b]$$,
 
 $$
 \sum_{j=1}^N \vert F(t_j) - F(t_{j-1})\vert  \le M.
@@ -378,7 +378,7 @@ $$
 \{D^+ F = \infty\} \subset \{D^+ F > \gamma\} \eqcolon E_\gamma \quad \forall \; \gamma > 0,
 $$
 
-hence it suffices to show that<div class="real-analysis-footnote" markdown="1">Note: See Exercise 14 to show that $$E_\gamma \in \mathcal{M}$$.</div>
+hence it suffices to show that<span class="real-analysis-footnote" markdown="span">Note: See Exercise 14 to show that $$E_\gamma \in \mathcal{M}$$.</span>
 
 $$
 \text{ETS : } m(E_\gamma) \to 0 \quad \text{as } \gamma \to \infty.
@@ -597,7 +597,7 @@ F(x) = \int_a^x f(y) dy
 $$
 
 is absolutely continuous by Proposition 1.12 in Chapter 2. This implies absolutely continuous is a necessary condition for $$\int_a^b F' = F(b) - F(a)$$.
-<div class="real-analysis-footnote" markdown="1">Note: If $$\int_a^b F' = F(b) - F(a)$$, then $$\int_a^x F' = F(x) - F(a)$$ for all $$x \in [a,b]$$, which implies $$F(x) = \int_a^x F' + F(a)$$ is absolutely continuous.</div>
+<span class="real-analysis-footnote" markdown="span">Note: If $$\int_a^b F' = F(b) - F(a)$$, then $$\int_a^x F' = F(x) - F(a)$$ for all $$x \in [a,b]$$, which implies $$F(x) = \int_a^x F' + F(a)$$ is absolutely continuous.</span>
 
 </li>
 </ol>
@@ -638,7 +638,7 @@ $$
 
 *Proof.*
 We may assume $$\delta < m(E)$$.
-<div class="real-analysis-footnote" markdown="1">Note: If $$\delta \ge m(E)$$, then $$m(E) - \delta \le 0$$</div> Take a compact subset $$E'$$ of $$E$$ with $$m(E') \ge \delta$$, and cover $$E'$$ by finitely many balls from $$\mathcal{B}$$.
+<span class="real-analysis-footnote" markdown="span">Note: If $$\delta \ge m(E)$$, then $$m(E) - \delta \le 0$$</span> Take a compact subset $$E'$$ of $$E$$ with $$m(E') \ge \delta$$, and cover $$E'$$ by finitely many balls from $$\mathcal{B}$$.
 By Vitali's covering argument, we can select a disjoint subcollection $$\{B_1, \dots, B_{N_1}\} \subset \mathcal{B}$$ such that
 
 $$

@@ -195,7 +195,7 @@ $$
 
 By the boundedness of $$F$$, letting $$r \nearrow 1$$ shows that $$\sum_{n=0}^\infty \vert a_n\vert ^2$$ converges.
 
-Now, we define $$F(e^{i\theta})$$ by the $$L^2$$ function where Fourier coefficients are $$a_n$$ when $$n \ge 0$$, and $$0$$ when $$n < 0$$.<div class="real-analysis-footnote" markdown="1">Note: Existence and uniqueness of such $$L^2$$-function, under the assumption $$\{a_n\} \in l^2$$, by the Riesz-Fischer theorem.</div>
+Now, we define $$F(e^{i\theta})$$ by the $$L^2$$ function where Fourier coefficients are $$a_n$$ when $$n \ge 0$$, and $$0$$ when $$n < 0$$.<span class="real-analysis-footnote" markdown="span">Note: Existence and uniqueness of such $$L^2$$-function, under the assumption $$\{a_n\} \in l^2$$, by the Riesz-Fischer theorem.</span>
 Hence by Theorem 3.1 (ii),
 
 $$

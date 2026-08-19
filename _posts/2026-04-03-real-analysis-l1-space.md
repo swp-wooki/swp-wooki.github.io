@@ -76,7 +76,7 @@ $$L^1$$ is complete.
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-Let $$\{f_n\}$$ be Cauchy in $$L^1$$. <div class="real-analysis-footnote" markdown="1">Note: See Exercise 12</div> <br>
+Let $$\{f_n\}$$ be Cauchy in $$L^1$$. <span class="real-analysis-footnote" markdown="span">Note: See Exercise 12</span> <br>
 Then we can take a subsequence $$\{f_{n_k}\}_{k=1}^\infty$$ of $$\{f_n\}$$ such that
 
 $$
@@ -93,9 +93,9 @@ g &:= \vert f_{n_1}\vert  + \sum_{k=1}^\infty \vert f_{n_{k+1}} - f_{n_k}\vert
 $$
 
 \addtocounter{footnote}{-1}
-<div class="real-analysis-footnote" markdown="1">Note: Note that partial sum of $$f_{n_1} + \sum_{k=1}^\infty (f_{n_{k+1}} - f_{n_k})$$ is $$s_k = f_{n_{k}}$$</div>
+<span class="real-analysis-footnote" markdown="span">Note: Note that partial sum of $$f_{n_1} + \sum_{k=1}^\infty (f_{n_{k+1}} - f_{n_k})$$ is $$s_k = f_{n_{k}}$$</span>
 \stepcounter{footnote}
-<div class="real-analysis-footnote" markdown="1">Note: Let $$g_K \coloneq \vert f_{n_1}\vert + \sum_{k=1}^K \vert f_{n_{k+1}} - f_{n_k}\vert \ge 0$$. Then $$g_K \nearrow g$$ as $$K \to \infty$$.</div>
+<span class="real-analysis-footnote" markdown="span">Note: Let $$g_K \coloneq \vert f_{n_1}\vert + \sum_{k=1}^K \vert f_{n_{k+1}} - f_{n_k}\vert \ge 0$$. Then $$g_K \nearrow g$$ as $$K \to \infty$$.</span>
 Since $$g_K \nearrow g$$ as $$K \to \infty$$, the MCT shows that
 
 $$
@@ -179,8 +179,14 @@ $$
 **Theorem 2.4.**
 
 The following families of functions $$\mathcal{F}$$ are dense in $$L^1(\mathbb{R}^d)$$
-<div class="real-analysis-footnote" markdown="1">Note: The family of functions $$\mathcal{F}$$ is dense in $$L^1$$ if
-$$\forall \: f \in L^1$$ and $$\forall \: \epsilon > 0$$, $$\exists \: \: g \in \mathcal{F}$$ such that $$\vert \vert f - g\vert \vert _{L^1} < \epsilon$$.</div>:
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: The family of functions $$\mathcal{F}$$ is dense in $$L^1$$ if
+$$\forall \: f \in L^1$$ and $$\forall \: \epsilon > 0$$, $$\exists \: \: g \in \mathcal{F}$$ such that $$\vert \vert f - g\vert \vert _{L^1} < \epsilon$$.
+
+</div>
+:
 
 <ol>
 

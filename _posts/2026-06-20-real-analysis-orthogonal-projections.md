@@ -41,7 +41,7 @@ A subspace $$S$$ of Hilbert space $$H$$ is **closed** if whenever $$\{f_n\} \sub
 
 **Lemma 4.1.**
 
-Let $$S \le H$$<div class="real-analysis-footnote" markdown="1">Note: We will denote subspace $$S$$ of $$H$$ by $$S \le H$$.</div> be closed and $$f \in H$$.
+Let $$S \le H$$<span class="real-analysis-footnote" markdown="span">Note: We will denote subspace $$S$$ of $$H$$ by $$S \le H$$.</span> be closed and $$f \in H$$.
 
 <ol>
 
@@ -91,7 +91,10 @@ $$
 Hence, $$\vert \vert f - \tilde{g}_0\vert \vert ^2 = \vert \vert f - g_0\vert \vert ^2 + \vert \vert g_0 - \tilde{g}_0\vert \vert ^2$$.
 </li>
 <li markdown="1">Let $$g \in S$$ and $$\epsilon \in \mathbb{R}$$. Since $$g_0 - \epsilon g \in S$$, we have
-<div class="real-analysis-footnote" markdown="1">Note: Following inequality comes from the following calculation:
+
+<div class="real-analysis-footnote" markdown="1">
+
+Note: Following inequality comes from the following calculation:
 
 $$
 \begin{aligned}
@@ -114,6 +117,7 @@ $$
 $$
 
 </div>
+
 
 $$
 \begin{aligned}

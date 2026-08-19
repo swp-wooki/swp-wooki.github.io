@@ -56,7 +56,7 @@ $$
 
 <li markdown="1">For $$f$$, which is measurable on $$\mathbb{R}^d$$, it is **NOT** necessarily true that $$f^y$$ (or $$f_x$$) is measurable for each $$y \in \mathbb{R}^{d_2}$$ (or $$x \in \mathbb{R}^{d_1}$$).
 </li>
-<li markdown="1">For $$E \in \mathcal{M}(\mathbb{R}^d)$$, the slice $$E^y$$ may not be measurable for each $$y \in \mathbb{R}^{d_2}$$. <div class="real-analysis-footnote" markdown="1">Note: Consider $$E$$ with $$m_d(E) = 0$$, but $$E^y \notin \mathcal{M}_{d_1} := \mathcal{M}(\mathbb{R}^{d_1})$$)</div>
+<li markdown="1">For $$E \in \mathcal{M}(\mathbb{R}^d)$$, the slice $$E^y$$ may not be measurable for each $$y \in \mathbb{R}^{d_2}$$. <span class="real-analysis-footnote" markdown="span">Note: Consider $$E$$ with $$m_d(E) = 0$$, but $$E^y \notin \mathcal{M}_{d_1} := \mathcal{M}(\mathbb{R}^{d_1})$$)</span>
 
 </li>
 </ol>

@@ -90,7 +90,7 @@ layout: default
   {% if site.disqus_shortname and page.disqus_comments %}
     {% include disqus.liquid %}
   {% endif %}
-  {% if site.giscus.repo and page.giscus_comments %}
+  {% if site.giscus.enabled and site.giscus.repo != blank and page.giscus_comments %}
     {% include giscus.liquid %}
   {% endif %}
 </div>
