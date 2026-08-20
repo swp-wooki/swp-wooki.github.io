@@ -30,6 +30,20 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/books/";
           },
+        },{id: "nav-talk",
+          title: "Talk",
+          description: "Academic talks, seminars, and presentations.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/talk/";
+          },
+        },{id: "nav-travel",
+          title: "Travel",
+          description: "Academic travel, conferences, workshops, and research visits.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/travel/";
+          },
         },{id: "nav-cv",
           title: "CV",
           description: "Academic background, professional experience, projects, certifications, activities, skills, and awards.",
