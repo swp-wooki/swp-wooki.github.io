@@ -1,42 +1,14 @@
-- title: Mathematics
-  slug: mathematics
-  description: Definitions, theorems, proofs, and problem-solving methods across pure and applied mathematics.
-  children:
-    - { title: Linear Algebra, slug: linear-algebra }
-    - { title: Mathematical Analysis, slug: analysis }
-    - { title: Real Analysis, slug: real-analysis, series: true }
-    - { title: Probability and Statistics, slug: statistics }
-    - { title: Probability Theory, slug: probability-theory, series: true }
-    - { title: PDEs and Applications, slug: partial-differential-equations, series: true }
-    - { title: Geometry, slug: geometry }
+- title: Real Analysis
+  slug: real-analysis
+  description: 2026년 봄학기 실변수함수론 · Measure theory, integration, and Hilbert spaces.
+  series: true
 
-- title: Artificial Intelligence
-  slug: artificial-intelligence
-  description: Theoretical foundations, research papers, and implementation studies in modern artificial intelligence.
-  children:
-    - { title: Machine Learning, slug: machine-learning }
-    - { title: Computer Vision, slug: computer-vision }
-    - { title: Natural Language Processing, slug: natural-language-processing }
+- title: Probability Theory
+  slug: probability-theory
+  description: 2026년 가을학기 확률론 · Conditional expectation, filtration, and martingale.
+  series: true
 
-- title: Computer Science
-  slug: computer-science
-  description: Algorithms, programming methodologies, and computer systems explored through theory and practice.
-  children:
-    - { title: Algorithms, slug: algorithms }
-    - { title: Programming, slug: programming }
-    - { title: Systems, slug: systems }
-
-- title: Physics
-  slug: physics
-  description: Mathematical formulations and intuitive interpretations of fundamental physical phenomena.
-  children:
-    - { title: Mechanics, slug: mechanics }
-    - { title: Electromagnetism, slug: electromagnetism }
-    - { title: Quantum Mechanics, slug: quantum-mechanics }
-
-- title: Academic Reviews
-  slug: review
-  description: Critical reflections on books, examinations, certifications, and independent study.
-  children:
-    - { title: Book Reviews, slug: books }
-    - { title: Examinations and Certifications, slug: certification }
+- title: PDEs and Applications
+  slug: partial-differential-equations
+  description: 2026년 가을학기 편미분방정식과 응용 · Transport, wave, and diffusion equations.
+  series: true

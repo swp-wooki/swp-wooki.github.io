@@ -9,631 +9,622 @@ giscus_comments: true
 related_posts: true
 toc:
   sidebar: left
+last_updated: 2026-10-04
 ---
 
 <!-- prettier-ignore-start -->
 
-> 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
+> 2026년 봄학기 실변수함수론 강의노트이다.
 
-Uh as I said maybe last week, uh the exterior measure is not the one uh uh we want to have. But instead we will need uh a new measure which is called the Lebesgue measure. Originally introduced by Lebesgue the French mathematician and uh this measure will be defined on some subclass of the power set. I mean the exterior measure was defined for arbitrary subsets of the Euclidean space. Right? But as this example you know suggests not all subsets of $$\mathbb{R}^d$$ are good. Some sets behave badly. So we will exclude these sets from the domain of the measure and we will uh we will collect like good sets in some sets for the domain of the Lebesgue measure. So I think we have enough time to introduce the definition of the Lebesgue measure.
+[전체 강의노트 PDF]({{ '/assets/pdf/2026-spring/real-analysis/main.pdf' | relative_url }})
+
+{% raw %}
+
+### 1.3. Measurable sets and the Lebesgue measure
+
+**정의를 다시 비교하자**
+
+<span id="l03:definition"></span>
+
+Exterior measure는 모든 집합에서 정의되지만 disjoint union에 대한 additivity가 실패할 수 있다. 그래서 집합 $$E$$를 열린 집합 $$O$$로 근사할 때, 숫자 $$m_*(O)$$만 $$m_*(E)$$에 가깝게 만드는 것보다 강한 조건을 요구한다.
 
 <div class="real-analysis-statement" markdown="1">
 
-**Definition.**
-A subset $$E$$ of $$\mathbb{R}^d$$ is (Lebesgue) measurable or simply measurable if you like, if the following holds and the condition is as follows: for any positive number $$\epsilon$$ there exists an open set $$O$$ containing $$E$$ such that the exterior measure of $$O \setminus E$$ is less than or equal to $$\epsilon$$.
+**Definition (Lebesgue measure).**
+
+$$E\subset\mathbb R^d$$가 measurable이라는 것은 모든 $$\epsilon>0$$에 대해 열린 집합 $$O\supset E$$를 골라
 
 $$
-m_{*}(O \setminus E) \le \epsilon
+m_*(O\setminus E)\le\epsilon
 $$
+
+으로 만들 수 있다는 뜻이다. 이때 $$m(E)=m_*(E)$$를 $$E$$의 Lebesgue measure라 한다. 모든 measurable set들의 모임을 $$\mathcal M(\mathbb R^d)$$ 또는 $$\mathcal M$$이라 쓴다.
 
 </div>
 
-In the textbook, uh Stein used this notation $$O \setminus E$$ instead of just set operation and this definition is very close to the observation, what was it, observation three. So the idea of observation three was that we can uh approximate an arbitrary set by open set from outside. This was the idea but it was possible for arbitrary subsets of $$\mathbb{R}^d$$ and observation three is a bit different from this definition. Uh observation three says that the exterior measure of $$E$$ can be approximated by the exterior measure of open sets containing that set but this says that there exists an open set containing $$E$$ so that the exterior measure of this difference is controllable in this way. Okay.
+$$m_*$$와 $$m$$은 같은 집합에 적용될 때 값이 같다. 차이는 정의역이다. $$m_*$$는 모든 부분집합에서 쓰지만, $$m$$은 measurability를 확인한 집합에서만 쓴다. 이후 $$\mathbb R^{d_1}$$과 $$\mathbb R^{d_2}$$의 집합을 함께 다룰 때에는 $$\mathcal M(\mathbb R^{d_1})$$처럼 공간도 명시한다.
 
-Uh you may try to distinguish these two statements and observation three holds for arbitrary sets whereas uh uh this will exclude some strange sets from the measurable sets. And let me also let me continue on Friday. So on Friday we will study some nice property of Lebesgue measurable sets and we will also study the property of the collection of all measurable sets as a space of sets. And we will also construct a counterexample of this standard additivity. Okay. See you on Friday.
+모든 $$E$$에 대해 성립했던 식은
 
-On Wednesday we studied some nice properties of the exterior measure, but in the end we found that there may exist a very strange set where the finite additivity may fail. Such a strange set will be constructed in the next week or in two weeks, I guess. And this strange set led us to the following definition of the Lebesgue measure.
+$$
+m_*(E)=\inf_{O\supset E,\ O\text{ open}}m_*(O)
+$$
 
-First, for any subset of $$\mathbb{R}^d$$, we say that subset $$E$$ is **measurable** only when a certain condition is satisfied. Thus such condition will exclude some ugly sets. We will say that a set is measurable if for any $$\epsilon$$, you can find an open set $$O$$ which contains the given set $$E$$ such that $$m_*(O \setminus E) \le \epsilon$$. So whenever the error $$\epsilon > 0$$ is given, we must be able to find an open set $$O$$ covers $$E$$, but the exterior measure of the difference is controllable with $$\epsilon$$.
+이다. $$m_*(E)<\infty$$이면 이 식에서 $$m_*(O)\le m_*(E)+\epsilon$$인 $$O$$를 고를 수 있다. 그러나 이것이 $$m_*(O\setminus E)\le\epsilon$$을 뜻하지는 않는다. 그 추론에는 $$m_*(O)=m_*(E)+m_*(O\setminus E)$$가 필요하고, 바로 그 additivity가 임의의 집합에서는 보장되지 않는다. 한편 measurability 조건은 subadditivity에 의해 수치적인 외측 근사를 함의한다. 즉 새 정의는 기존 관찰을 대체하는 것이 아니라 더 강한 성질을 요구한다.
+
+현재는 $$\mathcal M\subset\mathcal P(\mathbb R^d)$$임을 안다. 엄밀한 포함 $$\mathcal M\subsetneq\mathcal P(\mathbb R^d)$$은 뒤의 반례에서 확인한다. 먼저 열린 집합과 닫힌 집합 같은 익숙한 집합들이 $$\mathcal M$$에 들어가는지, 집합 연산 아래에서 안정적인지 알아보자.
+
+**Open set, null set, countable union**
+
+<span id="l03:open-null"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
-**Definition.**
-A set $$E \subset \mathbb{R}^d$$ is **measurable** if $$\forall \epsilon > 0$$, there exists an open set $$O \supset E$$, such that
+**Property 1.**
 
-$$
-m_*(O \setminus E) \le \epsilon
-$$
+모든 열린 집합은 measurable이다.
 
 </div>
 
-I think we need to compare this definition with Observation 3 that we made last time, which was that the exterior measure of an arbitrary set can be approximated by open sets from outside.
+$$E$$가 열려 있으면 덮개를 $$O=E$$로 택한다. 그러면 $$O\setminus E=\varnothing$$이고 $$m_*(\varnothing)=0$$이므로 정의를 만족한다.
 
 <div class="real-analysis-statement" markdown="1">
 
-**Observation 3.**
+**Property 2.**
 
-If $$E \subset \mathbb{R}^d$$, then
-
-$$
-m_{*}(E) = \inf_{E\, \subset \, O \text{: open}} m_{*}(O)
-$$
-
-</div>
-
-Note that the result `obs:3` holds for any $$E \subset \mathbb{R}^d$$, whether $$E$$ is either measurable or non-measurable. From the result `obs:3`, we have following inequality:
-
-$$
-\text{If } E \subset \mathbb{R}^d, \text{ then } \exists \text{ open set } O \supset E \text{ such that } m_*(O) < m_*(E) + \epsilon
-$$
-
-Above inequality comes from the definition of the infimum. Nevertheless, this inequality is different from the definition of measurability, which was
-
-$$
-\text{If } E \subset \mathbb{R}^d, \text{ then } \exists \text{ open set } O \supset E \text{ such that } m_*(O \setminus E) \le \epsilon
-$$
-
-*i.e.* $$m_*(O) \le m_*(E) + \epsilon \nRightarrow m_*(O \setminus E) \le \epsilon$$.
-Another important remark is that the additivity with exterior measure may fail in general. Even if we have a **disjoint** union.
-
-Now we will see some nice examples of measurable sets. Indeed, many sets are measurable, and in that case, we define the **Lebesgue measure** of a set. After we define the Lebesgue measure, we may say simply **measure** instead of Lebesgue measure.
-
-Thus let me define the (Lebesgue) measure and some notations.
-<div class="real-analysis-statement" markdown="1">
-
-**Lebesgue Measure.**
-
-<ul>
-
-<li markdown="1">A set $$E \subset \mathbb{R}^d$$ is **(Lebesgue) measurable** if $$\forall \epsilon > 0$$,
-
-$$
-\exists \text{ an open set } O \supset E \quad \text{ s.t. } \: m_*(O \setminus E) \le \epsilon
-$$
-
-</li>
-<li markdown="1">If $$E \subset \mathbb{R}^d$$ is measurable, then the **(Lebesgue) measure** $$m(E)$$ of $$E$$ is defined by $$m(E) \coloneq m_*(E)$$
-</li>
-<li markdown="1">Let $$\mathcal{M} = \mathcal{M}(\mathbb{R}^d) \subsetneq \mathcal{P}(\mathbb{R}^d)$$ denote the **collection of all measurable sets** in $$\mathbb{R}^d$$.
-
-</li>
-</ul>
-
-</div>
-
-### Properties of Measurable Sets
-The goal of this section is to study the nice properties of the measure of a set, especially for $$\mathcal{M}$$. Indeed, we will also prove that $$\mathcal{M}$$ is strictly included in the power set of $$\mathbb{R}^d$$ by constructing non-measurable sets, but at the moment, we don't know yet.
-The collection of measurable sets is closed under some set operations like intersection, union, or complement, and even for countable union and countable intersection. Those are our first goals. Let me start with simple example.
-
-<div class="real-analysis-statement" markdown="1">
-
-**Propoerty 1.**
-
-Every open set in $$\mathbb{R}^d$$ is measurable.
+$$m_*(E)=0$$이면 $$E$$는 measurable이며 $$m(E)=0$$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-Let $$E \subset \mathbb{R}^d$$ be an open set. Since $$E$$ is open, we can take $$E$$ itself to be open cover of $$E$$. Obviously, for any $$\epsilon > 0$$, we have
+
+$$\epsilon>0$$에 대해 외측 근사로 $$E\subset O$$이고 $$m_*(O)\le\epsilon$$인 열린 집합을 고른다. $$O\setminus E\subset O$$이므로 monotonicity로
 
 $$
-m_*(E \setminus E) = m_*(\emptyset) = 0 \le \epsilon
+m_*(O\setminus E)\le m_*(O)\le\epsilon.
 $$
 
-Thus every open set is measurable.
+따라서 $$E$$는 measurable이다. 그 뒤에야 $$m(E)=m_*(E)=0$$이라고 쓸 수 있다.
 
 </div>
 
-The following proposition is interesting. If the exterior measure of set is 0, then it is measurable.
+특히 null set의 모든 부분집합도 measurable이다. $$A\subset Z$$, $$m(Z)=0$$이면 $$m_*(A)\le m_*(Z)=0$$이기 때문이다. 나중에 함수를 null set 위에서 바꾸어도 measurability가 유지되는 이유가 여기에 있다.
 
 <div class="real-analysis-statement" markdown="1">
 
-**Propoerty 2.**
+**Property 3.**
 
-If $$m_*(E) = 0$$, then $$E \in \mathcal{M}$$ and $$m(E) = 0$$.
+<span id="l03:unions"></span>
+
+$$E_j\in\mathcal M$$이면 $$E=\bigcup_{j=1}^{\infty}E_j\in\mathcal M$$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-Let $$\epsilon > 0$$. By the result `obs:3`, we can find an open set $$O$$ such that
+
+각 집합을 열린 집합으로 근사하고 그 열린 집합들을 합칠 생각이다. 전체 오차가 $$\epsilon$$을 넘지 않게
 
 $$
-E \subset O \text{ and } m_*(O) \le m_*(E) + \epsilon = 0 + \epsilon = \epsilon
+E_j\subset O_j,\qquad m_*(O_j\setminus E_j)\le\epsilon2^{-j}
 $$
 
-Note that $$O \setminus E \subset O$$. Since the exterior measure is monotone with respect to set inclusion, we have
+로 고른다. $$O=\bigcup_jO_j$$는 열려 있고 $$E\subset O$$이다. $$x\in O\setminus E$$이면 어떤 $$O_j$$에는 들어가면서 모든 $$E_j$$에는 들어가지 않으므로
 
 $$
-m_*(O \setminus E) \le m_*(O) \le \epsilon
+O\setminus E\subset\bigcup_j(O_j\setminus E_j).
 $$
 
-which implies that $$E \in \mathcal{M}$$.
+이 포함 관계를 exterior measure의 countable subadditivity와 결합하면
+
+$$
+m_*(O\setminus E)\le\sum_jm_*(O_j\setminus E_j)
+\le\epsilon\sum_{j=1}^{\infty}2^{-j}=\epsilon.
+$$
+
+따라서 $$E$$가 measurable이다.
 
 </div>
 
-For the next proposition, we will prove that $$\mathcal{M}$$ is closed under countable union.
+여기서는 아직 Lebesgue measure의 additivity를 쓰지 않았다. 이미 알고 있던 exterior measure의 *subadditivity*만으로 충분했다.
 
-<div class="real-analysis-statement" markdown="1">
+**Closed set을 다루기 위한 거리 lemma**
 
-**Propoerty 3.**
+<span id="l03:separation"></span>
 
-If $$E_j \in \mathcal{M}$$ for $$j \in \mathbb{N}$$, then $$E = \bigcup_{j=1}^{\infty} E_j \in \mathcal{M}$$.
-
-</div>
-
-<div class="real-analysis-proof" markdown="1">
-
-*Proof.*
-Let $$\epsilon > 0$$. Then for all $$j \in \mathbb{N}$$, there exists an open set $$O_{j} \supset E_{j}$$ such that
+Closed set이 measurable임을 보이려면 먼저 compact set만 다루어도 충분하다. 닫힌 집합 $$F$$는
 
 $$
-m_*(O_j \setminus E_j) \leq \frac{\epsilon}{2^j}
+F=\bigcup_{k=1}^{\infty}\bigl(F\cap\overline B_k(0)\bigr)
 $$
 
-since each $$E_j \in \mathcal{M}$$. Note that we have proved that countable union of open sets is also open at Advanced Calculus class. *i.e.* $$O = \bigcup_{j=1}^{\infty}O_j$$ is open. Moreover, following inclusion holds.
-
-$$
-O \setminus E \subset \bigcup_{j=1}^{\infty} (O_j \setminus E_j)
-$$
-
-Thus, we can conclude that
-
-$$
-m_*(O \setminus E) \leq \sum_{j=1}^{\infty} m_*(O_j \setminus E_j) \leq \sum_{j=1}^{\infty} \frac{\epsilon}{2^j} = \epsilon
-$$
-
-</div>
-
-the result `prop:3` plays a key role for the next propositions. Now we will prove that $$\mathcal{M}$$ is closed under countable intersection and complement. For that, we need this proposition.
-
-<div class="real-analysis-statement" markdown="1">
-
-**Propoerty 4.**
-
-Closed sets are measurable.
-
-</div>
-
-Indeed, to prove this proposition, it is enough to show following:
-
-$$
-\text{ETS : Compact sets are measurable, as } F = \bigcup_{k \in \mathbb{N}} (F \cap B_k)
-$$
-
-where $$F$$ is an arbitrary closed set and $$B_k$$ is a closed ball of radius $$k$$. *i.e.* If we have closed set $$F$$, then we can represent $$F$$ with countable union of compact set $$F \cap B_k$$, since $$F$$ is closed and $$B_k$$ is also closed and bounded, so that each intersection $$F \cap B_k$$ is closed and bounded, hence compact. Therefore if we prove that compact set is measurable, then countable union of compact set is also measurable by the result `prop:3`.
-
-And we need to prove this lemma first.
+로 표현되고 각 $$F\cap\overline B_k(0)$$는 닫히고 유계이므로 compact하다. Compact 집합이 measurable이라면 앞의 countable union 성질을 적용할 수 있다. 이때 필요한 것이 다음 lemma다.
 
 <div class="real-analysis-statement" markdown="1">
 
 **Lemma 3.1.**
 
-If $$F$$ is closed, $$K$$ is compact, and $$F \cap K = \emptyset$$, then $$d(F, K) > 0$$, where distance $$d(\cdot, \cdot)$$ defined by $$d(A, B) = \inf \: \{\vert x-y\vert : x \in A, \: \: y \in B\}$$
+비어 있지 않은 closed set $$F$$와 compact set $$K$$가 서로 disjoint이면 $$\operatorname{dist}(F,K)>0$$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-Let $$K$$ be a compact and $$F$$ be a closed. Note that $$F$$ is not necessarily bounded. If they intersect at one point, then there exists at least one boundary point which belongs to $$K$$ and $$F$$ at the same time. So that will violate our assumption which was $$F \cap K = \emptyset$$. They need to be separated from each other. Let's prove it rigorously.
 
-Whenever we encounter compact set, we need to use the definition of the compact set. Take an open cover of the compact set and find a finite subcover. This is our key strategy. Now for each $$k \in K$$, we can take $$\delta_{x}$$ such that
-
-$$
-d(x, F) > 3 \delta_{x}
-$$
-
-where we denote $$\delta_{x}$$ to emphasize the dependence of the radius on the point $$x$$. By doing this, we found $$\delta_{x}$$ so that $$B_{3\delta_{x}}$$ does not intersect with $$F$$. Now consider the smaller ball $$B_{2\delta_{x}}$$. Then we form the open cover of $$K$$, *i.e.* $$K \subset \bigcup_{k \in K} B_{2\delta_{x}}(x)$$.
-
-Since $$K$$ is compact, we may find finite a subcover as follows:
+목표는 각각의 점이 $$F$$에서 떨어져 있다는 사실을 *모든 점에 공통인 양의 거리*로 바꾸는 것이다. 각 $$x\in K$$에 대해 $$x\notin F$$이고 $$F^c$$가 열려 있으므로 $$\operatorname{dist}(x,F)>0$$이다. 따라서
 
 $$
-\exists \: x_{1}, \cdots, x_{N} \in K \text{ such that } K \subset \bigcup_{j=1}^{N} B_{2\delta_{x_j}}(x_j)
+\operatorname{dist}(x,F)>3\delta_x>0
 $$
 
-Let $$\delta = \min \, \{ \delta_{x_1}, \dots, \delta_{x_N} \} > 0$$. Then by construction, if $$x \in K$$ and $$y \in F$$, then we have
+이 되게 $$\delta_x$$를 고른다. 반지름 $$3\delta_x$$인 공은 $$F$$와 만나지 않는다. 이보다 작은 공 $$B_{2\delta_x}(x)$$들을 모으면 $$K$$의 열린 덮개가 된다.
+
+$$K$$가 compact이므로 유한한 $$x_1,\ldots,x_N\in K$$에 대해
 
 $$
-\vert x_j - x\vert  < 2\delta_{x_j} \text{ and } \vert y - x_j\vert  \geq 3\delta_{x_j}
+K\subset\bigcup_{j=1}^N B_{2\delta_{x_j}}(x_j).
 $$
 
-for some $$j \in \{1, \dots, N\}$$.
-<span class="real-analysis-footnote" markdown="span">Note: If $$x \in K$$, then $$x \in B_{2\delta_{x_j}}$$ for some $$j$$, since $$\bigcup_{j=1}^{N} B_{2\delta_{x_j}}(x_j)$$ covers $$K$$. Since $$x \in B_{2\delta_{x_j}}$$, $$\vert x_j - x\vert < 2\delta_{x_j}$$ holds.</span>
-Thus, simple triangle inequality yields
+$$\delta=\min_{1\le j\le N}\delta_{x_j}>0$$으로 놓자. 유한 개의 양수를 골랐기 때문에 최솟값이 양수다. 임의의 $$x\in K$$는 어떤 $$B_{2\delta_{x_j}}(x_j)$$에 들어가고, 모든 $$y\in F$$에 대해 $$\vert y-x_j\vert >3\delta_{x_j}$$이다. 따라서
 
 $$
-\vert x - y\vert  \geq  \vert y - x_j\vert  - \vert x - x_j\vert  \geq 3\delta_{x_j} - 2\delta_{x_j} = \delta_{x_j} \geq \delta > 0
+|x-y|\ge |y-x_j|-|x-x_j|
+>3\delta_{x_j}-2\delta_{x_j}=\delta_{x_j}\ge\delta.
 $$
 
-which implies that $$d(F, K) \geq \delta > 0$$.
+모든 $$x\in K,y\in F$$에 대해 같은 $$\delta$$가 작동하므로 infimum을 취해 $$\operatorname{dist}(F,K)\ge\delta>0$$을 얻는다.
 
 </div>
 
-Now we use the result `lem:3.1` to prove the result `prop:4`.
+Disjoint한 열린 집합 둘에는 이 결론이 성립하지 않을 수 있다. 경계점에 계속 가까워질 수 있기 때문이다. 여기서는 closed 조건이 각 점 근처에 여유를 주고, compact 조건이 그 여유를 유한 개로 묶어 공통 간격을 준다.
+
+**Compact set과 closed set의 measurability**
+
+<span id="l03:closed"></span>
+
+<div class="real-analysis-statement" markdown="1">
+
+**Property 4.**
+
+모든 closed set은 measurable이다.
+
+</div>
 
 <div class="real-analysis-proof" markdown="1">
 
-*proof (the result `prop:4`).*
+*Proof.*
 
-Suppose that $$F \subset \mathbb{R}^d$$ is compact.
-<span class="real-analysis-footnote" markdown="span">Note: Once we prove that compact set is measurable, then its countable union is also measurable. Note that in previous page, we have shown that every closed set can be represented by countable union of compact set. Thus, for here, it is enough to show that compact set is measurable. This is why we assume $$F$$ be compact, not closed.</span>
-Let $$\epsilon > 0$$. By the result `obs:3`, there exists an open set $$O \supset F$$ such that $$m_*(O) \leq m_*(F) + \epsilon$$.
+위의 환원에 따라 compact set $$F$$가 measurable임을 보인다. $$F$$는 유계이므로 $$m_*(F)<\infty$$이다. 외측 근사로 열린 $$O\supset F$$를 골라
 
 $$
-\text{WTS : } m_*(O \setminus F) \leq \epsilon
+m_*(O)\le m_*(F)+\epsilon
 $$
 
-Note that we cannot get above inequality from $$m_*(O) \leq m_*(F) + \epsilon$$ immediately. Since $$F$$ is closed, basic topology gives us that $$O \setminus F$$ is open. Then, we can cover $$O \setminus F$$ by countably many almost disjoint cubes $$\{Q_j\}_{j=1}^{\infty}$$ by Theorem 1.4.
+이 되게 한다. 원하는 결론은 $$m_*(O\setminus F)\le\epsilon$$이다. 두 exterior measure를 곧바로 빼서 이 결론을 얻을 수 없다는 점이 이번 증명의 어려움이다.
 
-<div class="real-analysis-footnote" markdown="1">
+$$F$$가 닫혀 있으므로 $$O\setminus F=O\cap F^c$$는 열려 있다. 따라서 almost disjoint closed cube들로
 
-Note: In last week, we studied Theorem 1.4 and how to compute the measure of open set. Note the followings:
-
->
-\centering
-Every open subset $$\mathcal{O} \subset \mathbb{R}^d$$ can be written as a countable union of almost disjoint cubes. <br>
 $$
-\vert \mathcal{O}\vert  := \sum_{j=1}^\infty \vert Q_j\vert  \in [0, \infty].
+O\setminus F=\bigcup_{j=1}^{\infty}Q_j
 $$
+
+라고 쓸 수 있다. $$N$$을 고정하고 $$K_N=\bigcup_{j=1}^NQ_j$$라 하자. $$K_N$$은 유한 개 compact cube의 합집합이므로 compact이고 $$F$$와 disjoint하다. Lemma 3.1에 의해 $$\operatorname{dist}(F,K_N)>0$$이므로, 이 두 집합에는 exterior measure의 additivity를 적용할 수 있다.
+
+$$
+m_*(O)\ge m_*(F\cup K_N)=m_*(F)+m_*(K_N)
+=m_*(F)+\sum_{j=1}^N|Q_j|.
+$$
+
+마지막 등식에는 almost disjoint cube의 부피 합 공식을 사용했다. 따라서
+
+$$
+\sum_{j=1}^N|Q_j|\le m_*(O)-m_*(F)\le\epsilon.
+$$
+
+$$m_*(F)$$와 $$m_*(O)$$가 유한하므로 여기서 뺄셈은 정당하다. 모든 $$N$$에 대한 부등식에서 $$N\to\infty$$로 보내고 subadditivity를 적용하면
+
+$$
+m_*(O\setminus F)\le\sum_{j=1}^{\infty}|Q_j|\le\epsilon.
+$$
+
+이로써 compact $$F$$가 measurable이며, 처음의 countable union 표현으로 모든 closed set도 measurable이다.
 
 </div>
 
-Hence we have $$O \setminus F = \bigcup_{j=1}^{\infty} Q_j$$. Now fix $$N \in \mathbb{N}$$ and consider a compact set $$K = \bigcup_{j=1}^N Q_j$$.  Then by the result `lem:3.1`
-<span class="real-analysis-footnote" markdown="span">Note: Obviously, $$F \cap K = \emptyset$$, since for each $$Q_j \subset O \setminus F \Rightarrow Q_j \cap F = \emptyset$$.</span>
-, we have $$d(K, F) > 0$$. Since $$F \cup K \subset O$$, we have
+$$F$$와 $$O\setminus F$$의 거리는 $$0$$일 수 있다. 그래서 직접 additivity를 적용하는 대신, $$O\setminus F$$의 *안쪽 유한 부분* $$K_N$$에 적용한 것이다. 유한 단계에서는 positive distance를 확보하고, 마지막에 부피의 부분합을 극한으로 보낸다.
 
-$$
-\begin{aligned}
-m_*{(O)} &\geq m_*(F \cup K) \\
-&= m_*(F) + m_*(K)  \\
-&= m_*(F) + \sum_{j=1}^N m_*(Q_j)
-\end{aligned}
-$$
+**Complement와 countable intersection**
 
-
-<div class="real-analysis-footnote" markdown="1">
-
-Note: This equality comes from the observation 4, which we have proved in last lecture. The statement of the observation 4 was as follows: If $$E = E_1 \cup E_2$$ and $$dist(E_1, E_2) > 0$$, then
-
-$$
-m_{*}(E) = m_{*}(E_1) + m_{*}(E_2)
-$$
-
-</div>
-
-and from last estimate, we get
-
-$$
-\sum_{j=1}^N m_*(Q_j) \leq m_*(O) - m_*(F) \leq \epsilon.
-$$
-
-thus letting $$N \to \infty$$ yields
-
-$$
-m_*(O \setminus F) \leq \sum_{j=1}^\infty m_*(Q_j) \leq \epsilon
-$$
-
-</div>
-
-<span class="real-analysis-footnote" markdown="span">Note: Since $$O \setminus F = \bigcup_{j=1}^{\infty} Q_j$$, subadditivity of the exterior measure (Observation 2 in last lecture) yields $$m_*(O \setminus F) = m_*{\left( \bigcup_{j=1}^{\infty} Q_j \right) } \leq \sum_{j=1}^\infty m_*(Q_j)$$.</span>
-
-Now we can prove that if $$E \in \mathcal{M}$$, then $$E^c \in \mathcal{M}$$. The idea of proof is simple. We use the complement of the approximation of $$E$$. Instead of playing with $$\epsilon$$, we will use a sequence of approximations and the result `prop:2`. For each $$n \in \mathbb{N}$$, we construct $$O_n$$ which is an approximation of E. This can be done from the definition of measurability. We always approximate $$E$$ by open sets from outside. But if you take the complement, the complement of $$E$$ is approximated by closed sets from inside. So the complement of $$O_n$$ is closed. That is why we need the result `prop:4`.
+<span id="l03:complements"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
 **Property 5.**
 
-If $$E \in \mathcal{M}$$, then $$E^c \in \mathcal{M}$$.
+$$E\in\mathcal M$$이면 $$E^c\in\mathcal M$$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-For all $$n \in \mathbb{N}$$, there exists an open set $$O_n \supset E$$ such that
+
+각 $$n\in\mathbb N$$에 대해 열린 $$O_n\supset E$$를 골라
 
 $$
-m_*(O_n \setminus E) \le \frac{1}{n}
+m_*(O_n\setminus E)\le\frac1n
 $$
 
-Since $$O_n^c$$ is closed, it is measurable by the result `prop:4`. Now define $$S := \bigcup_n O_n^c$$. Since countable union of measurable sets is measurable by the result `prop:3`, we have $$S \in \mathcal{M}$$. Note that since $$E \subset O_n$$, we have $$E^c \supset O_n^c$$ for all $$n \in \mathbb{N}$$. This implies that
+이 되게 한다. $$O_n^c$$는 닫혀 있으므로 measurable이며 $$O_n^c\subset E^c$$이다. 따라서
 
 $$
-E^c \setminus S \subset O_n \setminus E
+S=\bigcup_{n=1}^{\infty}O_n^c
 $$
 
+도 measurable이고 $$S\subset E^c$$이다. $$E$$를 밖에서 열린 집합으로 근사하던 것을 뒤집어서 $$E^c$$를 안쪽의 닫힌 집합들로 채우는 것이다.
 
-
-<div class="real-analysis-footnote" markdown="1">
-
-Note: Note that $$E^c \setminus S = E^c \cap S^c = E^c \cap \left(\bigcup_{k=1}^{\infty} O_{k}^{c}\right)^{c} = \bigcap_{k=1}^{\infty} (O_{k}^{c})^{c} = \bigcap_{k=1}^{\infty} O_{k}$$ and $$\bigcap_{k=1}^{\infty} O_{k} \subset O_n$$ for all $$n \in \mathbb{N}$$. Thus, we have
+채우고 남은 부분은
 
 $$
-E^{c} \setminus S = E^{c} \cap \left(\bigcap_{k=1}^{\infty} O_{k}\right) \subset O_n \cap E^c = O_n \setminus E
+E^c\setminus S=E^c\cap\bigcap_{k=1}^{\infty}O_k
+\subset E^c\cap O_n=O_n\setminus E
 $$
+
+이다. 따라서 모든 $$n$$에 대해 $$m_*(E^c\setminus S)\le1/n$$이다. 왼쪽은 $$n$$에 의존하지 않으므로 $$m_*(E^c\setminus S)=0$$이다. Null set은 measurable이므로
+
+$$
+E^c=S\cup(E^c\setminus S)
+$$
+
+도 measurable이다.
 
 </div>
-
-hence monotonicity of the exterior measure yields
-
-$$
-m_{*}(E^{c} \setminus S) \le m_*(O_n \setminus E) \le \frac{1}{n} \: \text{ for all } n \in \mathbb{N}
-$$
-
-and this inequality holds for any natural number $$n$$. Therefore, $$m_{*}(E^c \setminus S)$$ must be zero. Thus, by the result `prop:2`, we get
-
-$$
-m_{*}(E^c \setminus S) = 0 \implies E^c \setminus S \in \mathcal{M}
-$$
-
-In particular, since $$E^c = S \cup (E^c \setminus S)$$, we know that $$S \in \mathcal{M}$$ and $$E^c \setminus S \in \mathcal{M}$$ so is $$E^c \in \mathcal{M}$$.
-
-</div>
-
-We can combine these facts to conclude that any countable intersection is measurable again.
 
 <div class="real-analysis-statement" markdown="1">
 
 **Property 6.**
 
-If $$E_j \in \mathcal{M}$$ for $$j \in \mathbb{N}$$, then $$\bigcap_{j=1}^{\infty} E_{j} \in \mathcal{M}$$.
+$$E_j\in\mathcal M$$이면 $$\bigcap_{j=1}^{\infty}E_j\in\mathcal M$$이다.
 
 </div>
+
+실제로 De Morgan의 법칙으로
+
+$$
+\bigcap_{j=1}^{\infty}E_j
+=\left(\bigcup_{j=1}^{\infty}E_j^c\right)^c.
+$$
+
+각 $$E_j^c$$가 measurable이고 그 countable union이 measurable이며, 다시 complement를 취해도 measurable이다. 이제 $$\mathcal M$$이 필요한 집합 연산 아래에서 닫혀 있음을 확보했다.
+
+**Countable additivity: 안쪽에서 근사하는 이유**
+
+<span id="l03:additivity"></span>
+
+<div class="real-analysis-statement" markdown="1">
+
+**Theorem 3.2: Countable additivity.**
+
+Measurable set $$E_j$$들이 쌍마다 disjoint이고 $$E=\bigcup_{j=1}^{\infty}E_j$$이면
+
+$$
+m(E)=\sum_{j=1}^{\infty}m(E_j).
+$$
+
+</div>
+
+Exterior measure에서는 positive distance라는 추가 조건 아래 finite additivity를 보였다. 지금은 각 집합의 measurability가 그 역할을 대신한다. 집합 사이 거리가 $$0$$이어도 좋고, 유한 개를 넘어 countable하게 많은 집합에 대해 등식이 성립한다.
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-$$\bigcap_{j=1}^{\infty} E_j = \left(\bigcup_{j=1}^{\infty} E_j^c\right)^c \in \mathcal{M}$$.
-<span class="real-analysis-footnote" markdown="span">Note: Since $$E_j \in \mathcal{M}$$, we have $$E_j^c \in \mathcal{M}$$ by the result `prop:5`. By the result `prop:3`, we have $$\bigcup_{j=1}^{\infty} E_j^c \in \mathcal{M}$$. Finally, by the result `prop:5` again, we have $$\left(\bigcup_{j=1}^{\infty} E_j^c\right)^c \in \mathcal{M}$$.</span>
 
-</div>
-
-Now, here comes the theorem. The countable additivity for the Lebesgue measure. We already proved the countable union of measurable sets is measurable. Surprisingly, the measure of the countable union of measurable sets is the sum of the measures of each set.
-
-the result `thm:3.2` fails for the exterior measure. But since have measurable sets, which is not arbitrary set in $$\mathbb{R}^d$$. We have noticed that for the exterior measure, if we have a positive distance from each other, then we have finite additivity. For measurable set, we allow the sets to be disjoint with zero distance, so that the condition is weaker than exterior measure. This is the key difference between the exterior measure and the Lebesgue measure. This is why we take the Lebesgue measure as the standard measure in $$\mathbb{R}^d$$.
-Compare the following two statements with the result `thm:3.2`.
-
-<div class="real-analysis-statement" markdown="1">
-
-**Observation 2 (Countable Subadditivity).**
-
-If $$E = \bigcup_{j=1}^{\infty} E_j$$, then $$m_{*}(E) \le \sum_{j=1}^{\infty} m_{*}(E_j)$$.
-
-</div>
-
-<div class="real-analysis-statement" markdown="1">
-
-**Observation 4.**
-
-If $$E = E_1 \cup E_2$$ and $$dist(E_1, E_2) > 0$$, then
+$$E$$는 measurable이다. $$\le$$ 방향은 exterior measure의 subadditivity에서 바로 나온다.
 
 $$
-m_{*}(E) = m_{*}(E_1) + m_{*}(E_2)
+m(E)=m_*(E)\le\sum_jm_*(E_j)=\sum_jm(E_j).
 $$
 
+반대 부등식을 위해 먼저 모든 $$E_j$$가 유계라고 가정한다. 유한 measure라는 말과 유계라는 말은 다르다. 유계 조건이 필요한 이유는 안쪽의 닫힌 근사 집합을 compact하게 만들기 위해서다.
+
+$$\epsilon>0$$을 고정한다. $$E_j^c$$가 measurable이므로 열린 $$O_j\supset E_j^c$$를 골라
+
+$$
+m_*(O_j\setminus E_j^c)\le\epsilon2^{-j}
+$$
+
+로 만들 수 있다. $$F_j=O_j^c$$라 하면 $$F_j\subset E_j$$이고 $$F_j$$는 closed다. 또한 $$E_j$$가 유계이므로 $$F_j$$는 compact하며
+
+$$
+m(E_j\setminus F_j)=m_*(O_j\setminus E_j^c)\le\epsilon2^{-j}.
+$$
+
+$$E_j$$가 서로 disjoint이므로 그 안의 $$F_j$$들도 disjoint다. 밖에서 근사했다면 서로 다른 $$E_j$$의 열린 근방들이 겹칠 수 있다. *안쪽* 근사이기 때문에 disjointness를 보존한다.
+
+고정된 $$N$$에 대해 $$F_1,\ldots,F_N$$은 disjoint compact set들이다. 쌍마다 positive distance를 가지므로 앞서 증명한 exterior measure의 finite additivity를 적용하여
+
+$$
+\sum_{j=1}^Nm(F_j)=m\left(\bigcup_{j=1}^NF_j\right)\le m(E)
+$$
+
+를 얻는다. 또한 $$E_j=F_j\cup(E_j\setminus F_j)$$와 subadditivity로
+
+$$
+\begin{align*}
+\sum_{j=1}^Nm(E_j)
+&\le\sum_{j=1}^Nm(F_j)+\sum_{j=1}^Nm(E_j\setminus F_j)\\
+&\le m(E)+\epsilon\sum_{j=1}^N2^{-j}\le m(E)+\epsilon.
+\end{align*}
+$$
+
+여기서 $$m(E_j)=m(F_j)+m(E_j\setminus F_j)$$라고 미리 쓰지 않는다. 그 additivity가 지금 증명하려는 성질이기 때문이다. 필요한 것은 이미 아는 $$\le$$뿐이다.
+
+이 부등식이 모든 $$N$$에 대해 성립하므로 부분합의 극한을 취한다. $$m(E)=\infty$$이면 원하는 $$\ge$$ 방향은 이미 성립하고, 유한하면 이어 $$\epsilon\downarrow0$$을 취하여 $$\sum_jm(E_j)\le m(E)$$를 얻는다. 이것으로 각 $$E_j$$가 유계인 경우를 마쳤다.
+
 </div>
+
+**Unbounded set을 bounded 조각으로 나누기**
+
+<span id="l03:unbounded"></span>
+
+마지막으로 위 증명의 유계 가정을 제거하자. $$Q_k=[-k,k]^d$$로 두고
+
+$$
+S_1=Q_1,\qquad S_k=Q_k\setminus Q_{k-1}\quad(k\ge2)
+$$
+
+로 놓으면 $$\mathbb R^d$$는 bounded measurable set $$S_k$$들의 disjoint union이다. 그림으로는 중심의 cube와 그 바깥에 차례로 붙는 껍질을 생각하면 된다. 각 $$E_j$$를
+
+$$
+E_{j,k}=E_j\cap S_k
+$$
+
+로 잘라 놓으면 모든 $$E_{j,k}$$가 bounded, measurable이고 전체 이중 모임도 disjoint다. 또한
+
+$$
+E_j=\bigcup_{k=1}^{\infty}E_{j,k},\qquad
+E=\bigcup_{j,k=1}^{\infty}E_{j,k}.
+$$
+
+앞에서 증명한 결과는 “합집합이 유계”일 것을 요구하지 않고 *각 조각*이 유계일 것만 요구했다. 그러므로 위 두 countable union 모두에 그 결과를 적용할 수 있다. 따라서
+
+$$
+m(E)=\sum_{j,k}m(E_{j,k})
+=\sum_j\sum_km(E_{j,k})
+=\sum_jm(E_j).
+$$
+
+음이 아닌 수의 이중합이므로 무한대가 허용되더라도 순서를 바꾸는 데 문제가 없다. 이로써 일반적인 경우의 countable additivity까지 증명했다.
+
+이제 Lebesgue measure는 단순히 집합에 숫자를 부여하는 함수를 넘어, disjoint한 조각으로 분해하고 다시 합치는 연산과 일관되게 작동한다. 다음에는 이 additivity에서 집합열의 극한과 여러 근사 정리를 이끌어 낸다.
+
+**Countable additivity에서 집합열의 극한으로**
+
+<span id="l04:continuity"></span>
+
+열린 집합, 닫힌 집합, compact 집합이 모두 measurable임을 보았고, $$\mathcal M$$은 complement와 countable union 및 intersection 아래에서 닫혀 있음을 확인했다. 가장 중요한 성질은 쌍마다 disjoint인 $$E_j\in\mathcal M$$에 대해
+
+$$
+m\left(\bigcup_{j=1}^{\infty}E_j\right)=\sum_{j=1}^{\infty}m(E_j)
+$$
+
+가 성립한다는 것이다. Exterior measure에서는 disjointness만으로 이 등식을 얻지 못했고, positive distance 조건 아래 finite additivity부터 증명했다. Measurability가 생기면서 집합 사이 거리를 따로 요구하지 않고 countable additivity까지 얻게 되었다.
+
+이제 집합들이 점점 커지거나 작아질 때 measure가 어떻게 변하는지 묻자. $$E_j\subset E_{j+1}$$이고 $$E=\bigcup_jE_j$$이면 $$E_j\nearrow E$$라고 쓴다. 반대로 $$E_j\supset E_{j+1}$$이고 $$E=\bigcap_jE_j$$이면 $$E_j\searrow E$$라고 쓴다. 화살표는 집합의 포함 관계와 그 합집합 또는 교집합을 동시에 나타낸다.
 
 <div class="real-analysis-statement" markdown="1">
 
-**Theorem 3.2 (Countable Additivity).**
+**Corollary 3.3: Continuity of measure.**
 
-If $$E_j \in \mathcal{M}$$ for $$j \in \mathbb{N}$$ are disjoint and $$E = \bigcup_j E_j$$, then $$m(E) = \sum_{j=1}^\infty m(E_j)$$.
+$$E_j\in\mathcal M$$이라 하자.
+
+<ol type="i" markdown="1">
+
+<li markdown="1">
+
+$$E_j\nearrow E$$이면 $$m(E)=\lim_{j\to\infty}m(E_j)$$이다.
+
+</li>
+
+<li markdown="1">
+
+$$E_j\searrow E$$이고 어떤 $$k$$에 대해 $$m(E_k)<\infty$$이면 $$m(E)=\lim_{j\to\infty}m(E_j)$$이다.
+
+</li>
+
+</ol>
 
 </div>
+
+증가하는 경우에는 극한이 무한대여도 괜찮다. 감소하는 경우에는 왜 유한 measure 조건이 붙는가? $$E_j=(j,\infty)$$를 보자. 모든 $$E_j$$의 measure는 무한대이고 집합열은 감소하지만, 어떤 실수도 모든 $$(j,\infty)$$에 들어갈 수 없으므로 $$\bigcap_jE_j=\varnothing$$이다. 따라서
+
+$$
+m\left(\bigcap_jE_j\right)=0\ne\infty=\lim_jm(E_j).
+$$
+
+작아지는 집합의 모든 단계가 무한 measure이면 최종 교집합의 크기를 단계별 measure만으로 알 수 없다.
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-($$\leq$$) Clearly, by the result `obs:2`, we have $$m(E) = m_*(E) \le \sum_{j=1}^\infty m_*(E_j) = \sum_{j=1}^\infty m(E_j).$$
 
-($$\geq$$) For this inequality, first assume that $$E_j$$ is bounded for all $$j$$. Of course, the set $$E_j$$ may be unbounded with finite measure, so we will first assume that $$E_j$$ is bounded, and in the next step we will prove the same equality for unbounded sets.
-
-<ol>
-
-<li markdown="1">**$$E_j$$ is bounded.** <br>
-Suppose that $$E_j$$ is bounded for all $$j$$. We will approximate each set $$E_j$$ from **inside**, whereas we usally approximate a set from outside. Anyway, we will use the complement of the $$E_j$$ to find an approximation of $$E_j$$ from inside.
-
-Let $$\epsilon > 0$$. Since $$E_j^c \in \mathcal{M}$$ by the result `prop:5`, by definition of measure,
+(i) Countable additivity를 쓰려면 disjoint한 조각이 필요하다. 증가하는 집합들은 서로 겹치므로 새로 추가된 부분만 분리한다.
 
 $$
-\exists \: \text{ an open set } O_j \supset E_j^c \: \text{ such that } m_*(O_j \setminus E_j^c) = m_*(E_j \setminus O_j^c) \le \frac{\epsilon}{2^j}
+G_1=E_1,\qquad G_j=E_j\setminus E_{j-1}\quad(j\ge2).
 $$
 
-Then $$F_j \coloneq O_j^c \subset E_j$$ is a closed set since $$O_j$$ is open. Since $$E_j$$ is bounded by assumption, so is $$F_j$$. Thus, $$F_j$$ is bounded and closed, so it is compact. Moreover, $$F_j$$ is disjoint with each other.
-<span class="real-analysis-footnote" markdown="span">Note: Since $$E_j$$ are disjoint, we have $$E_j^c \supset E_k$$ for all $$k \neq j$$. Since $$O_j \supset E_j^c$$, we have $$O_j \supset E_k$$ for all $$k \neq j$$. Thus, we have $$F_j = O_j^c \subset E_k^c$$ for all $$k \neq j$$, which implies that $$F_j \cap F_k = \emptyset$$ for all $$j \neq k$$.</span>
-This is the reason why try to approximate $$E_j$$ from inside.
-
-Now, for each fixed $$N \in \mathbb{N}$$, consider $$F_1, \dots, F_N$$ which are compact and disjoint. Thus, we have
-<span class="real-analysis-footnote" markdown="span">Note: For each $$F_j$$ and $$F_k$$ with $$j \neq k$$, we have $$d(F_j, F_k) > 0$$ by the result `lem:3.1`. Thus, we can apply the result `obs:4` to get $$m\left(\bigcup_{j=1}^N F_j\right) = \sum_{j=1}^N m(F_j)$$.</span>
+각 $$G_j$$는 measurable이며 서로 disjoint다. 그림으로는 가장 안쪽 집합과 그 바깥에 한 겹씩 더해지는 층을 생각하면 된다. $$E=\bigcup_jG_j$$이고 $$E_N=\bigcup_{j=1}^NG_j$$이므로
 
 $$
-m\left(\bigcup_{j=1}^N F_j\right) = \sum_{j=1}^N m(F_j).
+m(E)=\sum_{j=1}^{\infty}m(G_j)
+=\lim_{N\to\infty}\sum_{j=1}^Nm(G_j)
+=\lim_{N\to\infty}m(E_N).
 $$
 
-Since $$\bigcup_{j=1}^N F_j \subset E$$, we have
+부분합의 극한은 무한대일 수도 있으며 음이 아닌 항들이므로 항상 존재한다.
+
+(ii) 유한 개의 초기 항을 지워도 교집합과 measure의 극한은 바뀌지 않는다. 따라서 $$m(E_1)<\infty$$라 가정해도 된다. 이번에는 빠져나가는 층을
 
 $$
-\begin{aligned}
-\sum_{j=1}^N m(E_j) &= \sum_{j=1}^N (m(F_j) + m(E_j \setminus F_j)) \\
-&= \sum_{j=1}^N m(F_j) + \sum_{j=1}^N m(E_j \setminus F_j) \\
-&\le m\left(\bigcup_{j=1}^N F_j\right) + \sum_{j=1}^N \frac{\epsilon}{2^j} \\
-&\le m(E) + \epsilon.
-\end{aligned}
+G_j=E_j\setminus E_{j+1}
 $$
 
-Letting $$N \to \infty$$ and since $$\epsilon > 0$$ is arbitrary, we get
+로 정의한다. $$E_1$$의 점은 끝까지 남아서 $$E$$에 들어가거나, 어떤 단계에서 처음 빠져나가서 정확히 하나의 $$G_j$$에 들어간다. 그러므로
 
 $$
-m(E) \geq \sum_{j=1}^\infty m(E_j).
+E_1=E\,\dot\cup\,\mathop{\dot\bigcup}_{j=1}^{\infty}G_j.
 $$
 
-</li>
-<li markdown="1">**$$E_j$$ is unbounded.** <br>
-We need to prove the same equality for unbounded sets. To do this, we will cover the whole space by a sequence of growing cubes $$Q_k$$. Let $$\{Q_k\}_{k \in \mathbb{N}}$$ be a sequence of cubes such that $$Q_k \subset Q_{k+1}$$ for all $$k$$ and $$\bigcup_k Q_k = \mathbb{R}^d$$. Then one can decompose $$\mathbb{R}^d$$ with $$S_k = Q_k \setminus Q_{k-1}$$. *i.e.* $$S_1 = Q_1$$ and $$S_k = Q_k \setminus Q_{k-1}$$ for $$k \ge 2$$, and define the bounded set $$E_{j,k} = E_j \cap S_k$$. Note that $$E_j = \bigcup_k E_{j,k}$$ and $$E = \bigcup_{j,k} E_{j,k}$$ are disjoint unions. Thus,
+모든 집합이 유한 measure를 가지므로 $$m(G_j)=m(E_j)-m(E_{j+1})$$이다. Countable additivity와 telescoping sum을 쓰면
 
 $$
-m(E) = \sum_{j,k} m(E_{j,k}) = \sum_j \sum_k m(E_{j,k}) = \sum_j m(E_j).
+\begin{align*}
+m(E_1)
+&=m(E)+\lim_{N\to\infty}\sum_{j=1}^{N-1}\bigl(m(E_j)-m(E_{j+1})\bigr)\\
+&=m(E)+m(E_1)-\lim_{N\to\infty}m(E_N).
+\end{align*}
 $$
 
-</li>
-</ol>
+유한한 $$m(E_1)$$을 양변에서 빼면 원하는 등식이 나온다. 유한 measure 가정은 바로 이 뺄셈을 정당화한다. $$\infty-\infty$$는 정의하지 않으므로 그 가정 없이 같은 계산을 할 수 없다.
 
 </div>
 
-We have proved that open, closed, and compact sets are all measurable. And the collection of all measurable sets, which we denoted by calligraphic $$\mathcal{M}$$, is closed under some set operations like union, intersection, and the complements. We will study some more properties of $$\mathcal{M}$$ further.
+**Measurable set을 좋은 집합으로 근사하기**
 
-Needless to say, the most important property of the measurable sets is the countable additivity. We have proved the result `thm:3.2` in last week.
-
-<div class="real-analysis-statement" markdown="1">
-
-**Theorem 3.2 (Countable Additivity).**
-
-If $$E_j \in \mathcal{M}$$ for $$j \in \mathbb{N}$$ are disjoint and $$E = \bigcup_j E_j$$, then $$m(E) = \sum_{j=1}^\infty m(E_j)$$.
-
-</div>
-
-This theorem states that if we have *countably many* measurable sets, and they are *disjoint*, then the measure of the union of these sets is the same as the sum of the each measurable sets. This is called the *countable additivity* of the measurable sets, which distinguishes the measurable sets from arbitrary sets in $$\mathbb{R}^d$$. For the exterior measure, we cannot apply countable additivity, beacuse disjointness is not enough to guarantee the equality for the exterior measure. To get equality, we needed an additional assumption that the distance between pairs of two sets must be positive. Even though, we have only **finite** additivity for the exterior measure, but for measurable sets, we have the **countable** additivity.
-
-<div class="real-analysis-footnote" markdown="1">
-
-Note: For your information, please compare following statement with the result `thm:3.2`.
-<div class="real-analysis-statement" markdown="1">
-
-**Observation 2 (Countable Subadditivity).**
-
-If $$E = \bigcup_{j=1}^{\infty} E_j$$, then $$m_{*}(E) \le \sum_{j=1}^{\infty} m_{*}(E_j)$$.
-
-</div>
-
-
-<div class="real-analysis-statement" markdown="1">
-
-**Observation 4.**
-
-If $$E = E_1 \cup E_2$$ and $$dist(E_1, E_2) > 0$$, then
-
-$$
-m_{*}(E) = m_{*}(E_1) + m_{*}(E_2)
-$$
-
-</div></div>
-
-Today we are going to study some corollaries of the result `thm:3.2`. Let me start with the result `cor:3.3`, and we need to define some notations for the limit of sets.
-
-<ul>
-
-<li markdown="1">If $$E_j \subset E_{j+1}$$ and $$\bigcup_{j=1}^\infty E_j = E$$, we write $$E_j \nearrow E$$.
-</li>
-<li markdown="1">If $$E_j \supset E_{j+1}$$ and $$\bigcap_{j=1}^\infty E_j = E$$, we write $$E_j \searrow E$$.
-
-</li>
-</ul>
-
-Thus for $$E_j \nearrow E$$, we have an increasing sequence of sets $$\{E_j\}$$, and for $$E_j \searrow E$$, we have a decreasing sequence of sets $$\{E_j\}$$.
-
-<div class="real-analysis-statement" markdown="1">
-
-**Corollary 3.3.**
-
-Let $$E_j \in \mathcal{M}$$, for all $$j \in \mathbb{N}$$.
-
-<ol>
-
-<li markdown="1">If $$E_j \nearrow E$$ (i.e., $$E_j \subset E_{j+1}$$ and $$\bigcup_{j=1}^\infty E_j = E$$), then $$m(E) = \lim_{j\to\infty} m(E_j)$$.
-</li>
-<li markdown="1">If $$E_j \searrow E$$ (i.e., $$E_j \supset E_{j+1}$$ and $$\bigcap_{j=1}^\infty E_j = E$$) and $$m(E_k) < \infty$$ for some $$k \in \mathbb{N}$$, then $$m(E) = \lim_{j\to\infty} m(E_j)$$.
-
-</li>
-</ol>
-
-</div>
-
-The first statement is quite natural to expect. The same is true for the decreasing sequence, but we need one more assumption for the second statement. For the first statement, if we allow the measure of $$E_j$$ to be infinite, then $$\{m(E_j)\}$$ converges to infinity, and the measure of $$E$$ is also infinite. This is also possible.
-
-But for the second statement, if we drop the additional assumption that each $$m(E_j)$$ is finite, then the equality may fail. There exists a simple counterexample. In order to construct the counterexample, we have to find the sequence of sets $$\{E_j\}$$ such that $$E_j \searrow E$$ and $$m(E_j) = \infty$$ for any $$j$$. However, since this sequence is decreasing in the sence of set inclusion, the measure of $$E = \bigcap_{j=1}^\infty E_j$$ must be finite.
-
-Thus for the counterexample, the right-hand side is infinite, but the left-hand side is finite. Let's consider $$E_1 = (1, \infty)$$ so that $$m(E_1) = \infty$$, *i.e.* define $$E_j = (j, \infty)$$. Clearly, for each $$j$$, $$m(E_j) = \infty$$. But
-
-$$
-\bigcap_{j=1}^\infty E_j = \emptyset \implies m\left(\bigcap_{j=1}^\infty E_j\right) = 0 \ne \infty = \lim_{j\to\infty} m(E_j)
-$$
-
-Thus we have $$m(E) \leq \lim_{j\to\infty} m(E_j)$$. Now prove the corollary.
-<div class="real-analysis-proof" markdown="1">
-
-*Proof.*
-
-<ol>
-
-<li markdown="1">Let $$G_1 = E_1$$ and $$G_j = E_j \setminus E_{j-1} (= E_j \cap E_{j-1}^c)$$
-
-<div class="real-analysis-footnote" markdown="1">
-
-Note: Note that $$G_j, E_j, E_j^c \in \mathcal{M}$$ for each $$j$$. Indeed, $$E_j \in \mathcal{M}$$ by assumption, and since $$\mathcal{M}$$ is closed under intersection and complment, one can deduce that
-
-$$
-E_j \in \mathcal{M} \implies E_j^c \in \mathcal{M} \implies E_j \cap E_{j-1}^c (=E_j \setminus E_{j-1}=G_j) \in \mathcal{M}
-$$
-
-</div>
-
-for $$j \ge 2$$.
-<span class="real-analysis-footnote" markdown="span">Note: Since the result `thm:3.2` requires disjointness, we construct disjoint sets.</span>
-Then the $$G_j \in \mathcal{M}$$ are disjoint and $$E = \bigcup_{j=1}^{\infty} G_j$$.
-Thus by countable additivity, we get
-
-$$
-m(E) = \sum_{j=1}^\infty m(G_j) = \lim_{N\to\infty} \sum_{j=1}^N m(G_j).
-$$
-
-Hence,
-
-$$
-m(E) = \lim_{N\to\infty} \sum_{j=1}^N m(G_j) = \lim_{N\to\infty} m\left(\bigcup_{j=1}^N G_j\right) = \lim_{N\to\infty} m(E_N).
-$$
-
-</li>
-<li markdown="1">We may assume that $$m(E_1) < \infty$$.
-Let $$G_k = E_k \setminus E_{k+1}$$, so that
-
-$$
-\begin{aligned}
-E_1 &= E \cup \bigcup_{j=1}^{\infty} G_j \\
-\intertext{is a disjoint union. Then,}
-m(E_1) &= m(E) + \lim_{N\to\infty} \sum_{j=1}^{N-1} (m(E_j) - m(E_{j+1})) \\
-&= m(E) + m(E_1) - \lim_{N\to\infty} m(E_N),
-\end{aligned}
-$$
-
-which implies $$m(E) = \lim_{N\to\infty} m(E_N)$$.
-
-</li>
-</ol>
-
-</div>
+<span id="l04:regularity"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
 **Theorem 3.4.**
 
-Let $$E \in \mathcal{M}$$. Then $$\forall \epsilon > 0$$,
+$$E\in\mathcal M$$이고 $$\epsilon>0$$이면 다음이 성립한다.
 
-<ol>
+<ol type="i" markdown="1">
 
-<li markdown="1">$$\exists$$ open $$O \supset E$$ s.t. $$m(O \setminus E) \le \epsilon$$
-</li>
-<li markdown="1">$$\exists$$ closed $$F \subset E$$ s.t. $$m(E \setminus F) \le \epsilon$$
-</li>
-<li markdown="1">If $$m(E) < \infty$$, $$\exists$$ compact $$K \subset E$$ s.t. $$m(E \setminus K) \le \epsilon$$
-</li>
-<li markdown="1">If $$m(E) < \infty$$, then $$\exists$$ a finite union $$F = \bigcup_{j=1}^N Q_j$$ of cubes s.t. $$m(E \Delta F) \le \epsilon$$ <span class="real-analysis-footnote" markdown="span">Note: $$E \Delta F = (E \setminus F) \cup (F \setminus E)$$</span>.
+<li markdown="1">
+
+열린 $$O\supset E$$가 존재하여 $$m(O\setminus E)\le\epsilon$$이다.
 
 </li>
+
+<li markdown="1">
+
+닫힌 $$F\subset E$$가 존재하여 $$m(E\setminus F)\le\epsilon$$이다.
+
+</li>
+
+<li markdown="1">
+
+$$m(E)<\infty$$이면 compact $$K\subset E$$가 존재하여 $$m(E\setminus K)\le\epsilon$$이다.
+
+</li>
+
+<li markdown="1">
+
+$$m(E)<\infty$$이면 유한 개 cube의 합집합 $$F$$가 존재하여 $$m(E\triangle F)\le\epsilon$$이다. 여기서
+
+$$
+E\triangle F=(E\setminus F)\cup(F\setminus E)
+$$
+
+는 symmetric difference이다.
+
+</li>
+
 </ol>
+
+</div>
+
+첫째는 밖에서 열린 집합으로, 둘째와 셋째는 안에서 닫힌 집합 또는 compact 집합으로 근사하는 방법이다. 닫힌 집합이라 해도 그 모양은 복잡할 수 있다. 넷째는 더 단순한 유한 cube union을 사용하지만, 대신 $$F\subset E$$나 $$E\subset F$$를 요구하지 않는다. 놓친 부분과 더해진 부분을 모두 합친 symmetric difference를 작게 만든다. 단순한 도형을 사용하는 대가로 일방적인 포함 관계를 포기하는 셈이다.
+
+(i)는 measurability의 정의다. 이제 $$O\setminus E$$도 measurable임을 알므로 exterior measure 기호의 별표를 없앨 수 있다. (ii)는 $$E^c$$에 (i)를 적용하면 된다. 열린 $$O\supset E^c$$와 $$m(O\setminus E^c)\le\epsilon$$을 고르면 $$F=O^c$$는 closed이고 $$F\subset E$$이며
+
+$$
+E\setminus F=E\cap O=O\setminus E^c
+$$
+
+이기 때문이다. 밖에서의 근사를 complement로 뒤집으면 안쪽 근사가 된다.
+
+**유한 measure이면 compact하게 잘라도 된다**
+
+<span id="l04:compact"></span>
+
+(iii)를 보이자. (ii)로 닫힌 $$F\subset E$$를 골라 $$m(E\setminus F)\le\epsilon/2$$로 만든다. $$F$$가 유계이면 이미 compact하지만, 유한 measure만으로 유계라고 말할 수는 없다. 따라서
+
+$$
+K_n=F\cap\overline B_n(0)
+$$
+
+으로 자른다. 각 $$K_n$$은 compact이고 $$K_n\nearrow F$$이므로 $$E\setminus K_n\searrow E\setminus F$$이다. 또한 $$m(E\setminus K_n)\le m(E)<\infty$$이다. 따라서 continuity from above를 적용하여
+
+$$
+m(E\setminus K_n)\longrightarrow m(E\setminus F)\le\epsilon/2.
+$$
+
+충분히 큰 $$N$$에서 $$m(E\setminus K_N)\le\epsilon$$이 된다. 집합 자체가 무한히 멀리 뻗어 있어도, 유한 measure라면 멀리 있는 부분의 measure를 작게 버릴 수 있다는 뜻이다.
+
+**유한 cube union과 symmetric difference**
+
+<span id="l04:cubes"></span>
+
+(iv)를 보이기 위해 exterior measure 정의에서 covering을 고른다.
+
+$$
+E\subset U:=\bigcup_{j=1}^{\infty}Q_j,\qquad
+\sum_{j=1}^{\infty}|Q_j|\le m(E)+\epsilon/2<\infty.
+$$
+
+부피의 급수가 수렴하므로 충분히 큰 $$N$$에 대해 $$\sum_{j>N}\vert Q_j\vert <\epsilon/2$$이다. $$F=\bigcup_{j=1}^NQ_j$$로 놓자. $$E$$가 unbounded일 수 있으므로 $$F$$만으로 $$E$$ 전체를 덮을 수 있다고는 말하지 않는다. 대신 놓친 부분은 버린 tail cube들이 덮는다.
+
+$$
+E\setminus F\subset\bigcup_{j>N}Q_j.
+$$
+
+추가된 부분은 $$F\setminus E\subset U\setminus E$$이며 $$E\subset U$$와 유한 measure에 의해
+
+$$
+m(U\setminus E)=m(U)-m(E)
+\le\sum_j|Q_j|-m(E)\le\epsilon/2.
+$$
+
+따라서 두 차집합의 disjointness와 subadditivity를 사용하면
+
+$$
+\begin{align*}
+m(E\triangle F)
+&=m(E\setminus F)+m(F\setminus E)\\
+&\le\sum_{j>N}|Q_j|+m(U\setminus E)<\epsilon.
+\end{align*}
+$$
+
+Covering의 cube들끼리는 겹칠 수 있으므로 $$m(U)=\sum_j\vert Q_j\vert $$라고 쓰지 않았다. 필요한 것은 항상 subadditivity 방향이다.
+
+**Translation과 dilation**
+
+<span id="l04:invariance"></span>
+
+집합을 평행이동하면 크기는 그대로이고, 모든 길이를 $$\delta$$배 하면 $$d$$차원 부피는 $$\delta^d$$배가 되어야 한다. Lebesgue measure는 이 직관과 맞는다.
+
+<div class="real-analysis-statement" markdown="1">
+
+**Invariance와 scaling.**
+
+$$E\in\mathcal M$$, $$h\in\mathbb R^d$$, $$\delta>0$$이라 하자. 집합
+
+$$
+E+h=\{x+h:x\in E\},\qquad \delta E=\{\delta x:x\in E\}
+$$
+
+는 measurable이며
+
+$$
+m(E+h)=m(E),\qquad m(\delta E)=\delta^d m(E).
+$$
 
 </div>
 
@@ -641,217 +632,120 @@ Let $$E \in \mathcal{M}$$. Then $$\forall \epsilon > 0$$,
 
 *Proof.*
 
-<ol>
+$$E$$의 cube covering을 $$h$$만큼 옮기면 $$E+h$$의 covering이 되고 각 cube의 부피는 같다. 반대로 $$E+h$$의 covering을 $$-h$$만큼 옮길 수 있으므로 $$m_*(E+h)=m_*(E)$$이다. 같은 방식으로 scaling한 covering과 역 scaling을 비교하면 $$m_*(\delta E)=\delta^dm_*(E)$$이다.
 
-<li markdown="1">See the definition of measure.
-</li>
-<li markdown="1">Use $$E^c$$ as before.
-
-</li>
-<li markdown="1">Take a closed set $$F \subset E$$ such that $$m(E \setminus F) \le \epsilon/2$$ and define compact sets $$K_n = F \cap B_n$$ where $$B_n$$ denotes the closed ball of radius $$n$$. Then $$E \setminus K_n \searrow E \setminus F$$. Since $$m(E) < \infty$$, $$m(E \setminus K_n) < \infty$$ and we get $$m(E \setminus K_N) \le \epsilon$$ for sufficiently large $$N$$.
-
-</li>
-<li markdown="1">Take a covering $$E \subset \bigcup_{j=1}^\infty Q_j$$ such that
-
-$$
-\sum_{j=1}^\infty \vert Q_j\vert  \le m(E) + \epsilon/2 \qquad \text{(2)}
-$$
-
-
-Choose $$N \in \mathbb{N}$$ such that
-
-$$
-\qquad \text{(1)}
-\sum_{j=N+1}^\infty \vert Q_j\vert  < \frac{\epsilon}{2}.
-$$
-
-If $$F = \bigcup_{j=1}^N Q_j$$, then
-
-$$
-\begin{aligned}
-m(E \Delta F) &= m(E \setminus F) + m(F \setminus E) \\
-&\le m\left(\bigcup_{j=N+1}^\infty Q_j\right) + m\left(\bigcup_{j=1}^\infty Q_j \setminus E\right) \\
-&\le \sum_{j=N+1}^\infty \vert Q_j\vert  + \sum_{j=1}^\infty \vert Q_j\vert  - m(E) \\
-&< \underbrace{\epsilon/2}_{(1)} + \underbrace{\epsilon/2}_{(2)} = \epsilon
-\end{aligned}
-$$
-
-</li>
-</ol>
+열린 $$O\supset E$$를 평행이동하거나 scaling해도 열린 집합이고, 차집합은 $$(O+h)\setminus(E+h)=(O\setminus E)+h$$ 및 $$(\delta O)\setminus(\delta E)=\delta(O\setminus E)$$를 만족한다. 따라서 원래 오차를 각각 $$\epsilon$$ 또는 $$\epsilon/\delta^d$$ 이하로 택하면 변환된 집합의 measurability를 얻는다. 그 뒤 exterior measure의 등식을 Lebesgue measure로 읽으면 된다.
 
 </div>
 
-### Invariance properties of the Lebesgue measure
-<div class="real-analysis-statement" markdown="1">
+Rotation과 reflection 역시 Lebesgue measure를 보존하는 기하학적 변환이다. 다만 일반 rotation은 좌표축에 평행한 cube를 같은 형태의 cube로 보내지 않으므로, 방금 사용한 covering의 단순 대응만으로 그 사실을 증명한 것은 아니다. 현재의 계산에서 직접 확인한 것은 translation invariance와 dilation의 scaling law이다.
 
-**Remark.**
+**집합들의 모임도 대수적 구조를 가진다**
 
-<ol>
-
-If $$E \in \mathcal{M}$$, $$h \in \mathbb{R}^d$$ and $$\delta > 0$$, then
-<li markdown="1">$$E + h = \{x+h : x \in E\} \in \mathcal{M}$$ and $$m(E+h) = m(E)$$
-</li>
-<li markdown="1">$$\delta E = \{\delta x : x \in E\} \in \mathcal{M}$$ and $$m(\delta E) = \delta^d m(E)$$ <span class="real-analysis-footnote" markdown="span">Note: (See exercises 7 \& 8)</span>
-
-</li>
-</ol>
-
-</div>
-
-### $$\sigma$$-algebra and Borel sets
-<div class="real-analysis-statement" markdown="1">
-
-**$$\sigma$$-algebra.**
-
-A $$\sigma$$-algebra is a collection $$\Sigma \subset \mathcal{P}(\mathbb{R}^d)$$ that is closed under countable unions, countable intersections and complement.
-
-</div>
+<span id="l04:borel"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
-**Borel $$\sigma$$-algebra $$\mathcal{B}_{\mathbb{R}^d}$$.**
+**Definition ($$\sigma$$-algebra).**
 
-The Borel $$\sigma$$-algebra $$\mathcal{B}_{\mathbb{R}^d}$$ is the smallest
-
-<div class="real-analysis-footnote" markdown="1">
-
-Note: If $$\mathcal{S}$$ is another $$\sigma$$-algebra containing all open sets, then $$\mathcal{B}_{\mathbb{R}^d} \subset \mathcal{S}$$.
-$$\mathcal{B}_{\mathbb{R}^d}$$ is the intersection of all $$\sigma$$-algebras containing all open sets.
+$$\Sigma\subset\mathcal P(\mathbb R^d)$$가 비어 있지 않고 complement와 countable union 아래에서 닫혀 있으면 $$\sigma$$-algebra라 한다. 그러면 $$\varnothing,\mathbb R^d\in\Sigma$$이고 De Morgan의 법칙에 의해 countable intersection 아래에서도 닫혀 있다.
 
 </div>
- $$\sigma$$-algebra that contains all open sets. Elements in $$\mathcal{B}_{\mathbb{R}^d}$$ are called Borel sets.
 
-</div>
+여기서 원소는 점이 아니라 집합이다. 예를 들어 $$\{\varnothing,\mathbb R^d\}$$와 $$\mathcal P(\mathbb R^d)$$는 가장 작은 경우와 가장 큰 경우를 보여 준다. 지금까지 증명한 성질들에 의해 $$\mathcal M$$도 $$\sigma$$-algebra이다. 이 구조는 뒤에서 Euclidean space 밖의 abstract measure space를 정의할 때에도 남게 된다.
 
 <div class="real-analysis-statement" markdown="1">
 
-**Remark.**
+**Definition (Borel $$\sigma$$-algebra).**
 
-<ol>
-
-<li markdown="1">$$\mathcal{B}_{\mathbb{R}^d}$$ is the intersection of all $$\sigma$$-algebras containing all open sets.
-</li>
-<li markdown="1">$$\mathcal{B}_{\mathbb{R}^d} \subsetneq  \mathcal{M} \subsetneq  \mathcal{P}(\mathbb{R}^d)$$
-<span class="real-analysis-footnote" markdown="span">Note: See Exercise 35, not a homework.</span>
-<span class="real-analysis-footnote" markdown="span">Note: This is the counterexample for non-measurable set, which we will construct in the next section.</span>
-
-</li>
-</ol>
+모든 열린 집합을 포함하는 가장 작은 $$\sigma$$-algebra를 $$\mathcal B_{\mathbb R^d}$$라 한다. 그 원소들을 Borel set이라 한다.
 
 </div>
+
+“가장 작다”는 것은 모든 열린 집합을 포함하는 다른 $$\sigma$$-algebra $$\Sigma$$에 대해 $$\mathcal B_{\mathbb R^d}\subset\Sigma$$라는 뜻이다. 그런 모임이 실제로 존재하는지도 확인하자. 모든 열린 집합을 포함하는 $$\sigma$$-algebra들을 전부 모아 교집합을 취한다. 이 모임은 적어도 power set을 포함하므로 비어 있지 않다. 각 연산은 모든 $$\sigma$$-algebra에서 허용되므로 그 교집합에서도 허용된다. 따라서 교집합 자체가 $$\sigma$$-algebra이고 원하는 최소성을 갖는다.
+
+$$\mathcal M$$은 모든 열린 집합을 포함하는 $$\sigma$$-algebra이므로
+
+$$
+\mathcal B_{\mathbb R^d}\subset\mathcal M\subset\mathcal P(\mathbb R^d).
+$$
+
+두 포함은 실제로 모두 엄밀하다. 첫 번째 엄밀성에는 Lebesgue measurable이지만 Borel이 아닌 집합이 필요하며, 두 번째에는 non-measurable set이 필요하다. Borel set도 이미 매우 큰 부류이지만 모든 Lebesgue measurable set을 포함하지는 않는다. 그 차이가 measure의 관점에서 어떤 것인지는 다음 결과가 설명한다.
+
+**G-delta, F-sigma, null set의 차이**
+
+<span id="l04:completion"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
-**$$G_\delta$$ and $$F_\sigma$$ sets.**
+**Definition ($$G_\delta$$와 $$F_\sigma$$).**
 
-<ol>
-
-<li markdown="1">Countable intersection of open sets are $$G_\delta$$ sets.
-</li>
-<li markdown="1">Countable union of closed sets are $$F_\sigma$$ sets.
-
-</li>
-</ol>
+Countable intersection of open sets를 $$G_\delta$$ set이라 하고, countable union of closed sets를 $$F_\sigma$$ set이라 한다.
 
 </div>
+
+Open set들의 합집합은 언제나 열려 있지만 countable intersection은 꼭 열려 있지 않다. 예를 들어 $$\bigcap_n(-1/n,1/n)=\{0\}$$이다. Closed set들의 countable union 역시 닫혀 있을 필요가 없으며, 예를 들어 $$\mathbb Q=\bigcup_{q\in\mathbb Q}\{q\}$$는 $$F_\sigma$$이지만 닫혀 있지 않다. 이처럼 새로운 이름을 붙이는 이유는 기존의 open 또는 closed라는 이름만으로 이들을 모두 부를 수 없기 때문이다. 두 종류의 집합은 모두 Borel이다. 이름에서 $$G$$는 열린 집합을 가리키는 German 표현에서, $$F$$는 닫혔다는 뜻의 French 표현에서 왔다.
 
 <div class="real-analysis-statement" markdown="1">
 
 **Corollary 3.5.**
 
-The following are equivalent:
+$$E\subset\mathbb R^d$$에 대해 다음은 동치다.
 
-<ol>
+<ol type="a" markdown="1">
 
-<li markdown="1">$$E \in \mathcal{M}$$
-</li>
-<li markdown="1">$$E$$ differs from a $$G_\delta$$ set by a set of measure $$0$$.
-</li>
-<li markdown="1">$$E$$ differs from a $$F_\sigma$$ set by a set of measure $$0$$.
-<span class="real-analysis-footnote" markdown="span">Note: $$E$$ differs from a set $$A$$ by a set of measure $$0$$ means that $$m(E \setminus A) = 0$$.</span>
+<li markdown="1">
+
+$$E$$는 measurable이다.
 
 </li>
+
+<li markdown="1">
+
+어떤 $$G_\delta$$ set $$G$$와 null set만큼 다르다. 즉 $$m_*(E\triangle G)=0$$이다.
+
+</li>
+
+<li markdown="1">
+
+어떤 $$F_\sigma$$ set $$F$$와 null set만큼 다르다. 즉 $$m_*(E\triangle F)=0$$이다.
+
+</li>
+
 </ol>
 
-</div>
-
-### Construction of non-measurable sets
-We consider an equivalence relation
-
-$$
-x \sim y \quad \iff \quad x - y \in \mathbb{Q} \qquad \text{ in } \mathbb{R}
-$$
-
-Then $$[0,1]$$ is the disjoint union of all equivalence classes;
-
-$$
-[0, 1] = \bigcup_\alpha E_\alpha
-$$
-
- We choose exactly one element
-
-$$
-x_\alpha \in E_\alpha \quad \forall \alpha
-$$
-
-
-and define
-
-$$
-N = \{x_\alpha\}_\alpha \subset [0, 1]
-$$
-
-which is uncountable set.
-
-<div class="real-analysis-statement" markdown="1">
-
-**Thmeorem 3.6.**
-
-$$N \notin \mathcal{M}$$
+또한 (b)의 $$G$$는 $$E\subset G$$, (c)의 $$F$$는 $$F\subset E$$가 되게 고를 수 있다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-Let $$\{r_k\}_{k=1}^\infty$$ be an enumeration of
+
+(a)를 가정하자. 각 $$n$$에 대해 열린 $$O_n\supset E$$를 골라 $$m(O_n\setminus E)\le1/n$$으로 만들고 $$G=\bigcap_nO_n$$으로 놓는다. 그러면 $$G$$는 $$G_\delta$$이고 $$E\subset G$$이며
 
 $$
-\mathbb{Q} \cap [-1, 1]
+G\setminus E\subset O_n\setminus E\quad\text{for all }n.
 $$
 
+따라서 $$m(G\setminus E)\le1/n$$이 모든 $$n$$에서 성립하여 $$m(G\setminus E)=0$$이다. $$E\subset G$$이므로 이것은 $$m(E\triangle G)=0$$과 같다.
 
-and consider
+(c)는 안쪽 근사로 똑같이 보인다. 닫힌 $$F_n\subset E$$와 $$m(E\setminus F_n)\le1/n$$을 고르고 $$F=\bigcup_nF_n$$이라 하면 $$F$$는 $$F_\sigma$$이며 $$F\subset E$$이다. 또한 $$E\setminus F\subset E\setminus F_n$$이므로 $$m(E\setminus F)=0$$이다.
 
-$$
-N_k = N + r_k \text{ : translation of } N.
-$$
-
-(i) The sets $$N_k$$ are disjoint.<br>
-Suppose not. *i.e.* if $$N_k \cap N_{k'} \neq \emptyset$$, then
+반대로 measurable set $$A$$와 $$m_*(E\triangle A)=0$$인 집합 $$E$$를 생각하자. $$Z=E\triangle A$$는 null set이므로 measurable이고, 그 모든 부분집합도 measurable이다. 그러면
 
 $$
-\exists \: x \text{ such that } x_\alpha + r_k = x_\beta + r_{k'}.
+E=(A\setminus Z)\cup(E\cap Z)
 $$
 
-Since $$x_\alpha - x_\beta = r_{k'} - r_k \in \mathbb{Q} \setminus \{0\}$$,
-we have
-
-$$
-\alpha \neq \beta \text{ and } \underbrace{x_\alpha \sim x_\beta}_{\text{contradiction, from the choice of } x_\alpha}
-$$
-
-(ii) $$[0, 1] \subset \bigcup_{k=1}^\infty N_k \subset [-1, 2]$$. <br>
-$$\bigcup_{k=1}^\infty N_k \subset [-1, 2]$$ is trivial. Thus, it is enough to show that $$[0, 1] \subset \bigcup_{k=1}^\infty N_k$$.
-If $$x \in [0,1]$$, then $$x \sim x_\alpha$$ for some $$\alpha$$, and therefore $$x = x_\alpha + r_k$$ for some $$k \implies x \in N_k$$. <br>
-Now, assume $$N \in \mathcal{M}$$. Then $$N_k \in \mathcal{M}$$ and $$m(N_k) = m(N)$$. Consequently,
-
-$$
-1 \le \sum_{k=1}^\infty m(N_k) = \sum_{k=1}^\infty m(N) \le 3
-$$
-
-which is a contradiction.
+는 measurable set들의 합집합이다. $$G_\delta$$와 $$F_\sigma$$는 Borel이므로 measurable이며 이 논리를 각각 적용할 수 있다.
 
 </div>
+
+“Null set만큼 다르다”는 말에는 양방향의 차이를 모두 포함해야 한다. 단순히 $$m_*(E\setminus G)=0$$이라고만 하면 $$G$$가 $$E$$보다 얼마나 큰지 전혀 제어하지 못한다. 위에서 $$G\supset E$$를 선택한 경우에는 오히려 $$G\setminus E$$가 제어해야 할 부분이다.
+
+이 결과는 Lebesgue measurable set이 Borel set을 null set 위에서 바꾼 것임을 뜻한다. 이런 의미에서 Lebesgue measurable sets는 Borel sets의 completion을 이룬다. 다음에는 $$\mathcal M$$ 밖의 집합을 구성한다. $$[0,1]$$의 점들을 유리수만큼 차이 나는 동치류로 나누고, 각 동치류에서 하나씩 대표를 고른 뒤 그 집합의 유리수 translation들을 살펴보는 것이 핵심이다.
+
+{% endraw %}
 
 <!-- prettier-ignore-end -->

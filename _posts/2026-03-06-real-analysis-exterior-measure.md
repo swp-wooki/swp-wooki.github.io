@@ -9,396 +9,327 @@ giscus_comments: true
 related_posts: true
 toc:
   sidebar: left
+last_updated: 2026-10-04
 ---
 
 <!-- prettier-ignore-start -->
 
-> 이 글은 2026년 봄학기 실변수함수론(MAT4033) 강의노트를 주제별로 정리한 글입니다.
+> 2026년 봄학기 실변수함수론 강의노트이다.
 
-Now as a first step toward the Lebesgue measure, we will first define the **exterior measure**. Instead of defining a measure of an open set, we will define the exterior measure denoted by $$m_*$$, and is a function defined on the power set of $$\mathbb{R}^d$$ with value is an extended real number $$\overline{\mathbb{R}}$$.
+[전체 강의노트 PDF]({{ '/assets/pdf/2026-spring/real-analysis/main.pdf' | relative_url }})
 
-<div class="real-analysis-statement" markdown="1">
+{% raw %}
 
-**Exterior Measure.**
+### 1.2. The exterior measure
 
-We define the exterior measure $$m_* : \mathcal{P}(\mathbb{R}^d) \to \overline{\mathbb{R}} = [0, \infty]$$ by
+**Exterior measure의 정의**
 
-$$
-m_*(E) = \inf \sum_{j=1}^\infty \vert Q_j\vert , \quad E \subset \mathbb{R}^d
-$$
-
-where the infimum is taken over all countable coverings $$E \subset \bigcup_{j=1}^\infty Q_j$$ by closed cubes.
-
-</div>
-
-The exterior measure $$m_*$$ is defined by the infimum of all possible countable convering $$\bigcup_{j=1}^\infty Q_j$$. Following statment would help us to understand this definition better.
-
-$$
-Z_E \coloneq \left\{\sum_{j=1}^\infty \vert Q_j\vert  : E \subset \bigcup_{j=1}^\infty Q_j \right\}
-$$
-
-Then we can define the exterior measure equivalently as
-
-$$
-m_{*}(E) = \inf Z_E
-$$
-
-The definition of $$m_*$$ looks complicated but it's in the same spirit as in the previous remark, but we generalized the concept of measure to an arbitrary set in $$\mathbb{R}^d$$. Thus $$E$$ can be very ugly. For given arbitrary set $$E$$, we cover it by a countable union of closed cubes. The covering is not necessarily to be an almost disjoint union of cubes. They might be intersecting each other. Anyway, once you have a such covering, you can compute its measure as a countable summation. Because we already know how to compute the volume of the cubes.
-
-Since there exists infinitely many different coverings of a given set $$E$$, thus we will get infinitely many non-negative real numbers. However, in the end, we take the infimum of these numbers then we have a unique real number. Indeed, it would be an extended real number because the summation can be infinite for every covering. In that case, the exterior measure will be infinity. But anyway, the infimum exists as an extended real number. Now we have the definition of the measure of an arbitrary set.
-
-Our definition of exterior measure used covering by closed cubes, right? But you can use rectangles if you want. So instead of closed cubes, you can cover a given set $$E$$ by a countable union of closed rectangles and then compute these values and then take the infimum. Then you will get a different definition of your own exterior measurement. Nevertheless, those two definitions are equivalent. Detailed proof can be found in the exercise 15. Or you can even use balls. For a given open set $$\mathcal{O}$$ you may cover it by open balls or closed balls. In this case, these balls intersect each other. Indeed, they must intersect each other. But still, you can consider smaller balls so that the volume of all intersections becomes smaller and smaller, and we will take the infimum of them.This will be more difficult. This is Exercise 26 in Chapter 3. So if you need a harder problem, you can try to solve this.
+<span id="l01:exterior"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
-**Remark.**
+**Definition (Exterior measure).**
 
-One can use rectangles or balls instead of closed cubes. (Exercise 15 for rectangles; Exercise 26 in Ch 3 for balls).
+임의의 $$E\subset\mathbb R^d$$에 대해
+
+$$
+m_*(E)=\inf\left\{\sum_{j=1}^{\infty}|Q_j|:
+E\subset\bigcup_{j=1}^{\infty}Q_j,\ Q_j\text{는 closed cube}\right\}
+$$
+
+로 정의한다. 따라서 $$m_*:\mathcal P(\mathbb R^d)\to[0,\infty]$$이다.
 
 </div>
 
-Let me show you some simple examples of exterior measures. Now we have a new definition of the measure so we will try to compute the measure of simple sets. Before that I want to emphasize that to compute the exterior measure is not our purpose. Our goal is to construct the Lebesgue measure. It has a different name because exterior measure is not what we desire even though it is well-defined for every set in $$\mathbb{R}^d$$. The reason is there exist very strange sets that cannot be measured properly with the Lebesgue's sense. There are very strange sets whose exterior measure is defined but for the Lebesgue measure, does not defined. Such strange example will be called a non-measurable set in the next session.
+덮개는 almost disjoint일 필요가 없다. cube들이 서로 많이 겹쳐도 허용한다. 우리가 계산하는 양은 합집합의 아직 정의되지 않은 부피가 아니라 *각 cube의 부피를 모두 더한 값*이다. 겹치는 부분이 있다면 그만큼 반복해서 계산된다. 가능한 모든 덮개의 부피 합을 모은 집합을
+
+$$
+Z_E=\left\{\sum_j|Q_j|:E\subset\bigcup_jQ_j\right\}
+$$
+
+라고 하면 $$m_*(E)=\inf Z_E$$이다. 즉 덮개를 만드는 데 들어가는 부피의 가장 작은 가능한 하한을 잡는다. 최솟값을 달성하는 덮개가 있어야 한다는 요구는 없다.
+
+$$\mathbb R^d$$ 자체를 정수 격자 cube들로 덮을 수 있으므로 $$Z_E$$는 비어 있지 않다. 모든 항이 음이 아니므로 infimum은 $$[0,\infty]$$에서 존재한다. 모든 덮개가 무한한 부피 합을 갖는다면 $$m_*(E)=\infty$$이다. 여기서 $$[0,\infty]$$는 음이 아닌 extended real numbers이고, 일반적인 extended real line은 $$[-\infty,\infty]$$이다.
+
+Closed rectangle를 대신 사용해도 같은 exterior measure를 얻는다. Cube는 rectangle의 특수한 경우이며, 반대로 rectangle를 작은 cube들로 덮되 경계 근처의 낭비를 임의로 작게 할 수 있기 때문이다. Ball을 이용한 구성도 가능하지만 그 동등성은 더 많은 기하학적 논증을 요구한다. 지금은 cube covering을 일관되게 사용한다.
+
+모든 집합에 $$m_*$$가 정의되었다고 해서 원하는 부피 이론이 완성된 것은 아니다. 목표는 disjoint한 집합들의 부피를 더하면 합집합의 부피가 되는 measure이다. Exterior measure는 임의의 집합에서 이 성질을 만족하지 않을 수 있다. 다음에는 좋은 성질을 가진 집합들을 골라 Lebesgue measure의 정의역으로 삼는다.
+
+**정의와 익숙한 부피가 일치하는가?**
+
+<span id="l01:cube-volume"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
 **Example 1.**
 
-<ul>
-
-<li markdown="1">$$m_*(\{x\}) = 0$$. <br>
-For a one-point set, maybe it's too simple but we want to use our definition to compute the measure of a singleton. And as you can expect, the measure of a singleton is zero. The proof is also simple because if you have a singleton, then you can cover the singleton by a single cube with arbitrarily small size, and actually our definition of a cube allows a singleton. Our definition of a cube was the product of closed intervals with the same lengths, so the endpoints of the interval can be the same. In that case, such cube becomes a singleton. Obviously the volume of such cube is zero. So the exterior measure of a single point is zero.
-</li>
-<li markdown="1">$$m_*(\emptyset) = 0$$. <br>
-By a similar reason, the exterior measure of the empty set is also zero right, because you can cover an empty set by any cubes, like a singleton. So the measure will be zero.
-
-</li>
-</ul>
+$$m_*(\varnothing)=0$$이며 모든 $$x\in\mathbb R^d$$에 대해 $$m_*(\{x\})=0$$이다.
 
 </div>
 
-Now let's consider a closed cube. We already defined the volume of $$Q$$ by the product of all sides. But this is not the exterior measure. So we have defined the exterior measure which is defined by this. So we need to compute the exterior measure of this cube by using this definition. But again this is also trivial because... no this is not trivial. What is trivial is one inequality. So the exterior measure of a cube is less than or equal to the volume of the cube. This is trivial, right, because this closed cube can be covered by this single cube itself and its value will be given by the volume of this cube. So the exterior measure will be less than or equal to this value, but the reverse inequality is what we have to prove.
+한 점은 변 길이가 $$0$$인 cube로 덮을 수 있다. 퇴화한 cube를 사용하지 않더라도 임의로 작은 cube로 덮으면 부피 합을 $$0$$에 가깝게 만들 수 있다. 빈 집합도 그 덮개로 덮인다. Exterior measure가 음이 아니므로 두 값 모두 $$0$$이다.
 
 <div class="real-analysis-statement" markdown="1">
 
 **Example 2.**
 
-Let $$Q \subset \mathbb{R}^d$$ be a closed cube. Then $$m_*(Q) = \vert Q\vert $$.
+Closed cube $$Q$$에 대해 $$m_*(Q)=\vert Q\vert $$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-Clearly, $$m_*(Q) \le \vert Q\vert $$, since $$Q$$ itself is a covering of $$Q$$.
 
-And for this, we need to prove... I mean it's enough to show that the volume of the cube is less than or equal to the summation of this infinite sum whenever you are given a covering ($$\vert Q\vert \le \sum_{j=1}^\infty \vert Q_j\vert $$). So for any covering of $$Q$$ we need to prove this inequality. And this will give you the equality, right? I mean once we prove this statement, this means that this quantity has a lower bound by the volume of $$Q$$. So the infimum, which is the exterior measure, always has a lower bound by the volume of $$Q$$. So we will get the reverse inequality, right? So it's enough to show this statement.
-
-Let's fix $$\epsilon$$ and choose an open cube, let's say $$S_j$$ containing the closed cube $$Q_j$$. So now for each $$j$$, we have a closed cube $$Q_j$$ but we chose an open cube containing this closed cube. So it must be slightly larger than $$Q_j$$. This is $$S_j$$ but in a controllable way. So the volume of $$S_j$$, I mean this is well-defined because this is also a cube, but its size is less than or equal to $$(1 + \epsilon) \vert Q_j\vert $$. So for a given error $$\epsilon$$ you can make an open cube $$S_j$$ as close as we want to $$Q_j$$.
-
-But now we consider a collection of these open cubes and it covers a compact set $$Q$$. So $$Q$$ is a closed cube with finite length. So it is bounded, and a bounded and closed set is always compact in the Euclidean space. So this is compact and we have a collection of open sets covering a compact set. So by definition of the compact set, we can find finitely many open sets $$S_j$$ which still cover the compact set $$Q$$. So originally the countable collection of open cubes covered $$Q$$, but by using compactness, we can choose finitely many open sets which still cover the set.
-
-The reason we chose finitely many cubes is to use Lemma 1.2 which was about the inequality for the volumes of the rectangles. So the volume of $$Q$$ is less than or equal to the summation of the volume of $$S_j$$. So this is what we have proved, and we have this inequality for each $$j$$. We can estimate this:
+$$Q$$ 자체를 하나의 덮개로 사용하면 $$m_*(Q)\le\vert Q\vert $$이다. 반대 부등식은 모든 covering $$Q\subset\bigcup_{j=1}^{\infty}Q_j$$에 대해
 
 $$
-\vert Q\vert  \le \sum_{j=1}^N \vert S_j\vert  \le \sum_{j=1}^N (1 + \epsilon) \vert Q_j\vert  \le (1 + \epsilon) \sum_{j=1}^\infty \vert Q_j\vert .
+|Q|\le\sum_{j=1}^{\infty}|Q_j|
 $$
 
-And then we take the limit as $$N$$ goes to infinity, right? This is less than or equal to the infinite sum. Now we can simply let $$\epsilon$$ to zero to finish the proof. This finishes the proof. So we have proved this inequality.
+를 보이면 된다. 오른쪽이 무한대이면 이 부등식은 이미 성립하므로 유한한 경우를 생각하자.
+
+왜 유한 covering에 대한 Lemma 1.2를 바로 적용할 수 없는가? 지금 덮개에는 countable하게 많은 cube가 있고, closed covering에는 compactness의 유한 부분 덮개 성질을 직접 적용할 수 없기 때문이다. 각 $$Q_j$$를 조금 키워 open cube $$S_j$$로 만들자. 주어진 $$\epsilon>0$$에 대해
+
+$$
+Q_j\subset S_j,\qquad |S_j|\le |Q_j|+\epsilon2^{-j}
+$$
+
+가 되게 할 수 있다. 각 cube의 부피가 변 길이에 연속적으로 의존하므로 가능한 선택이다. 이 형태는 $$\vert Q_j\vert =0$$인 경우에도 적용된다.
+
+$$Q$$는 compact이고 $$\{S_j\}$$는 열린 덮개이므로 유한한 지표 집합 $$J$$에 대해 $$Q\subset\bigcup_{j\in J}S_j$$이다. 각 $$S_j$$를 그 closure로 바꾸어 Lemma 1.2를 적용하면
+
+$$
+|Q|\le\sum_{j\in J}|S_j|
+\le\sum_{j=1}^{\infty}|Q_j|+\epsilon\sum_{j\in J}2^{-j}
+\le\sum_{j=1}^{\infty}|Q_j|+\epsilon.
+$$
+
+양쪽에서 $$\epsilon$$ 이외의 양은 고정되어 있으므로 $$\epsilon\downarrow0$$을 취한다. 모든 covering의 부피 합이 $$\vert Q\vert $$ 이상이므로 그 infimum도 $$\vert Q\vert $$ 이상이다.
 
 </div>
 
-Okay. Slower than I expected. But today I'm going to stop here and in the next week we will look at some more interesting examples of exterior measure and then we will define the Lebesgue measure. Okay. See you next week.
+이 증명의 구조를 기억하자. Countable closed covering을 약간 키워 open covering으로 바꾸고, compactness로 유한 covering을 얻은 뒤, 이미 아는 유한 부피 계산을 적용했다. 이제 open cube, rectangle, Cantor set에서도 같은 정의가 어떤 값을 주는지 살펴볼 수 있다.
 
-Last week we defined the exterior measure. Whenever a subset of $$\mathbb{R}^d$$ is given, we can compute the exterior measure of it by using covering with closed cubes. Furthermore, we saw some examples of sets and we computed their exterior measures. Today we will see more examples of simple sets where we can practice how to compute the exterior measure.Then we will study the properties of the exterior measure. In particular, we have computed the exterior measure of the empty set, the single point and the closed cube.
+**Open cube에서는 경계가 부피를 바꾸지 않는다**
 
-Now let's consider the open cube. Let $$Q$$ be a subset of $$\mathbb{R}^d$$ and we assume that it's an open cube. Our intuition is the volume of the open cube will exactly be the same as the volume of the closed cube. That means that the boundary would not change the measure. Indeed, this is actually true for the cube. We will prove this. But we have to be careful here because there exist some strange open sets whose exterior measure is different from its closure. *i.e.* it's possible that the boundary of an open set which is defined by the closure minus open set may have positive measure. There exists such a strange set. Thus we have to be careful. But for simple examples like the open set is given by an open cube, then its measure is exactly the same as its closure and we will prove this by using definition.
+<span id="l02:open"></span>
+
+Exterior measure는 집합을 closed cube들로 덮고 그 부피 합의 infimum을 취하여 정의했다. 한 점과 빈 집합의 exterior measure는 $$0$$이며, closed cube $$Q$$에서는 $$m_*(Q)=\vert Q\vert $$임을 보았다. 이번에는 open cube를 생각하자. 경계를 붙이거나 떼어도 부피가 같을 것이라는 직관은 cube에서는 옳다. 그러나 모든 열린 집합에서 closure를 취해도 measure가 같다고 일반화해서는 안 된다. 열린 집합의 경계가 양의 measure를 가질 수도 있기 때문이다.
 
 <div class="real-analysis-statement" markdown="1">
 
-**Example 3 (Open Cube).**
+**Example 3: Open cube.**
 
-Let $$Q \subset \mathbb{R}^d$$ be an open cube. Then $$m_{*}(Q) = \vert Q\vert $$.
+Open cube $$Q\subset\mathbb R^d$$에 대해 $$m_*(Q)=\vert Q\vert $$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-If you remember the definition of the exterior measure we first make an arbitrary covering of given set $$Q$$ by union of closed cubes. Then we may compute the volume of the union of the cubes thereafter we take the infimum. Hence we need to consider the covering of $$Q$$ first. Indeed, for such a simple set, we can find a simple covering: the closure of the $$Q$$.
 
-($$\leq$$) Note that the cube is a subset of the closure of itself. Then we have this inequality immediately.
-
-$$
-m_{*}(Q) \le m_{*}(\overline{Q}) = \vert \overline{Q}\vert  = \vert Q\vert
-$$
-
-$$\because$$ $$m_{*}(\overline{Q})$$ is defined by the infimum of the volumes of the coverings of $$\overline{Q}$$. Also, whenever you take a covering of $$\overline{Q}$$, it becomes a covering of $$Q$$, since $$ Q \subset \overline{Q}$$. Thus, $$m_{*}(Q) \le m_{*}(\overline{Q})$$ holds. Moreover, in the previous example 2, we have computed that for closed cube, $$m_{*}(\overline{Q}) = \vert \overline{Q}\vert $$ holds. Therefore above inequality holds. The exterior measure of $$Q$$ is less than or equal to the volume.
-
-($$\geq$$) The opposite inequality is bit tricky. We fix $$\epsilon$$ and take a closed cube $$Q_0$$ inside the given open cube $$Q$$. *i.e.* Let $$\epsilon > 0$$ and take a closed cube $$Q_{0}$$, such that
+$$Q\subset\overline Q$$이고 $$\overline Q$$는 closed cube이다. 큰 집합을 덮는 cube들은 작은 집합도 덮으므로
 
 $$
-Q_{0} \subset Q \quad \text{and} \quad \vert Q\vert  \le \vert Q_0\vert  + \epsilon
+m_*(Q)\le m_*(\overline Q)=|\overline Q|=|Q|.
 $$
 
-By doing this, for given open cube $$Q$$, we can find a smaller closed cube $$Q_0$$ which is contained in $$Q$$ and the volume of $$Q$$ is controlled by the volume of $$Q_0$$ with an error $$\epsilon$$.
-
-Hereby we can make $$Q_0$$ as close to $$Q$$ as we want. So this is always possible. Again, since $$Q_{0}$$ is closed, we get $$m_{*}(Q_0) = \vert Q_0\vert $$. Furthermore, since $$Q_{0} \subset Q$$ then $$m_{*}(Q_{0}) \le m_{*}(Q)$$. To combine these inequalities, we have this inequality:
+반대 방향은 안쪽에서 근사한다. $$\epsilon>0$$이 주어지면 $$Q_0\subset Q$$인 closed cube를 충분히 크게 잡아 $$\vert Q_0\vert \ge\vert Q\vert -\epsilon$$이 되게 한다. 그러면
 
 $$
-\vert Q_0\vert  = m_{*}(Q_0) \le m_{*}(Q)
+|Q|-\epsilon\le |Q_0|=m_*(Q_0)\le m_*(Q).
 $$
 
-Now from $$\vert Q\vert \le \vert Q_0\vert + \epsilon$$, we have $$\vert Q\vert - \epsilon \le \vert Q_0\vert $$. Finally, one can conclude that
-
-$$
-\vert Q\vert  - \epsilon \le \vert Q_0\vert  = m_{*}(Q_0) \le m_{*}(Q)
-$$
-
-In this inequality, quantities are independent with $$\epsilon$$. Therefore since $$\epsilon$$ was arbitraty, we can let $$\epsilon$$ to zero. I will skip the last sentence to be needed in proof. I hope you are familiar with this argument.
+$$Q_0$$는 $$\epsilon$$에 따라 달라져도 마지막 부등식의 양끝 $$\vert Q\vert $$와 $$m_*(Q)$$는 달라지지 않는다. 따라서 모든 $$\epsilon>0$$에 대한 부등식에서 $$\epsilon\downarrow0$$을 취할 수 있다.
 
 </div>
 
-In example 2 and 3 we computed exterior measure of cubes. Closed one and open one, but now let's consider a rectangle. From now on $$R$$ denotes a rectangle. When I say a rectangle, it would be always a closed rectangle.
+**Rectangle의 경계 오차를 세어 보자**
+
+<span id="l02:rectangles"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
-**Example 4 (Rectangle).**
+**Example 4: Rectangle.**
 
-Let $$R \subset \mathbb{R}^d$$ be a rectangle. Then $$m_{*}(R) = \vert R\vert $$.
+Closed rectangle $$R\subset\mathbb R^d$$에 대해 $$m_*(R)=\vert R\vert $$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-As in the proof of example 2, we can obtain one inequality for free.
 
-($$\leq$$) Note that we can always find the covering of $$R$$ by $$\bigcup_{i=1}^{\infty} Q_i$$ where each $$Q_i$$ is a closed cube. Then using the same argument as in the example 2, we have this inequality:
-
-$$
-\vert R\vert  \le m_{*}(R)
-$$
-
-($$\geq$$) For the opposite inequality we woill estimate the cover of $$R$$ by cubes with a lattice. Imagine that we have a rectangle $$R$$ and consider the lattice with $$\frac{1}{k}\mathbb{Z}^d$$. Let $$\mathcal{Q}$$ be a collection of cubes contained in $$R$$, and $$\mathcal{Q}'$$ be the collection of cubes intersecting both $$R$$ and $$R^c$$. After that, if we collect all the cubes in $$\mathcal{Q}$$ and $$\mathcal{Q}'$$, then we can cover $$R$$ by the union of these cubes.
+먼저 임의의 cube covering $$R\subset\bigcup_jQ_j$$를 취한다. 앞의 closed cube 증명에서처럼 각 $$Q_j$$를 부피 증가량이 $$\epsilon2^{-j}$$ 이하인 open cube로 키우고, $$R$$의 compactness를 사용하여 유한 covering을 얻는다. Rectangle에 대한 Lemma 1.2를 적용하면 $$\vert R\vert \le\sum_j\vert Q_j\vert +\epsilon$$이다. $$\epsilon\downarrow0$$ 및 모든 covering에 대한 infimum으로
 
 $$
-R \subset \bigcup_{Q \in \mathcal{Q} \cup \mathcal{Q}'} Q
+|R|\le m_*(R)
 $$
 
-This is obvious from the construction of $$\mathcal{Q}$$ and $$\mathcal{Q}'$$. Now if we take all the cubes from $$\mathcal{Q}$$, they are contained in $$R$$. Then let us consider the summation over $$\mathcal{Q}$$ only. So that the summation is controlled by the volume of the rectangle.
+를 얻는다. Rectangle 자체가 cube가 아닐 수 있으므로 반대 방향은 별도의 covering을 만들어야 한다.
+
+$$k\in\mathbb N$$에 대해 변 길이 $$1/k$$인 $$k^{-1}\mathbb Z^d$$ 격자를 사용한다. $$R$$ 안에 완전히 들어가는 cube들의 모임을 $$\mathcal Q_k$$, $$R$$과 $$R^c$$를 모두 만나는 cube들의 모임을 $$\mathcal Q'_k$$라고 하자. $$R$$과 만나지 않는 cube는 버린다. 그러면
 
 $$
-\sum_{Q \in \mathcal{Q}} \vert Q\vert  \le \vert R\vert
+R\subset\bigcup_{Q\in\mathcal Q_k\cup\mathcal Q'_k}Q.
 $$
 
-On the other hand, if you sum up the volumes of the cubes in $$\mathcal{Q}'$$, one can approximate its summation in terms of the size of the lattice $$k$$. If you compute the sum of the volume of $$Q$$ from $$\mathcal{Q}'$$, you will get $$\mathcal{O}\left(\frac{1}{k}\right)$$
-<span class="real-analysis-footnote" markdown="span">Note: At this moment, $$\mathcal{O}(\cdot)$$ denotes the big-O notation</span>.
-This means that $$\sum_{Q \in \mathcal{Q}'} \vert Q\vert $$ is less than or equal to some constant times $$1/k$$. This is true because the number of cubes in $$\mathcal{Q}'$$ is $$\mathcal{O}(k^{d-1})$$ where $$d$$ is the dimension of the space. Also, the volume of $$Q \in \mathcal{Q}'$$ is $$\mathcal{O}(k^{-d})$$, because of the side of each lattice is $$1/k$$. Hereby the volume of each cube is $$k^{-d}$$. To summerize,
+안쪽 cube들은 almost disjoint이고 $$R$$에 포함되므로 유한 격자 부피 계산에 의해
 
 $$
-(\text{number of cubes in } \mathcal{Q}') = \mathcal{O}(k^{d-1}), \quad \text{and} \quad \vert Q\vert  = \mathcal{O}(k^{-d}) \text{ for each } Q \in \mathcal{Q}'.
+\sum_{Q\in\mathcal Q_k}|Q|\le|R|.
 $$
 
-Note that $$\mathcal{O}(k^{d-1}) \times \mathcal{O}(k^{-d}) = \mathcal{O}(k^{-1})$$. This implies that
+이제 경계 cube들의 낭비를 제어한다. $$R$$의 한 면은 $$(d-1)$$개의 좌표 방향으로 유한한 길이를 가진다. 그 면에 닿는 격자 cube의 수는 각 방향에서 $$O(k)$$개씩이므로 $$O(k^{d-1})$$개다. 면이 $$2d$$개뿐이므로 전체 경계 cube 수도 $$O(k^{d-1})$$이다. 각 cube의 부피는 $$k^{-d}$$이므로
 
 $$
-\sum_{Q \in \mathcal{Q}'} \vert Q\vert  = O\left(\frac{1}{k}\right)
+\sum_{Q\in\mathcal Q'_k}|Q|=O(k^{d-1})k^{-d}=O(k^{-1}).
 $$
 
-Therefore we can combine these two estimates to get the following inequality:
+여기서 $$O(k^{-1})$$는 $$k$$와 무관하고 $$R,d$$에만 의존하는 상수 $$C$$를 사용하여 $$C/k$$ 이하로 제어된다는 뜻이다. 따라서
 
 $$
-\sum_{Q \in \mathcal{Q} \cup \mathcal{Q}'} \vert Q\vert  \le \vert R\vert  + O\left(\frac{1}{k}\right)
+m_*(R)\le\sum_{Q\in\mathcal Q_k\cup\mathcal Q'_k}|Q|
+\le|R|+\frac Ck.
 $$
 
-And now we can send $$k$$ to the infinity. Why do we send k to infinity? Beacuse we will take infimum to all possible covers. Therefore letting $$k \to \infty$$ yields $$m_{*}(R) \le \vert R\vert $$. For this example, the statement was very easy but its proof is very technical.
+모든 $$k$$에 대해 성립하므로 $$k\to\infty$$로 보내면 $$m_*(R)\le\vert R\vert $$이다. 변의 길이가 $$0$$인 rectangle도 해당 면 근처의 cube들로 덮이며 같은 오차 추정으로 exterior measure가 $$0$$임을 얻는다.
 
 </div>
 
-Another example is the exterior measure of the unbounded set. Remeber that the domain of exterior measure was the power set of $$\mathbb{R}^d$$. Thus we may compute the exterior measure of the whole space $$\mathbb{R}^d$$ by using the definition.
+말로는 “rectangle의 부피와 같다”라는 간단한 명제지만, 정의가 cube covering을 사용하기 때문에 경계의 오차가 사라진다는 사실을 확인해야 했다.
+
+**Unbounded set과 Cantor set**
+
+<span id="l02:unbounded"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
-**Example 5 (Unbounded Set).**
+**Example 5.**
 
-$$m_{*}(\mathbb{R}^d) = \infty$$.
+$$m_*(\mathbb R^d)=\infty$$이다.
+
+</div>
+
+임의의 큰 cube $$Q\subset\mathbb R^d$$에 대해 $$\vert Q\vert =m_*(Q)\le m_*(\mathbb R^d)$$이다. 왼쪽을 임의로 크게 만들 수 있으므로 오른쪽은 무한대여야 한다. 반대로 유계 집합은 유한한 cube 하나에 들어가므로 exterior measure가 유한하다. 따라서 무한한 exterior measure를 가진 집합은 unbounded다. 그러나 unbounded라고 반드시 무한한 measure를 갖지는 않는다. 흩어진 작은 집합들의 부피 합이 유한하거나 $$0$$일 수 있다.
+
+<div class="real-analysis-statement" markdown="1">
+
+**Cantor set.**
+
+<span id="l02:cantor"></span>
+
+$$C_0=[0,1]$$에서 시작하여 매 단계 남아 있는 각 구간의 가운데 열린 삼분의 일을 제거하자. 그 결과를 $$C_k$$라 하고 $$C=\bigcap_{k=0}^{\infty}C_k$$로 놓으면 $$m_*(C)=0$$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-Naturally, the exterior measure of the whole space is infinity as we expected. Because, we have the bound for any cube.
+
+$$k$$단계에는 길이 $$3^{-k}$$인 closed interval이 $$2^k$$개 남는다. $$C\subset C_k$$이므로 이 구간들은 $$C$$의 covering이다. 따라서 정의만으로
 
 $$
-\vert Q\vert  \le m_{*}(\mathbb{R}^d) \quad \forall \, Q \subset \mathbb{R}^d
+0\le m_*(C)\le 2^k3^{-k}=\left(\frac23\right)^k
 $$
 
-Note that this inequality holds for any cube in $$\mathbb{R}^d$$. Therefore we can take the limit as it goes to infinity to conclude that the exterior measure of the whole space is infinity.
+이다. 왼쪽은 $$k$$와 무관하고 오른쪽은 $$0$$으로 수렴하므로 $$m_*(C)=0$$이다. 여기서는 감소하는 집합열의 measure가 극한에서 보존된다는 정리를 사용하지 않았다. 각 단계에서 유효한 covering 하나를 제시한 것뿐이다.
 
 </div>
 
-<div class="real-analysis-statement" markdown="1">
+**Infimum이 주는 covering과 monotonicity**
 
-**Remark.**
-
-Let $$E \subset \mathbb{R}^d$$ be a set with $$m_{*}(E) = \infty$$. Then $$E$$ must be unbounded. However, the converse is not true. If $$E$$ is unbounded, then $$m_{*}(E)$$ can be either infinity or finite.
-
-</div>
-
-The final example is the Cantor set. Let $$C$$ be the Cantor set which is defined by the intersection of $$C_k$$ where $$C_k$$ is obtained by iteration as follows: $$C_0$$ is the unit interval from 0 to 1 and at the first step we delete the central open interval from the zero step and we iterate this procedure, *i.e.* from each of the intervals we delete 1/3 the center interval. In this way we define the set $$C_k$$ and then we take the intersection.
-
-$$
-C = \bigcap_{k=0}^{\infty} C_k
-$$
-
-<div class="real-analysis-statement" markdown="1">
-
-**Example (Cantor Set).**
-
-Let $$C$$ be the Cantor set defined by $$C = \bigcap_{k=0}^{\infty} C_k$$. Then $$m_{*}(C) = 0$$.
-
-</div>
-
-<div class="real-analysis-proof" markdown="1">
-
-*Proof.*
-By the definition, we immediately see that the Cantor set is contained in $$C_k$$ for any $$k$$. Furthermore, since each $$C_k \subset \mathbb{R}$$, $$\vert C_{k}\vert $$ is given by the length of each interval. And we have many small intervals, actually $$2^k$$ intervals at each step. Thus the length of $$C_k$$ is given by
-
-$$
-\vert C_k\vert  = \left(\frac{1}{3}\right)^k \cdot 2^k = \left(\frac{2}{3}\right)^k
-$$
-
-Note that $$C \subset C_k$$ $$\: \forall \:k \geq 0$$. Hence we have this estimate:
-
-$$
-m_{*}(C) \le \vert C_k\vert  = \left(\frac{2}{3}\right)^k
-$$
-
-Finally, letting $$k \to \infty$$ yields $$m_{*}(C) = 0$$, since left hand side is independent of $$k$$ and we have bound for any natural number $$k$$.
-
-</div>
-
-So far, we have seen several examples of exterior measures of simple sets. Now let's move on to general properties of the exterior measure. We have several observations about the exterior measure in our textbook. It start with the result `obs:1`, but let me make the result `obs:0` which is written above the result `obs:1` in the text book.
+<span id="l02:infimum"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
 **Observation 0.**
 
-Given $$E \subset \mathbb{R}^d$$ and $$\epsilon > 0$$, $$\exists$$ a covering $$E \subset \bigcup_{j=1}^{\infty} Q_j$$ such that
+$$m_*(E)<\infty$$이고 $$\epsilon>0$$이면 어떤 countable closed-cube covering이
 
 $$
-\sum_{j=1}^{\infty} m_{*}(Q_j) \le m_{*}(E) + \epsilon.
+E\subset\bigcup_jQ_j,\qquad
+m_*(E)\le\sum_j|Q_j|\le m_*(E)+\epsilon
 $$
 
-which is equivalent to
-
-$$
-\sum_{j=1}^{\infty} m_{*}(Q_j) \ge m_{*}(E).
-$$
+를 만족한다.
 
 </div>
 
-<div class="real-analysis-proof" markdown="1">
-
-*Proof.*
-Recall that the definition of the exterior measure of $$E$$ is:
-
-$$
-m_*(E) = \inf \sum_{j=1}^\infty \vert Q_j\vert , \quad \text{where } E \subset \bigcup_{j=1}^\infty Q_j \text{ and each } Q_j \text{ is a closed cube}.
-$$
-
-By the definition of infimum,
-
-$$
-m_*(E) = \inf \sum_{j=1}^\infty \vert Q_j\vert  \leq \sum_{j=1}^\infty \vert Q_j\vert
-$$
-
-holds for any covering $$\bigcup_{j=1}^\infty Q_j$$ of $$E$$. Therefore if we allow positive error $$\epsilon$$, we get
-
-$$
-m_*(E) \leq \sum_{j=1}^\infty \vert Q_j\vert  \leq m_*(E) + \epsilon
-$$
-
-for some covering $$\bigcup_{j=1}^\infty Q_j$$ of $$E$$. This observation follows from the definition of infimum.
-
-</div>
-
-Next observations is about monotonicity of the exterior measure. Indeed, this was used several times in the previous examples. This obervation implies that the exterior measure is monotone with respect to the set inclusion. So if one set contains the other, then the exterior measure of the smaller set is less than or equal to that of the larger set.
+모든 covering의 합은 infimum 이상이다. 반면 infimum에 임의로 가까운 covering이 존재한다는 것이 오른쪽 부등식이다. 이 두 사실을 구별해야 한다. “모든 covering의 합이 infimum 이상이다”라는 말만으로 어떤 covering이 infimum에 가까운지는 알 수 없다. $$m_*(E)=\infty$$이면 모든 covering의 합이 무한대이며, 뒤의 근사 증명에서는 이 경우를 먼저 따로 처리한다.
 
 <div class="real-analysis-statement" markdown="1">
 
-**Observation 1 (Monotonicity).**
+**Observation 1: Monotonicity.**
 
-If $$E_1 \subset E_2$$, then $$m_{*}(E_1) \le m_{*}(E_2)$$.
+<span id="l02:monotone"></span>
+
+$$E_1\subset E_2$$이면 $$m_*(E_1)\le m_*(E_2)$$이다.
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-Note that if $$E_1 \subset E_2$$, this implies covering of $$E_2$$ also covers $$E_1$$. Thus, if $$\bigcup_{j=1}^\infty Q_j^2$$ is a covering of $$E_2$$ and $$\bigcup_{j=1}^\infty Q_j^1$$ is a covering of $$E_1$$, then $$\bigcup_{j=1}^\infty Q_j^2$$ is also a covering of $$E_1$$.
-Hence, we have the following:
 
-$$
-\bigcup_{j=1}^\infty Q_j^1 \subset \bigcup_{j=1}^\infty Q_j^2 \implies \sum_{j=1}^{\infty} \vert Q_j^1\vert  \leq \sum_{j=1}^{\infty} \vert Q_j^2\vert
-$$
-
-Therefore, by the definition of the exterior measure, we have
-
-$$
-m_{*}(E_1) = \inf \sum_{j=1}^\infty \vert Q_j^1\vert  \leq \inf \sum_{j=1}^\infty \vert Q_j^2\vert  = m_{*}(E_2).
-$$
+$$E_2$$의 모든 covering은 $$E_1$$의 covering이기도 하다. 따라서 $$E_1$$에 허용되는 covering의 선택지가 더 많다. 더 큰 선택지의 집합에서 infimum을 취하면 값은 작아지거나 같으므로 부등식이 성립한다. 서로 임의로 선택한 두 covering의 부피 합끼리 비교하는 논증이 아니라, *허용되는 covering들의 모임*을 비교하는 논증이다.
 
 </div>
 
-The next observation is countable subadditivity. If we have a set $$E = \bigcup_{j=1}^{\infty} E_j$$, then the exterior measure $$m_{*}(E)$$ is less than or equal to $$\sum_{j=1}^{\infty} m_{*}(E_j)$$.
+**Countable subadditivity와 오차의 배분**
+
+<span id="l02:subadditive"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
-**Observation 2 (Countable Subadditivity).**
+**Observation 2: Countable subadditivity.**
 
-If $$E = \bigcup_{j=1}^{\infty} E_j$$, then $$m_{*}(E) \le \sum_{j=1}^{\infty} m_{*}(E_j)$$.
+$$E\subset\bigcup_{j=1}^{\infty}E_j$$이면
+
+$$
+m_*(E)\le\sum_{j=1}^{\infty}m_*(E_j).
+$$
 
 </div>
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-If $$\sum_{j=1}^{\infty} m_{*}(E_j) = \infty$$, there is nothing to prove.
 
-Thus let me assume that $$\sum_{j=1}^{\infty} m_{*}(E_j) < \infty$$. The idea is to use the result `obs:0` for some fixed $$\epsilon$$ to $$E_j$$ for each $$j$$. Let $$\epsilon > 0$$ be given. By the result `obs:0`, for each $$j$$, there exists a covering of $$E_j$$ by closed cubes $$\{Q_{k,j}\}_{k=1}^\infty$$ such that
-
-$$
-\sum_{k=1}^{\infty} \vert Q_{k,j}\vert  \le m_{*}(E_j) + 2^{-j}\epsilon \quad \text{where } E_j \subset \bigcup_{k=1}^\infty Q_{k,j} \quad \text{for each } j \in \mathbb{N}.
-$$
-
-Instead of $$\epsilon$$, since we need smaller errors, we use $$2^{-j}\epsilon$$. Now we have a covering $$\bigcup_{k=1}^\infty Q_{k,j}$$ of $$E_j$$ for each $$j$$. Since $$E$$ is the union of $$E_j$$, we can cover $$E$$ by the union of all $$Q_{k,j}$$.
+오른쪽이 무한대이면 성립하므로 $$\sum_jm_*(E_j)<\infty$$라 하자. 주어진 $$\epsilon>0$$에 대해 각 $$E_j$$의 covering을 고르되 오차를 똑같이 $$\epsilon$$씩 주지 않고 $$2^{-j}\epsilon$$씩 배분한다.
 
 $$
-E = \bigcup_{j=1}^{\infty} E_j \: \subset \: \bigcup_{j, k}^{\infty} Q_{k,j}
+E_j\subset\bigcup_{k=1}^{\infty}Q_{k,j},\qquad
+\sum_k|Q_{k,j}|\le m_*(E_j)+2^{-j}\epsilon.
 $$
 
-Therefore we can conclude
+지표 $$j$$는 어떤 집합을 덮는지, $$k$$는 그 covering 안에서 어떤 cube인지를 나타낸다. 모든 $$Q_{k,j}$$를 합치면 $$E$$를 덮는다. $$\mathbb N^2$$가 countable이므로 이것도 정의에 허용되는 countable covering이다. 따라서
 
 $$
-m_{*}(E) \le \sum_{j,k}^{\infty} \vert Q_{k,j}\vert  \le \sum_{j=1}^{\infty} (m_{*}(E_j) + 2^{-j}\epsilon) = \sum_{j=1}^{\infty} m_{*}(E_j) + \epsilon
+m_*(E)\le\sum_{j,k}|Q_{k,j}|
+\le\sum_j\bigl(m_*(E_j)+2^{-j}\epsilon\bigr)
+=\sum_jm_*(E_j)+\epsilon.
 $$
 
-this inquality. Note that the second inequality comes from the constrctuon of $$Q_{k,j}$$. Again, letting $$\epsilon \to 0$$ yields the desired results.
+합의 항들이 모두 음이 아니므로 이중합은 유한 부분합들의 supremum으로 정의되며, 합을 묶거나 순서를 바꾸어도 값이 같다. 마지막으로 $$\epsilon\downarrow0$$을 취한다.
 
 </div>
 
-Next observation is also important. If you have a subset of $$\mathbb{R}^d$$, then you can approximate the exterior measure of this set by open sets from outside.
+오차를 geometric series로 배분한 이유가 이제 보인다. Countable하게 많은 근사를 동시에 사용해도 전체 오차가 $$\epsilon$$ 이하로 남아야 한다.
+
+**Open set으로 밖에서 근사하기**
+
+<span id="l02:outer"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
 **Observation 3.**
 
-If $$E \subset \mathbb{R}^d$$, then
+모든 $$E\subset\mathbb R^d$$에 대해
 
 $$
-m_{*}(E) = \inf_{E\, \subset \, O \text{: open}} m_{*}(O)
+m_*(E)=\inf\{m_*(O):E\subset O,\ O\text{는 열린 집합}\}.
 $$
 
 </div>
@@ -406,101 +337,111 @@ $$
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-So you compute the exterior measure of open sets which contain the set $$E$$ and then take infimum over all open sets. So here $$O$$ is open and it contains $$E$$. Maybe this notation is a bit confusing but it means that you take the infimum of all open sets containing $$E$$. Okay. Uh this is equality. So we will prove this inequality and the opposite inequality. But actually one of them is trivial. Which one of them is trivial? This one $$(\le)$$ is trivial. Right? Because whenever uh you have a larger set, from this observation from monotonicity uh you get this inequality without infimum. But you can take infimum and then the inequality stays there. So this part is clear from the monotonicity of the exterior measure.
 
-So let me prove the opposite uh inequality. I will use the same trick. We will uh allow some positive error. So we will fix $$\epsilon$$ and choose a covering again. So $$E$$ is covered by the union of closed cubes. But the sum of volumes is controlled by the exterior measure with this error $$\epsilon$$. This is the observation zero. Again for some I will take $$\epsilon / 2$$. So we need this inequality right.
+Monotonicity에 의해 $$E\subset O$$이면 $$m_*(E)\le m_*(O)$$이다. 따라서 왼쪽은 오른쪽 infimum 이하이다. $$m_*(E)=\infty$$인 경우에는 이것으로 양쪽이 모두 무한대임을 안다.
 
-$$
-E \subset \bigcup_{j} Q_j \quad \text{with} \quad \sum_j \vert Q_j\vert  \le m_{*}(E) + \epsilon/2
-$$
-
-This is applied to this covering and uh we need to uh make an open set which covers $$E$$, but this covering is the union of closed cubes. So we will make it open by considering a slightly larger set. So for each $$j$$ let me consider another cube, open cube $$Q_j^\circ$$, so that $$Q_j^\circ$$ contains $$Q_j$$. But this new open cube is not that large in the sense that the volume of this open set is very close to the volume of the original set $$Q_j$$ with this error. We will see why we took this strange number in a second.
+이제 $$m_*(E)<\infty$$라 하자. $$\epsilon>0$$을 고정하고
 
 $$
-\vert Q_j^\circ\vert  \le \vert Q_j\vert  + \frac{\epsilon}{2^{j+1}}
+E\subset\bigcup_jQ_j,\qquad \sum_j|Q_j|\le m_*(E)+\epsilon/2
 $$
 
-Now we have an open cover of $$E$$. So we took union of closed cubes. But each $$Q_j$$ is covered by open set and therefore the original set is covered by the union of these open sets and the countable union of open sets is open again. So let me define $$O$$ by union of these open cubes.
+인 closed-cube covering을 선택한다. 이 합집합은 일반적으로 열려 있지 않으므로 각 cube를 조금 키워 open cube $$S_j$$를 만들되
 
 $$
-O = \bigcup_j Q_j^\circ
+Q_j\subset S_j,\qquad |S_j|\le|Q_j|+\frac{\epsilon}{2^{j+1}}
 $$
 
-This is open and the measure of this open set uh is less than the sum of the volumes of these by the countable subadditivity that we just proved in the previous observation. And we have this uh control. So $$Q_j^\circ$$ is controlled by $$Q_j$$ plus $$\epsilon / 2^{j+1}$$. Uh this is the sum of $$Q_j$$ plus $$\epsilon / 2$$. We can compute the geometric series. And now we use the very first inequality.
+가 되게 한다. $$S_j$$는 $$Q_j$$의 내부가 아니라 $$Q_j$$를 포함하는 *더 큰* open cube다. $$O=\bigcup_jS_j$$는 열린 집합이고 $$E\subset O$$이다. Open cube의 exterior measure를 계산한 결과와 countable subadditivity로
 
 $$
-m_{*}(O) \le \sum_j \vert Q_j^\circ\vert  \le \sum_j \left( \vert Q_j\vert  + \frac{\epsilon}{2^{j+1}} \right) \le \sum_j \vert Q_j\vert  + \frac{\epsilon}{2} \le m_{*}(E) + \epsilon
+\begin{align*}
+m_*(O)&\le\sum_j|S_j|
+\le\sum_j|Q_j|+\sum_{j=1}^{\infty}\frac{\epsilon}{2^{j+1}}\\
+&\le m_*(E)+\epsilon/2+\epsilon/2
+=m_*(E)+\epsilon.
+\end{align*}
 $$
 
-This is what we wanted to prove, right? The reverse part.
+따라서 오른쪽 infimum도 $$m_*(E)$$ 이하이다.
 
 </div>
 
-Any questions so far? Okay. Uh, next observation. Uh, looks obvious but the condition uh the assumption may look stronger than we expect. Let's assume that the set $$E$$ is given by the union of the two sets $$E_1$$ and $$E_2$$ and assume that they are disjoint. Okay. But actually we assume that the distance of these two sets is positive which is stronger than uh the disjointness of two sets, then we will obtain the additivity.
+이 명제는 *모든 집합*에 성립한다. 열린 집합의 exterior measure라는 숫자를 $$m_*(E)$$에 가깝게 만들었다. 그러나 아직 $$O\setminus E$$ 자체의 크기를 작게 만들었다고 말한 것은 아니다.
+
+**거리 조건이 있으면 additivity를 얻는다**
+
+<span id="l02:separated"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
 **Observation 4.**
 
-If $$E = E_1 \cup E_2$$ and $$dist(E_1, E_2) > 0$$, then
+두 비어 있지 않은 집합 $$E_1,E_2\subset\mathbb R^d$$가
 
 $$
-m_{*}(E) = m_{*}(E_1) + m_{*}(E_2)
+\operatorname{dist}(E_1,E_2)
+=\inf\{|x-y|:x\in E_1,\ y\in E_2\}>0
 $$
+
+를 만족하면
+
+$$
+m_*(E_1\cup E_2)=m_*(E_1)+m_*(E_2)
+$$
+
+이다. 한 집합이 비어 있는 경우에도 등식은 성립한다.
 
 </div>
+
+Disjoint와 positive distance는 다르다. 예를 들어 $$(0,1)$$과 $$(1,2)$$는 만나지 않지만 서로 임의로 가까운 점들을 가지므로 거리는 $$0$$이다. 이 예에서는 additivity가 성립하지만, 그 사실을 임의의 두 disjoint 집합으로 확대할 수는 없다.
 
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-I mean in observation two sorry uh we we had countable subadditivity but in this example we will get additivity of two sets, of finite sets. So $$m_{*}(E)$$ is given by $$m_{*}(E_1) + m_{*}(E_2)$$. And if you have several sets whose relative distances are positive. Then you can uh apply the observation inductively so that uh you have additivity of several sets like finite sets and we will prove this. But actually you cannot replace this condition by the assumption that $$E_1$$ and $$E_2$$ are disjoint. This is not true. Uh and actually this is very difficult to prove, to provide a counterexample for it and we will deal with this question in the next session, but let me first prove this observation.
 
-What is this? The distance of two sets. Uh this is defined by uh so you first take uh the distance of two points $$x$$ and $$y$$, and in the Euclidean space if you choose two points you can compute the distance between them right, so when $$x$$ is in $$E_1$$ and $$y$$ is in $$E_2$$. You can compute the distance of these points and you collect all possible distances and then you take infimum of them. This is a subset of the real line. So you can take infimum. So this is the definition of the distance.
+$$E=E_1\cup E_2$$로 놓자. $$m_*(E)\le m_*(E_1)+m_*(E_2)$$는 subadditivity이다. 한 $$m_*(E_i)$$가 무한대이면 monotonicity에 의해 $$m_*(E)=\infty$$여서 등식이 성립한다. 나머지 경우에는 subadditivity에 의해 $$m_*(E)<\infty$$이다.
 
-$$
-dist(E_1, E_2) = \inf \{ \vert x - y\vert  : x \in E_1, y \in E_2 \}
-$$
-
-If you have two sets like two open sets whose boundaries intersect at a point. These two open sets are disjoint but their distance is zero. Right? I mean in this simple example this equality holds true but there are very strange examples of two sets, disjoint sets where this equality fails but we will come back to this issue later.
-
-Let me first prove this inequality. And this inequality $$(\le)$$ was already proved right in the observation two. I mean the countable subadditivity includes finite subadditivity as a special case. So this inequality was already proved uh and we will prove the reverse inequality.
-
-Again we take positive $$\epsilon$$ and we will also take a $$\delta$$ by the half of the distance which is still positive.
+$$\delta=\operatorname{dist}(E_1,E_2)/2>0$$으로 놓고 $$E$$의 covering을 선택하여
 
 $$
-\delta = \frac{1}{2}dist(E_1, E_2) > 0
+\sum_j|Q_j|\le m_*(E)+\epsilon
 $$
 
-Uh we need this inequality. So we will start from the right hand side and we will use the observation zero. Again we will control each of the exterior measure by the sum of volumes of cubes with this error $$\epsilon$$. So as always we take a covering $$Q_j$$. So we're going to start with this measure. So we cover $$E$$ by closed cubes with this inequality.
+이 되게 한다. 각각의 cube를 유한 개의 작은 cube로 분할하여 모든 지름이 $$\delta$$보다 작게 할 수 있다. 유한 almost disjoint 분할은 부피 합을 보존하므로 위 추정은 유지된다. 새 covering도 countable이며 다시 $$\{Q_j\}$$라 쓰자.
+
+이제 한 cube가 $$E_1$$과 $$E_2$$를 모두 만날 수 없다. 그렇다면 그 cube 안에 두 집합의 점이 하나씩 있어 두 점의 거리가 $$\delta$$보다 작아지고, 집합 사이 거리의 정의에 모순되기 때문이다. 따라서
 
 $$
-E \subset \bigcup_j Q_j \quad \text{with} \quad \sum_j \vert Q_j\vert  \le m_{*}(E) + \epsilon
+J_i=\{j:Q_j\cap E_i\ne\varnothing\},\qquad i=1,2
 $$
 
-But we have two sets $$E_1$$ and $$E_2$$ and they have positive distance from each other and the union is $$E$$ and we have covered uh the whole set $$E$$ by closed cubes like this. Of course we may have a cube that intersect uh both of them. Now uh we will divide the whole collection into two subcollections. But before that we will assume that the diameter of $$Q_j$$ is sufficiently small like smaller than $$\delta$$ so that we don't have such cube. Okay. If you have this closed cube in the collection Then you can subdivide this cube into smaller cubes which still cover the whole set $$E$$ but the diameter of each cube is less than the distance between these two sets. This is always possible and then you can classify these cubes into two subcollections.
-
-So let $$J_1$$ and $$J_2$$ be a set of indices for which $$Q_j$$ intersects $$E_1$$ or $$E_2$$. Uh, of course there can be some cubes that do not intersect $$E_1$$ and $$E_2$$, but we can ignore them, right? You can simply ignore them. Uh, but what we have is that these two index sets $$J_1$$ and $$J_2$$ uh do not intersect ($$J_1 \cap J_2 = \emptyset$$) and we already subdivided the cubes into smaller pieces. So it's not possible to have a cube that intersects uh $$E_1$$ and $$E_2$$ at the same time. And also each set, either the union of all cubes where $$j$$ is coming from the index set $$J_i$$ for $$i=1$$ and $$2$$. So $$E_1$$ is covered by the cubes that uh are intersecting $$E_1$$ and $$E_2$$ is covered by the cubes intersecting $$E_2$$.
-
-Now we can conclude uh the observation. So we start from the right hand side $$m_{*}(E_1) + m_{*}(E_2)$$ uh each set is covered by these uh cubes. So the exterior measure of $$E_1$$ is less than the summation from the index set $$J_1$$ and the same is true for $$J_2$$, right? And these index sets do not intersect. So these summations are disjoint. And therefore the sum of these two sums is controlled by the original uh sum.
+는 서로 disjoint인 지표 집합이다. 어느 집합도 만나지 않는 cube는 무시해도 된다. 각 $$E_i$$는 $$j\in J_i$$인 cube들로 덮이므로
 
 $$
-m_{*}(E_1) + m_{*}(E_2) \le \sum_{j \in J_1} \vert Q_j\vert  + \sum_{j \in J_2} \vert Q_j\vert  \le \sum_j \vert Q_j\vert
+m_*(E_1)+m_*(E_2)
+\le\sum_{j\in J_1}|Q_j|+\sum_{j\in J_2}|Q_j|
+\le\sum_j|Q_j|\le m_*(E)+\epsilon.
 $$
 
-So this is, this is wrong, right? We have here. So the covering is larger but it's not that large in this way. So now we can go to the right hand side here to control, I mean we have controlled the right hand side by this $$m_{*}(E) + \epsilon$$ but all the quantities are independent of $$\epsilon$$. So we conclude the reverse inequality.
+$$\epsilon\downarrow0$$으로 원하는 반대 부등식을 얻는다.
 
 </div>
 
-So this is one of the observations we made under this strange I mean very strong assumption but we will prove that uh it's necessary. We had the countable subadditivity in the observation two right when the set is covered by the union of other sets. But if you have uh a countable union of almost disjoint cubes then you will get equality, countable additivity.
+유한 개의 집합이 쌍마다 positive distance를 가지면 이 논증을 반복하여 finite additivity를 얻는다. 유한 모임에서는 여러 거리의 최솟값도 양수이므로 한 집합과 나머지 유한 합집합 사이에도 양의 간격이 남는다.
+
+**Almost disjoint cube들의 countable additivity**
+
+<span id="l02:cubes"></span>
 
 <div class="real-analysis-statement" markdown="1">
 
 **Observation 5.**
 
-If $$E$$ is the countable union of almost disjoint cubes $$E = \bigcup_{j=1}^{\infty} Q_j$$, then
+Almost disjoint closed cube들에 대해
 
 $$
-m_{*}(E) = \sum_{j=1}^{\infty} \vert Q_j\vert
+m_*\left(\bigcup_{j=1}^{\infty}Q_j\right)=\sum_{j=1}^{\infty}|Q_j|.
 $$
 
 </div>
@@ -508,45 +449,59 @@ $$
 <div class="real-analysis-proof" markdown="1">
 
 *Proof.*
-This statement is as follows. If the set $$E$$ is the countable union of almost disjoint cubes. So $$E$$ is given by the countable union of cubes and they are almost disjoint which means that their interiors do not intersect. Then you have the equality: the exterior measure of $$E$$ is given by the summation of all the volumes of cubes and here you have equality instead of inequality. Again we already have proved this inequality $$(\le)$$ which was the countable subadditivity. So we will prove the reverse inequality.
 
-So we fix $$\epsilon > 0$$. So in this example, $$E$$ is a random set and it is given by the countable union of almost disjoint cubes like this. But they share boundaries. We will go inside slightly into cubes. So we consider the new cube $$\tilde{Q}_j$$ which is strictly contained in $$Q_j$$. I mean they are closed cubes. So then the union of these new cubes are disjoint, that is the point. So they are strictly contained in $$Q_j$$'s but their volumes are comparable in the following sense:
-
-$$
-\vert \tilde{Q}_j\vert  \ge \vert Q_j\vert  - \epsilon/2^j
-$$
-
-Then the distance between two cubes are always positive. Right? If you choose two different cubes, $$\tilde{Q}_j$$ and $$\tilde{Q}_k$$, this is always positive for any $$j, k$$. Okay. Then we can apply the previous observation which was the finite additivity. But we have countably many cubes. So we cannot directly apply the finite additivity for countable sets but instead we apply the previous observation to finitely many cubes. So the exterior measure of $$\bigcup_{j=1}^N \tilde{Q}_j$$ from 1 to capital $$N$$, $$N$$ is any fixed natural number $$N$$. Then this is equal to the finite sum of the volumes of these cubes. And by using this inequality, the volume of $$\tilde{Q}_j$$ is bigger or equal to the original volume minus $$\epsilon/2^j$$.
+$$E=\bigcup_jQ_j$$라 하자. $$\le$$ 방향은 subadditivity이다. $$\ge$$를 보이려면 cube들을 조금 줄여 서로 실제로 떨어지게 한다. 부피 $$0$$인 cube는 오른쪽 합에 기여하지 않으며 countable union도 exterior measure $$0$$이므로 제외해도 된다. 나머지 cube마다
 
 $$
-m_{*}\left(\bigcup_{j=1}^N \tilde{Q}_j\right) = \sum_{j=1}^N m_{*}(\tilde{Q}_j) = \sum_{j=1}^N \vert \tilde{Q}_j\vert  \ge \sum_{j=1}^N \left( \vert Q_j\vert  - \frac{\epsilon}{2^j} \right)
+\widetilde Q_j\subset\operatorname{int}Q_j,\qquad
+|\widetilde Q_j|\ge|Q_j|-\epsilon2^{-j}
 $$
 
-So this holds for any natural number $$N$$. This is the point. So we can pass the limit as $$N$$ goes to infinity in a moment.
+인 closed cube를 고른다.
 
-Now uh this finite union of these new cubes is contained in $$E$$ right. I mean originally this countable union is equal to $$E$$ but we have constructed the smaller cubes so their union is contained in $$E$$. So we have this inequality $$m_{*}(E)$$ is larger or equal to the sum right. We used all the information we have. So this is uh bigger or equal to the sum of uh all volumes of these cubes which is this. And we have this lower bound and we can estimate this from below by this.
+서로 다른 $$\widetilde Q_j$$는 원래 cube의 내부 안으로 들어갔기 때문에 서로 떨어져 있다. 하지만 countable하게 많은 집합에 앞의 *finite* additivity를 곧바로 적용해서는 안 된다. 먼저 $$N$$을 고정하여 유한 모임에 적용한다.
 
 $$
-m_{*}(E) \ge \sum_{j=1}^N \vert Q_j\vert  - \epsilon
+m_*(E)\ge m_*\left(\bigcup_{j=1}^N\widetilde Q_j\right)
+=\sum_{j=1}^N|\widetilde Q_j|
+\ge\sum_{j=1}^N|Q_j|-\epsilon.
 $$
 
-We have two parameters, natural number $$N$$ and positive number $$\epsilon$$. But now we first take the limit $$N$$ goes to infinity because these quantities are independent of $$N$$ so that we get infinity here and then we send $$\epsilon$$ to zero. So we first let $$N$$ to infinity and then $$\epsilon$$ goes to zero, this completes the proof.
+모든 $$N$$에 대해 성립하므로 $$N\to\infty$$로 보낸다. 부피 합이 무한대인 경우에는 위 부등식들이 곧 $$m_*(E)=\infty$$를 뜻한다. 유한한 경우에는 이어 $$\epsilon\downarrow0$$을 취하면 된다.
 
 </div>
+
+이제 열린 집합을 almost disjoint cube들로 분해하여 부피를 더하는 방식이 분해에 무관함을 안다. 그 합은 항상 이미 유일하게 정의된 $$m_*(O)$$와 같기 때문이다.
+
+**왜 measurable set을 따로 골라야 하는가?**
+
+<span id="l02:measurable"></span>
+
+핵심 질문은 다음과 같다. $$E_1\cap E_2=\varnothing$$이라는 조건만으로
+
+$$
+m_*(E_1\cup E_2)=m_*(E_1)+m_*(E_2)
+$$
+
+라고 할 수 있을까? 답은 일반적으로 아니다. 익숙한 간단한 집합에서는 성립하므로 반례가 눈에 잘 보이지 않는다. 반례는 뒤에서 non-measurable set을 구성할 때 나타난다. 지금 필요한 것은 additivity를 회복할 수 있는 집합의 부류를 고르는 일이다.
 
 <div class="real-analysis-statement" markdown="1">
 
-**Remark.**
-Uh okay, these are observations but an important remark that I mentioned before is that the assumption in the previous example maybe in observation three no observation four sorry, for the uh finite additivity we needed positive distance from two sets. So the question is if you have a union of two disjoint sets $$E_1$$ and $$E_2$$. If this is disjoint, then is the following true?
+**Definition (Lebesgue measurable set).**
+
+$$E\subset\mathbb R^d$$가 다음 조건을 만족하면 Lebesgue measurable 또는 간단히 measurable이라 한다.
 
 $$
-m_{*}(E_1 \cup E_2) = m_{*}(E_1) + m_{*}(E_2)
+\forall\epsilon>0\quad\exists\text{ 열린 }O\supset E
+\quad\text{such that}\quad m_*(O\setminus E)\le\epsilon.
 $$
-
-This is one of the fundamental questions in this course. So in this question we don't have positive distance from these two sets in most of the cases, when $$E_1$$ and $$E_2$$ are simple sets this is true but surprisingly this is not true in general, so the answer is **no** and it's not that easy to see the counterexample. And if you like, you can try to solve the exercise 33. But this exercise will require some knowledge uh from the next session. So you can postpone uh this exercise uh until the next session. But exercises in Section 1.2 are the following 3, 14, 15.
 
 </div>
 
-Any questions so far? You can ask question in Korean. Okay, then let me briefly explain the goal of the next section where we will define measurable sets and the Lebesgue measure.
+열린 집합으로 밖에서 덮되, 덮개가 원래 집합보다 더 차지하는 부분 자체의 exterior measure를 임의로 작게 만들 수 있다는 뜻이다. Observation 3에서는 $$m_*(O)\le m_*(E)+\epsilon$$만 얻었다. 왜 거기서 $$m_*(O\setminus E)\le\epsilon$$을 바로 얻지 못하는가? $$O=E\cup(O\setminus E)$$가 disjoint union이라고 해도 exterior measure의 additivity를 아직 보장할 수 없기 때문이다. 두 조건을 혼동하면 measurable이라는 새 조건이 아무 역할도 하지 않는 것처럼 보이게 된다.
+
+다음에는 이 정의를 만족하는 집합이 충분히 많다는 것, 그리고 그 모임이 countable union, complement, countable intersection 아래에서 닫혀 있다는 것을 보인다. 그 뒤에야 disjoint measurable set들의 countable additivity를 증명할 수 있다.
+
+{% endraw %}
 
 <!-- prettier-ignore-end -->

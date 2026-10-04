@@ -13,88 +13,51 @@ description: Study notes on mathematics, optimization, and computer science.
     <div class="blog-header-links"><a href="#all-notes-title">Search articles</a><a class="feed-link" href="{{ '/feed.xml' | relative_url }}">RSS</a></div>
   </header>
 
-{% assign course_notes = site.posts | where_exp: 'post', 'post.categories contains "real-analysis"' | sort: 'date' %}
-{% if course_notes.size > 0 %}
-
-<section class="series-feature" aria-labelledby="series-title">
-<h2 id="series-title">Real Analysis</h2>
-<p>2026년 봄학기 실변수함수론 강의노트 · {{ course_notes.size }}편</p>
-<a href="{{ course_notes.first.url | relative_url }}">첫 글부터 읽기 →</a>
-</section>
-{% endif %}
-
-{% assign groups = site.data.blog_categories %}
-{% assign empty_posts = '' | split: ',' %}
+{% assign courses = site.data.blog_categories %}
 
   <div class="blog-content-grid">
     <div class="blog-topic-list">
-      <div class="section-heading"><h2>Browse by Research Area</h2></div>
-      {% for group in groups %}
-        {% assign group_posts = site.categories[group.slug] | default: empty_posts %}
-        {% for child in group.children %}
-          {% assign child_posts = site.categories[child.slug] | default: empty_posts %}
-          {% assign group_posts = group_posts | concat: child_posts %}
-        {% endfor %}
-        {% assign group_posts = group_posts | uniq | sort: 'date' | reverse %}
-        <section class="blog-topic-section" id="topic-{{ group.slug }}">
-          <div class="blog-topic-header">
-            <div><h3>{{ group.title }}</h3><p>{{ group.description }}</p></div>
-            <div class="blog-topic-chips" aria-label="Subfields in {{ group.title }}">
-              {% for child in group.children %}
-                {% assign child_posts = site.categories[child.slug] %}
-                {% if child_posts.size > 0 %}
-                  <a href="{{ '/blog/category/' | append: child.slug | append: '/' | relative_url }}">{{ child.title }}</a>
-                {% else %}
-                  <span class="blog-topic-placeholder" title="No articles yet">{{ child.title }}</span>
-                {% endif %}
-              {% endfor %}
+      <div class="section-heading"><h2>Browse by Course</h2></div>
+      {% for course in courses %}
+        {% assign course_posts = site.categories[course.slug] | sort: 'date' %}
+        {% if course_posts.size > 0 %}
+          <section class="blog-topic-section" id="topic-{{ course.slug }}">
+            <div class="blog-topic-header">
+              <div><h3>{{ course.title }}</h3><p>{{ course.description }}</p></div>
+              <div class="blog-topic-chips">
+                <a href="{{ course_posts.first.url | relative_url }}">첫 글부터 읽기 →</a>
+                <a href="{{ '/blog/category/' | append: course.slug | append: '/' | relative_url }}">전체 {{ course_posts.size }}편</a>
+              </div>
             </div>
-          </div>
-          <div class="blog-post-rows">
-            {% for post in group_posts limit: 5 %}
-              <article class="blog-post-row"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time><a href="{% if post.redirect %}{{ post.redirect | relative_url }}{% else %}{{ post.url | relative_url }}{% endif %}">{{ post.title | escape }}</a></article>
-            {% endfor %}
-            {% if group_posts.size == 0 %}<p class="blog-topic-empty">No articles are available in this research area yet.</p>{% endif %}
-            {% if group_posts.size > 5 %}
-              <details class="blog-more-posts"><summary>View all {{ group_posts.size }} articles</summary>
-                {% for post in group_posts offset: 5 %}
-                  <article class="blog-post-row"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time><a href="{% if post.redirect %}{{ post.redirect | relative_url }}{% else %}{{ post.url | relative_url }}{% endif %}">{{ post.title | escape }}</a></article>
-                {% endfor %}
-              </details>
-            {% endif %}
-          </div>
-        </section>
+            <div class="blog-post-rows">
+              {% for post in course_posts limit: 5 %}
+                <article class="blog-post-row"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></article>
+              {% endfor %}
+              {% if course_posts.size > 5 %}
+                <details class="blog-more-posts"><summary>View all {{ course_posts.size }} articles</summary>
+                  {% for post in course_posts offset: 5 %}
+                    <article class="blog-post-row"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></article>
+                  {% endfor %}
+                </details>
+              {% endif %}
+            </div>
+          </section>
+        {% endif %}
       {% endfor %}
     </div>
 
-    <aside class="blog-category-sidebar" aria-label="Research areas">
+    <aside class="blog-category-sidebar" aria-label="Courses">
       <div class="blog-category-panel">
-        <div class="blog-category-title"><span>Research Areas</span><a href="#all-notes-title">All</a></div>
+        <div class="blog-category-title"><span>Courses</span><a href="#all-notes-title">All</a></div>
         <nav class="blog-category-tree">
-          {% for group in groups %}
-            {% assign group_posts = site.categories[group.slug] | default: empty_posts %}
-        {% for child in group.children %}
-          {% assign child_posts = site.categories[child.slug] | default: empty_posts %}
-          {% assign group_posts = group_posts | concat: child_posts %}
-        {% endfor %}
-        {% assign group_posts = group_posts | uniq | sort: 'date' | reverse %}
-            <details {% if forloop.first %}open{% endif %}>
-              <summary><span>{{ group.title }}</span><span class="blog-category-count">{{ group_posts.size }}</span></summary>
-              <a class="blog-group-link" href="#topic-{{ group.slug }}">View {{ group.title }} articles</a>
-              <ul>
-                {% for child in group.children %}
-                  {% assign child_posts = site.categories[child.slug] %}
-                  <li>
-                    {% if child_posts.size > 0 %}
-                      <a href="{{ '/blog/category/' | append: child.slug | append: '/' | relative_url }}"><span>{{ child.title }}</span><span class="blog-category-count">{{ child_posts.size }}</span></a>
-                    {% else %}
-                      <span class="blog-category-empty" title="No articles yet"><span>{{ child.title }}</span><span class="blog-category-count">0</span></span>
-                    {% endif %}
-                  </li>
-                {% endfor %}
-              </ul>
-            </details>
-          {% endfor %}
+          <ul>
+            {% for course in courses %}
+              {% assign course_posts = site.categories[course.slug] %}
+              {% if course_posts.size > 0 %}
+                <li><a href="{{ '/blog/category/' | append: course.slug | append: '/' | relative_url }}"><span>{{ course.title }}</span><span class="blog-category-count">{{ course_posts.size }}</span></a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </nav>
       </div>
     </aside>
@@ -112,7 +75,7 @@ description: Study notes on mathematics, optimization, and computer science.
       {% assign sorted_categories = site.categories | sort %}
       {% for category in sorted_categories %}
         {% assign label = category[0] | replace: '-', ' ' | capitalize %}
-        {% for group in site.data.blog_categories %}{% if group.slug == category[0] %}{% assign label = group.title %}{% endif %}{% for child in group.children %}{% if child.slug == category[0] %}{% assign label = child.title %}{% endif %}{% endfor %}{% endfor %}
+        {% for course in courses %}{% if course.slug == category[0] %}{% assign label = course.title %}{% endif %}{% endfor %}
         <button type="button" data-topic="{{ category[0] | escape }}" aria-pressed="false">{{ label }} <span>{{ category[1].size }}</span></button>
       {% endfor %}
     </div>
