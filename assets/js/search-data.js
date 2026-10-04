@@ -30,7 +30,128 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-real-analysis-appendix-complex-fourier-series-and-holomorphic-functions",
+        },{id: "post-probability-theory-7-martingales-and-games-of-chance",
+        
+          title: "Probability Theory 7: Martingales and Games of Chance",
+        
+        description: "Martingale의 정의와 성질, 도박 모형과의 관계를 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/probability-theory-lecture-7/";
+          
+        },
+      },{id: "post-probability-theory-6-conditional-inequalities-and-filtrations",
+        
+          title: "Probability Theory 6: Conditional Inequalities and Filtrations",
+        
+        description: "Conditional expectation의 부등식, 확률변수열과 filtration을 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/probability-theory-lecture-6/";
+          
+        },
+      },{id: "post-probability-theory-5-conditioning-on-a-sigma-field",
+        
+          title: "Probability Theory 5: Conditioning on a Sigma-Field",
+        
+        description: "Sigma-field에 대한 conditional expectation과 그 일반적인 성질을 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/probability-theory-lecture-5/";
+          
+        },
+      },{id: "post-probability-theory-4-conditioning-on-a-random-variable",
+        
+          title: "Probability Theory 4: Conditioning on a Random Variable",
+        
+        description: "일반 확률변수에 대한 conditional expectation의 정의와 성질을 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/probability-theory-lecture-4/";
+          
+        },
+      },{id: "post-pdes-and-applications-4-heat-kernel-and-reflection",
+        
+          title: "PDEs and Applications 4: Heat Kernel and Reflection",
+        
+        description: "전 실수선에서의 diffusion equation과 heat kernel, 반직선에서의 reflection method를 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/partial-differential-equations-lecture-4/";
+          
+        },
+      },{id: "post-probability-theory-3-independence-and-conditional-expectation",
+        
+          title: "Probability Theory 3: Independence and Conditional Expectation",
+        
+        description: "Sigma-field의 독립성과 사건 및 이산 확률변수에 대한 conditional expectation을 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/probability-theory-lecture-3/";
+          
+        },
+      },{id: "post-pdes-and-applications-3-wave-and-diffusion-equations",
+        
+          title: "PDEs and Applications 3: Wave and Diffusion Equations",
+        
+        description: "Wave equation의 해와 diffusion equation의 maximum principle, 유일성을 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/partial-differential-equations-lecture-3/";
+          
+        },
+      },{id: "post-probability-theory-2-expectation-and-independence",
+        
+          title: "Probability Theory 2: Expectation and Independence",
+        
+        description: "기댓값의 성질과 부등식, 조건부확률과 독립성을 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/probability-theory-lecture-2/";
+          
+        },
+      },{id: "post-pdes-and-applications-2-models-boundary-conditions-and-waves",
+        
+          title: "PDEs and Applications 2: Models, Boundary Conditions, and Waves",
+        
+        description: "파동 및 확산 모형, initial condition과 boundary condition, well-posedness와 wave equation을 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/partial-differential-equations-lecture-2/";
+          
+        },
+      },{id: "post-probability-theory-1-events-and-random-variables",
+        
+          title: "Probability Theory 1: Events and Random Variables",
+        
+        description: "사건과 확률, 확률공간, 확률변수와 분포함수를 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/probability-theory-lecture-1/";
+          
+        },
+      },{id: "post-pdes-and-applications-1-first-order-equations",
+        
+          title: "PDEs and Applications 1: First-Order Equations",
+        
+        description: "편미분방정식의 기본 개념과 일계 방정식의 해법을 다룬다.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/partial-differential-equations-lecture-1/";
+          
+        },
+      },{id: "post-real-analysis-appendix-complex-fourier-series-and-holomorphic-functions",
         
           title: "Real Analysis Appendix: Complex Fourier Series and Holomorphic Functions",
         
