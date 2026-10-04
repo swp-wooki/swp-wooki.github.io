@@ -13,16 +13,6 @@ description: Study notes on mathematics, optimization, and computer science.
     <div class="blog-header-links"><a href="#all-notes-title">Search articles</a><a class="feed-link" href="{{ '/feed.xml' | relative_url }}">RSS</a></div>
   </header>
 
-{% assign course_notes = site.posts | where_exp: 'post', 'post.categories contains "real-analysis"' | sort: 'date' %}
-{% if course_notes.size > 0 %}
-
-<section class="series-feature" aria-labelledby="series-title">
-<h2 id="series-title">Real Analysis</h2>
-<p>2026년 봄학기 실변수함수론 강의노트 · {{ course_notes.size }}편</p>
-<a href="{{ course_notes.first.url | relative_url }}">첫 글부터 읽기 →</a>
-</section>
-{% endif %}
-
 {% assign groups = site.data.blog_categories %}
 {% assign empty_posts = '' | split: ',' %}
 
