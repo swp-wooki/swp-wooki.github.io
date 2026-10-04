@@ -369,7 +369,7 @@ ninja.data = [{
               window.location.href = "/projects/optimization-grand-challenge-2025/";
             },},{id: "projects-optimization-grand-challenge-2026",
           title: 'Optimization Grand Challenge 2026',
-          description: "Shipyard block placement and scheduling with LP planning, geometric search, and adaptive large neighborhood search",
+          description: "From spectral packing and heightmaps to a geometry-aware, deadline-conscious solver for shipyard scheduling",
           section: "Projects",handler: () => {
               window.location.href = "/projects/optimization-grand-challenge-2026/";
             },},{
