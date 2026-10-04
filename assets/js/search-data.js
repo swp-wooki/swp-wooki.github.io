@@ -367,6 +367,11 @@ ninja.data = [{
           description: "Graph-theoretic ALNS for RoRo ship stowage and vehicle rehandling",
           section: "Projects",handler: () => {
               window.location.href = "/projects/optimization-grand-challenge-2025/";
+            },},{id: "projects-optimization-grand-challenge-2026",
+          title: 'Optimization Grand Challenge 2026',
+          description: "Shipyard block placement and scheduling with LP planning, geometric search, and adaptive large neighborhood search",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/optimization-grand-challenge-2026/";
             },},{
         id: 'social-email',
         title: 'email',
