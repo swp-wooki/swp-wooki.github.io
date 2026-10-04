@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="{{ site.lang }}">
+<html lang="{{ page.lang | default: site.lang }}">
   <head>
     {% include head.liquid %}
   </head>
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} blog-layout">
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} blog-layout sticky-bottom-footer">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     {% include header.liquid %}
-    <main class="blog-page-shell" role="main">{{ content }}</main>
+    <main id="main-content" class="blog-page-shell" tabindex="-1">{{ content }}</main>
     {% include footer.liquid %}
     {% include scripts.liquid %}
+    <script defer src="{{ '/assets/js/notebook.js' | relative_url | bust_file_cache }}"></script>
   </body>
 </html>

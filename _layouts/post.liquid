@@ -1,96 +1,129 @@
 ---
 layout: default
 ---
-{% assign year = page.date | date: '%Y' %}
-{% assign tags = page.tags | join: '' %}
-{% assign categories = page.categories | join: '' %}
-{% assign url_beginning = page.url | slice: 0, 6 %}
-
 {% if page._styles %}
-  <!-- Page/Post style -->
-  <style type="text/css">
+  <style>
     {{ page._styles }}
   </style>
 {% endif %}
-
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">
-      Created on {{ page.date | date: '%B %d, %Y' }}
-      {% if page.author %}by {{ page.author }}{% endif %}
-      {% if page.last_updated %}, last updated on {{ page.last_updated | date: '%B %d, %Y' }}{% endif %}
-      {% if page.meta %}• {{ page.meta }}{% endif %}
-    </p>
-    <p class="post-tags">
-      {% if url_beginning == '/blog/' %}
-        <a href="{{ year | prepend: '/blog/' | relative_url }}"> <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
-      {% else %}
-        <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}
-      {% endif %}
-      {% if tags != '' %}
-        &nbsp; &middot; &nbsp;
-        {% for tag in page.tags %}
-          {% if url_beginning == '/blog/' %}
-            <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
-          {% else %}
-            <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}
-          {% endif %}
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
-
-      {% if categories != '' %}
-        &nbsp; &middot; &nbsp;
-        {% for category in page.categories %}
-          {% if url_beginning == '/blog/' %}
-            <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}"> <i class="fa-solid fa-tag fa-sm"></i> {{ category -}}</a>
-          {% else %}
-            <i class="fa-solid fa-tag fa-sm"></i> {{ category }}
-          {% endif %}
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
-    </p>
+{% assign is_note = false %}
+{% if page.collection == 'posts' %}{% assign is_note = true %}{% endif %}
+<div class="post reading-article">
+  <header class="post-header article-header">
+    {% if is_note -%}
+      <a class="back-link" href="{{ '/blog/' | relative_url }}">← Research notes</a>
+    {%- endif %}
+    {% if page.topic_label != blank %}
+      <p class="eyebrow">{{ page.topic_label }}</p>
+    {% endif %}
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {% if page.description %}
+      <p class="article-deck">{{ page.description | escape }}</p>
+    {% endif %}
+    <div class="article-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %d, %Y' }}</time>
+      {% if page.reading_minutes -%}
+        <span>About {{ page.reading_minutes }} min read</span>
+      {%- endif %}
+      <span>
+        {{- page.author | default: site.first_name -}}
+        {%- unless page.author %} {{ site.last_name }}{% endunless -%}
+      </span>
+      {% if page.last_updated -%}
+        <span>Updated {{ page.last_updated | date: '%b %d, %Y' }}</span>
+      {%- endif %}
+    </div>
+    {% if is_note %}
+      <div class="article-tools">
+        <a href="#discussion">Questions &amp; corrections</a>
+        <button type="button" data-copy-link hidden>Copy link</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    {% endif %}
   </header>
+
+  {% if page.reading_path %}
+    <details class="reading-path">
+      <summary>
+        <span>
+          {{- page.reading_path.title }}
+          <span class="muted">/ Note {{ page.reading_path.position }} of {{ page.reading_path.total }}</span></span
+        ><span class="path-action">Contents</span>
+      </summary>
+      <ol>
+        {% for chapter in page.reading_path.chapters %}
+          <li>
+            {% if chapter.url == page.url -%}
+              <span aria-current="page">{{ chapter.title | escape }}</span>
+            {%- else -%}
+              <a href="{{ chapter.url | relative_url }}">{{ chapter.title | escape }}</a>
+            {%- endif %}
+          </li>
+        {% endfor %}
+      </ol>
+    </details>
+  {% endif %}
 
   <article class="post-content">
     {% if page.toc and page.toc.beginning %}
-      <div id="table-of-contents">
+      <details id="table-of-contents">
+        <summary>On this page</summary>
         {% toc %}
-      </div>
-      <hr>
+      </details>
     {% endif %}
-    <div id="markdown-content">
-      {{ content }}
-    </div>
+    <div id="markdown-content">{{ content }}</div>
   </article>
 
-  {% if page.citation %}
-    {% include citation.liquid %}
+  {% if page.tags.size > 0 %}
+    <nav class="article-tags" aria-label="Related topics">
+      {% for tag in page.tags -%}
+        <a href="{{ tag | slugify | prepend: '/blog/tag/' | append: '/' | relative_url }}">{{ tag | replace: '-', ' ' }}</a>
+      {%- endfor %}
+    </nav>
   {% endif %}
 
   {% if page.related_publications %}
     <h2>References</h2>
-    <div class="publications">
-      {% bibliography --group_by none --cited_in_order %}
-    </div>
+    <div class="publications">{% bibliography --group_by none --cited_in_order %}</div>
   {% endif %}
 
-  {% if site.related_blog_posts and site.related_blog_posts.enabled %}
-    {% if page.related_posts == null or page.related_posts %}
-      {% include related_posts.liquid %}
-    {% endif %}
+  {% if page.reading_path.previous or page.reading_path.next %}
+    <nav class="sequence-nav" aria-label="Continue this series">
+      {% if page.reading_path.previous -%}
+        <a href="{{ page.reading_path.previous.url | relative_url }}"
+          ><span>← Previous note</span><strong>{{ page.reading_path.previous.title }}</strong></a
+        >
+      {%- endif %}
+      {% if page.reading_path.next -%}
+        <a href="{{ page.reading_path.next.url | relative_url }}"
+          ><span>Next note →</span><strong>{{ page.reading_path.next.title }}</strong></a
+        >
+      {%- endif %}
+    </nav>
   {% endif %}
 
-  {% if site.disqus_shortname and page.disqus_comments %}
-    {% include disqus.liquid %}
-  {% endif %}
-  {% if site.giscus.enabled and site.giscus.repo != blank and page.giscus_comments %}
-    {% include giscus.liquid %}
+  {% if site.related_blog_posts.enabled and page.related_posts != false %}{% include related_posts.liquid %}{% endif %}
+
+  {% if is_note %}
+    <section class="discussion-section" id="discussion" aria-labelledby="discussion-title">
+      <p class="eyebrow">Open exchange</p>
+      <h2 id="discussion-title">Questions &amp; corrections</h2>
+      <p>A different proof, a question, or a correction? I welcome thoughtful discussion.</p>
+      {% capture discussion_query %}repo:{{ site.giscus.repo }} "{{ page.url }}"{% endcapture %}
+      {% capture discussion_body %}Regarding [{{ page.title }}]({{ page.url | absolute_url }}){% endcapture %}
+      {% capture email_subject %}Regarding: {{ page.title }}{% endcapture %}
+      <div class="discussion-links">
+        <a href="{{ site.discussion_url }}?discussions_q={{ discussion_query | url_encode }}">View discussion ↗</a>
+        <a href="{{ site.discussion_url }}/new?category=general&amp;title={{ page.title | url_encode }}&amp;body={{ discussion_body | url_encode }}"
+          >Start a discussion ↗</a
+        >
+        <a href="mailto:{{ site.data.socials.email }}?subject={{ email_subject | url_encode }}&amp;body={{ page.url | absolute_url | url_encode }}"
+          >Email a correction</a
+        >
+      </div>
+      <p class="discussion-note">Public discussions use a GitHub account. Email is always welcome.</p>
+      {% if site.giscus.enabled and page.giscus_comments != false %}{% include giscus.liquid %}{% endif %}
+    </section>
+    <script defer src="{{ '/assets/js/article.js' | relative_url | bust_file_cache }}"></script>
   {% endif %}
 </div>

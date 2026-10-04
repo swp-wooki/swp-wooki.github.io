@@ -1,90 +1,96 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
+<div class="academic-home">
+  <header class="home-hero">
+    <div class="home-hero-main">
+      <p class="eyebrow">Mathematics · Optimization · Computation</p>
+      <h1>
+        Seongwook<br>
+        <span>Park.</span>
+      </h1>
+      <p class="home-position">
+        BS–MS Integrated Student<br>
+        <a href="https://finx.hanyang.ac.kr">FINX Lab</a> · Hanyang University
+      </p>
+      <div class="home-links">
+        <a class="button-primary" href="{{ '/blog/' | relative_url }}">Explore my notes <span aria-hidden="true">↗</span></a>
+        <a href="{{ '/cv/' | relative_url }}">Curriculum vitae <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="home-introduction">
+      <p class="eyebrow">About me</p>
+      {{ content }}
+      <a class="contact-link" href="mailto:{{ site.data.socials.email }}">
+        {{- site.data.socials.email }}
+        <span aria-hidden="true">↗</span></a
+      >
+    </div>
   </header>
 
-  <article>
-    {% assign profile_image_exists = false %}
-    {% if page.profile and page.profile.image %}
-      {% assign expected_profile_path = page.profile.image | prepend: '/assets/img/' %}
-      {% for static_file in site.static_files %}
-        {% if static_file.path == expected_profile_path %}
-          {% assign profile_image_exists = true %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-    {% if page.profile and profile_image_exists %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
+  <section class="home-section" aria-labelledby="interests-title">
+    <div class="section-heading">
+      <p class="eyebrow">01 / Research interests</p>
+      <h2 id="interests-title">Theory into practice.</h2>
+    </div>
+    <div class="interest-grid">
+      <div>
+        <span class="interest-index">01</span>
+        <h3>Optimization</h3>
+        <p>Mathematical modeling, combinatorial problems, and algorithms for real-world decisions.</p>
       </div>
-    {% endif %}
+      <div>
+        <span class="interest-index">02</span>
+        <h3>Applied mathematics</h3>
+        <p>Analysis, differential equations, and the mathematical foundations of computation.</p>
+      </div>
+      <div>
+        <span class="interest-index">03</span>
+        <h3>Machine learning</h3>
+        <p>Learning from data through the lens of mathematics and computational methods.</p>
+      </div>
+    </div>
+  </section>
 
-    <div class="clearfix">{{ content }}</div>
-
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
+  {% if page.latest_posts.enabled %}
+    <section class="home-section" aria-labelledby="notes-title">
+      <div class="section-heading section-heading-split">
+        <div>
+          <p class="eyebrow">02 / From the notebook</p>
+          <h2 id="notes-title">Recent writing.</h2>
+        </div>
+        <a href="{{ '/blog/' | relative_url }}">All notes <span aria-hidden="true">↗</span></a>
+      </div>
       {% include latest_posts.liquid %}
-    {% endif %}
+    </section>
+  {% endif %}
 
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
+  {% assign selected_projects = site.projects | sort: 'importance' %}
+  {% if selected_projects.size > 0 %}
+    <section class="home-section" aria-labelledby="work-title">
+      <div class="section-heading">
+        <p class="eyebrow">03 / Selected work</p>
+        <h2 id="work-title">Ideas, implemented.</h2>
       </div>
-    {% endif %}
+      {% for project in selected_projects limit: 2 %}
+        <a class="selected-project" href="{{ project.url | relative_url }}">
+          <div>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+          </div>
+          <span aria-hidden="true">↗</span></a
+        >
+      {% endfor %}
+    </section>
+  {% endif %}
 
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
-    {% endif %}
-  </article>
+  {% if page.announcements.enabled and site.news.size > 0 %}
+    <section class="home-section home-news" aria-labelledby="news-title">
+      <div class="section-heading">
+        <p class="eyebrow">04 / Updates</p>
+        <h2 id="news-title">Along the way.</h2>
+      </div>
+      {% include news.liquid limit=true %}
+    </section>
+  {% endif %}
 </div>

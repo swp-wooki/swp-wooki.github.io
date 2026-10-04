@@ -4,7 +4,7 @@
   children:
     - { title: Linear Algebra, slug: linear-algebra }
     - { title: Mathematical Analysis, slug: analysis }
-    - { title: Real Analysis, slug: real-analysis }
+    - { title: Real Analysis, slug: real-analysis, series: true }
     - { title: Probability and Statistics, slug: statistics }
     - { title: Geometry, slug: geometry }
 

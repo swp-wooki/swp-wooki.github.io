@@ -3,7 +3,7 @@ layout: page
 title: Talk
 permalink: /talk/
 description: Academic talks, seminars, and presentations.
-nav: true
+nav: false
 nav_order: 5
 ---
 

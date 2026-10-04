@@ -3,7 +3,7 @@ layout: page
 title: Travel
 permalink: /travel/
 description: Academic travel, conferences, workshops, and research visits.
-nav: true
+nav: false
 nav_order: 6
 ---
 
