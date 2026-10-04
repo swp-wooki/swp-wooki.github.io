@@ -9,40 +9,19 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
-          title: "Blog",
-          description: "",
+  },{id: "nav-notes",
+          title: "Notes",
+          description: "A working notebook on mathematics, optimization, and computation. Read by topic, follow a series, or find a specific idea.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "nav-projects",
-          title: "Projects",
-          description: "Selected projects in optimization, applied mathematics, and software engineering.",
+        },{id: "nav-selected-work",
+          title: "Selected work",
+          description: "Mathematical ideas, tested against practical problems.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
-          },
-        },{id: "nav-books",
-          title: "Books",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/books/";
-          },
-        },{id: "nav-talk",
-          title: "Talk",
-          description: "Academic talks, seminars, and presentations.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/talk/";
-          },
-        },{id: "nav-travel",
-          title: "Travel",
-          description: "Academic travel, conferences, workshops, and research visits.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/travel/";
           },
         },{id: "nav-cv",
           title: "CV",
@@ -254,8 +233,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-finish-undergraduate-ra-program-for-analysis-and-pdes",
-          title: 'Finish Undergraduate RA program for Analysis and PDEs',
+            },},{id: "news-completed-undergraduate-research-in-analysis-and-pdes",
+          title: 'Completed undergraduate research in Analysis and PDEs',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
