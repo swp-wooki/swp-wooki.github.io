@@ -1,14 +1,7 @@
-- title: Real Analysis
-  slug: real-analysis
-  description: 2026년 봄학기 실변수함수론 · Measure theory, integration, and Hilbert spaces.
-  series: true
-
-- title: Probability Theory
-  slug: probability-theory
-  description: 2026년 가을학기 확률론 · Conditional expectation, filtration, and martingale.
-  series: true
-
-- title: PDEs and Applications
-  slug: partial-differential-equations
-  description: 2026년 가을학기 편미분방정식과 응용 · Transport, wave, and diffusion equations.
-  series: true
+- title: Mathematics
+  slug: mathematics
+  description: Definitions, theorems, proofs, and problem-solving methods across pure and applied mathematics.
+  children:
+    - { title: Real Analysis, slug: real-analysis, series: true }
+    - { title: Probability Theory, slug: probability-theory, series: true }
+    - { title: PDEs and Applications, slug: partial-differential-equations, series: true }
