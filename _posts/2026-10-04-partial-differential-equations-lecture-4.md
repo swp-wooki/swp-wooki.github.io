@@ -217,13 +217,13 @@ $$
 Therefore, we have
 
 $$
-\begin{aligned}
+\begin{align*}
         \lim_{t \searrow 0} u(x, t)
         &= \lim_{t \searrow 0} \int_{-\infty}^{\infty} Q(x-y, t) \phi'(y) dy \tag{$\ast\ast$}\\
         &= \int_{-\infty}^{\infty} \lim_{t \searrow 0} Q(x-y, t) \phi'(y) dy \\
         &= \int_{-\infty}^{x} \phi'(y) dy \\
         &= \phi(x).
-    \end{aligned}
+    \end{align*}
 $$
 
 Note that we used the dominated convergence theorem in $$(\ast\ast)$$, and we get the pointwise convergence of the solution to the initial data.

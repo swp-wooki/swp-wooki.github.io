@@ -427,14 +427,14 @@ $$
 since $$x \longleftrightarrow x + ct$$. Then we obtain
 
 $$
-\begin{aligned}
+\begin{align*}
     u(x, t)
     &= u(x - ct, 0) + \int_0^t v(x - c(t - s), s) \, ds \\
     &= \phi(x - ct) + \int_0^t v(x - ct + 2cs, 0)ds\\
     &= \phi(x - ct) + \int_0^t \psi(x - ct + 2cs) + c \phi'(x - ct + 2cs) \, ds \\
     &= \phi(x - ct) + \int_{x-ct}^{x+ct} \psi(\tau) + c \phi'(\tau) \, \frac{d\tau}{2c} \tag{$\ast$}\\
     &= \frac{1}{2} \left[ \phi(x - ct) + \phi(x + ct) \right] + \frac{1}{2c} \int_{x - ct}^{x + ct} \psi(s) \, ds \tag{: d'Alembert's formula}
-\end{aligned}
+\end{align*}
 $$
 
 where ($$\ast$$) we used the change of variable $$x - ct + 2cs = \tau \implies ds = \frac{d\tau}{2c}$$
