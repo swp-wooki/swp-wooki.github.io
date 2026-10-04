@@ -11,9 +11,7 @@ layout: default
 <div class="post archive-page">
   <header class="post-header">
     <a class="back-link" href="{{ '/blog/' | relative_url }}">← Research notes</a>
-    <p class="eyebrow">
-      {% if page.type == 'year' %}Year in review{% else %}Browse the notebook{% endif %}
-    </p>
+
     <h1 class="post-title">
       {% if page.type == 'year' %}{{ page.date | date: '%Y' }}{% else %}{{ archive_title }}{% endif %}
     </h1>

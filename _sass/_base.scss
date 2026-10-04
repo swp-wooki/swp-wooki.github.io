@@ -143,9 +143,10 @@ blockquote {
   background: transparent;
 }
 
-.post .real-analysis-proof > p:first-child > strong:first-child {
+.post .real-analysis-proof > p:first-child > strong:first-child,
+.post .real-analysis-proof > p:first-child > em:first-child {
   font-style: italic;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .post .real-analysis-footnote {

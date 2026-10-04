@@ -1,31 +1,32 @@
 ---
 layout: blog
 permalink: /blog/
-title: Notes
+title: Blog
 nav: true
 nav_order: 1
-description: A working notebook on mathematics, optimization, and computation. Read by topic, follow a series, or find a specific idea.
+description: Study notes on mathematics, optimization, and computer science.
 ---
 
 <div class="blog-home">
   <header class="blog-hero">
-    <div><p class="eyebrow">The working notebook</p><h1 id="blog-title">Research notes<span>.</span></h1><p class="blog-intro">A place to think carefully, work through proofs, and connect ideas.<br>수학과 계산, 그리고 그 사이의 생각을 기록합니다.</p></div>
-    <a class="feed-link" href="{{ '/feed.xml' | relative_url }}">Follow via RSS ↗</a>
+    <div><h1 id="blog-title">Research Notes</h1><p class="blog-intro">공돌이 대학(원)생의 공부 기록</p></div>
+    <a class="feed-link" href="{{ '/feed.xml' | relative_url }}">RSS</a>
   </header>
 
 {% assign course_notes = site.posts | where_exp: 'post', 'post.categories contains "real-analysis"' | sort: 'date' %}
 {% if course_notes.size > 0 %}
 
 <section class="series-feature" aria-labelledby="series-title">
-<div><p class="eyebrow">A guided reading path / {{ course_notes.size }} notes</p><h2 id="series-title">Real analysis, from the ground up.</h2><p>From measure and integration to Hilbert spaces and Fourier analysis. Follow the notes in order, or pick up where your curiosity leads.</p><a href="{{ course_notes.first.url | relative_url }}">Start with the foundations <span aria-hidden="true">→</span></a></div>
-<div class="series-outline" aria-label="Topics in this series"><span>01 <span>Measure &amp; integration</span></span><span>02 <span>Differentiation &amp; convergence</span></span><span>03 <span>Hilbert spaces &amp; Fourier analysis</span></span></div>
+<h2 id="series-title">Real Analysis</h2>
+<p>2026년 봄학기 실변수함수론 강의노트 · {{ course_notes.size }}편</p>
+<a href="{{ course_notes.first.url | relative_url }}">첫 글부터 읽기 →</a>
 </section>
 {% endif %}
 
   <section class="notebook-index" aria-labelledby="all-notes-title">
-    <div class="section-heading section-heading-split"><div><p class="eyebrow">Explore the archive</p><h2 id="all-notes-title">All notes</h2></div><p id="note-count" role="status" aria-live="polite">{{ site.posts.size }} notes</p></div>
+    <div class="section-heading section-heading-split"><div><h2 id="all-notes-title">All notes</h2></div><p id="note-count" role="status" aria-live="polite">{{ site.posts.size }} notes</p></div>
     <div class="notebook-controls" hidden>
-      <label class="notebook-search"><span class="sr-only">Search notes by title, topic, or description</span><i class="ti ti-search" aria-hidden="true"></i><input id="note-search" type="search" placeholder="Search an idea, a theorem, a topic…" autocomplete="off"></label>
+      <label class="notebook-search"><span class="sr-only">Search notes by title, topic, or description</span><i class="ti ti-search" aria-hidden="true"></i><input id="note-search" type="search" placeholder="Search articles…" autocomplete="off"></label>
       <label class="notebook-sort"><span>Order</span><select id="note-sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></label>
     </div>
     <div class="topic-filters" role="group" aria-label="Filter notes by topic" hidden>

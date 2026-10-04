@@ -12,12 +12,12 @@
   border-bottom: 1px solid var(--global-divider-color);
 }
 #blog-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
-  font-weight: 400;
+  font-family: inherit;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.06em;
-  margin: 1.5rem 0;
+  letter-spacing: -0.035em;
+  margin: 0 0 0.8rem;
   span {
     color: var(--global-theme-color);
   }
@@ -29,45 +29,21 @@
   margin: 0;
 }
 .series-feature {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  padding: 2.5rem;
-  margin: 3rem 0 4rem;
-  background: var(--academic-surface);
-  border-radius: 3px;
+  padding: 1.5rem 0;
+  margin: 0 0 2rem;
+  border-bottom: 1px solid var(--global-divider-color);
   h2 {
-    font-size: 1.65rem;
+    font-size: 1.3rem;
     font-weight: 500;
-    letter-spacing: -0.04em;
-    line-height: 1.35;
+    margin: 0 0 0.5rem;
   }
-  p:not(.eyebrow) {
+  p {
     color: var(--global-text-color-light);
-    font-size: 0.88rem;
-    line-height: 1.8;
+    font-size: 0.9rem;
+    margin: 0 0 0.7rem;
   }
   a {
-    font-size: 0.84rem;
-    font-weight: 550;
-  }
-}
-.series-outline {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  > span {
-    display: flex;
-    gap: 1.1rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--global-divider-color);
-    font-size: 0.72rem;
-    color: var(--global-theme-color);
-    > span {
-      color: var(--global-text-color);
-      font-size: 0.83rem;
-    }
+    font-size: 0.85rem;
   }
 }
 #note-count {
@@ -178,10 +154,8 @@
     align-items: start;
   }
   .series-feature {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    margin: 2rem 0 3rem;
+    padding: 1.5rem 0;
+    margin: 0 0 2rem;
   }
   .notebook-controls {
     flex-direction: column;

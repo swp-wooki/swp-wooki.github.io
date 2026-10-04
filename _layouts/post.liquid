@@ -106,9 +106,8 @@ layout: default
 
   {% if is_note %}
     <section class="discussion-section" id="discussion" aria-labelledby="discussion-title">
-      <p class="eyebrow">Open exchange</p>
       <h2 id="discussion-title">Questions &amp; corrections</h2>
-      <p>A different proof, a question, or a correction? I welcome thoughtful discussion.</p>
+      <p>For questions or corrections about this post, use GitHub Discussions or email.</p>
       {% capture discussion_query %}repo:{{ site.giscus.repo }} "{{ page.url }}"{% endcapture %}
       {% capture discussion_body %}Regarding [{{ page.title }}]({{ page.url | absolute_url }}){% endcapture %}
       {% capture email_subject %}Regarding: {{ page.title }}{% endcapture %}

@@ -28,8 +28,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-My work sits at the intersection of **mathematical reasoning and practical computation**. I study Industrial Engineering and Mathematics, with interests in optimization, applied mathematics, data science, and machine learning.
+I am **Seongwook Park**, a BS-MS integrated student at **<a href="https://finx.hanyang.ac.kr" target="_blank" rel="noopener noreferrer">FINX Lab</a>, Hanyang University**. My academic background combines Industrial Engineering and Mathematics, and I am interested in optimization, applied mathematics, data science, and machine learning.
 
-Previously, I was a software engineer at [LetinAR](https://www.letinar.com), working on numerical optimization for AR optics, 3D simulation, and data visualization. During a mathematics research internship at Hanyang University, I studied PDEs, functional analysis, Sobolev spaces, and monotone operators.
+Previously, I worked as a software engineer at <a href="https://www.letinar.com" target="_blank" rel="noopener noreferrer">LetinAR</a>, where I developed numerical optimization methods for AR optical correction, 3D graphics simulation software, and interactive data-visualization tools. I also completed an undergraduate research internship in the Department of Mathematics at Hanyang University, studying partial differential equations, functional analysis, Sobolev spaces, and monotone operators.
 
-This is my working notebook: a place for careful explanations, research projects, and ideas I am still exploring.
+My current goal is to connect rigorous mathematical reasoning with practical computational methods. This site collects my projects, technical notes, and study records along that path.
