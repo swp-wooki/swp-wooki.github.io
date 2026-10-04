@@ -9,16 +9,16 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-notes",
-          title: "Notes",
-          description: "A working notebook on mathematics, optimization, and computation. Read by topic, follow a series, or find a specific idea.",
+  },{id: "nav-blog",
+          title: "Blog",
+          description: "Study notes on mathematics, optimization, and computer science.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "nav-selected-work",
-          title: "Selected work",
-          description: "Mathematical ideas, tested against practical problems.",
+        },{id: "nav-projects",
+          title: "Projects",
+          description: "Selected projects in optimization, applied mathematics, and software engineering.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
