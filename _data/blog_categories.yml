@@ -6,6 +6,8 @@
     - { title: Mathematical Analysis, slug: analysis }
     - { title: Real Analysis, slug: real-analysis, series: true }
     - { title: Probability and Statistics, slug: statistics }
+    - { title: Probability Theory, slug: probability-theory, series: true }
+    - { title: PDEs and Applications, slug: partial-differential-equations, series: true }
     - { title: Geometry, slug: geometry }
 
 - title: Artificial Intelligence
