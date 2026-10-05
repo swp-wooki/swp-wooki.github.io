@@ -1,11 +1,5 @@
 {
   "taxonomy": {
-    "categories": [
-      "computer-science",
-      "machine-learning",
-      "mathematics",
-      "physics",
-      "statistics"
-    ]
+    "categories": ["computer-science", "machine-learning", "mathematics", "physics", "statistics"]
   }
 }
