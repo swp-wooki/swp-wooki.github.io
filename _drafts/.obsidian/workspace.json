@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a6dd8e14e7562c1d",
+        "id": "3045626353c52faf",
         "type": "tabs",
         "children": [
           {
-            "id": "624e1793c4454b66",
+            "id": "b9d4158eed77c3a9",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -178,6 +178,6 @@
       "bases:새 베이스 생성하기": false
     }
   },
-  "active": "624e1793c4454b66",
+  "active": "b9d4158eed77c3a9",
   "lastOpenFiles": []
 }
